@@ -1,8 +1,211 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.item1 {
+    grid-area: header;
+    background-color: black;
 }
 
-a {
-  color: #00B7FF;
+.item2 {
+    grid-area: menu;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu menu menu menu menu right'
+        'main main main main main right'
+        'footer footer footer footer footer footer';
+
+    grid-gap: 50px;
+
+    padding: 10px;
+
+
+}
+
+
+.h1 {
+    font-family: play;
+    font-size: 80px;
+    font-style: italic;
+    color: white;
+    background-color: black;
+    margin: 50px 0 50px 0;
+}
+
+.img-main {
+    margin-top: 50px;
+    width: 800px;
+    height: 600px;
+    border: 5px solid rgb(138, 10, 10);
+}
+
+.grid-container>div {
+
+    text-align: center;
+    padding: 20px 0;
+}
+
+body {
+    background-image: url("../img/newwall.jpg");
+    color: white;
+    font-family: big shoulders display;
+    font-size: 30px;
+}
+
+.h2 {
+    font-family: oswald;
+    font-style: italic;
+    margin-bottom: 20px;
+
+
+}
+
+
+.titulos {
+    font-family: play;
+    font-size: 45px;
+    font-style: italic;
+    color: white;
+    background-color: black;
+    margin: 50px 0 50px 0;
+}
+
+#bogas-logo {
+    display: flex;
+    float: left;
+    margin-top: 20px;
+    margin-left: 35px;
+    height: 170px;
+    width: 170px;
+}
+
+.menu {
+    background-color: black;
+
+}
+
+.menu li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 10px 10px 10px;
+    padding: 15px;
+    border: 2px solid rgb(138, 10, 10);
+    width: 200px;
+    height:30px;
+    font-size: 30px;
+    font-family: big shoulders display;
+    text-align: center;
+}
+
+.menu li:hover {
+    background-color: rgb(138, 10, 10, 0.6);
+    transition: 1.5s;
+    border-color: white;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.aside {
+    color: white;
+    background-color: black;
+    margin-top: 50px;
+
+
+}
+
+.aside img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 50px;
+    margin: 50px 0px 50px;
+    border: 5px solid rgb(138, 10, 10);
+
+}
+
+
+.aside video {
+    width: 250px;
+    height: 250px;
+    border: 5px solid rgb(138, 10, 10);
+}
+
+
+
+.footer {
+    font-family: play;
+    font-size: 30px;
+    font-style: italic;
+    color: white;
+    background-color: black;
+    margin-top: 30px;
+}
+
+.formulario{
+    border:5px solid rgb(138, 10, 10);
+    margin:50px 50px 50px 50px;
+    align-self: center;
+}
+
+.formulario form {
+    text-align:left;
+    margin:30px 30px 30px 30px;
+}
+
+.formulario input{
+    margin:15px 15px 15px 15px;
+    padding:10px;
+    
+}
+
+.formulario button {
+    background-color:red;
+    padding:20px;
+    font-family:oswald;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.foto-lista{
+    background-color:rgb(138, 10, 10,0.6);
+    height: 200px;
+}
+
+.table-socios{
+    font-family: oswald;
+
+}
+
+table {
+    border: 5px solid rgb(138, 10, 10,0.6);
+    
+
+}
+
+table th {
+    border: 5px solid rgb(138, 10, 10,0.6);
+    font-family: oswald;
+    color:white;
+    background-color:rgb(138, 10, 10,0.6);
+}
+table td {
+    border: 5px solid rgb(138, 10, 10,0.6);
+    font-family: oswald;
+   
 }
