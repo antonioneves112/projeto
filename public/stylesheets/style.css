@@ -1,22 +1,22 @@
-.item1 {
+.header {
     grid-area: header;
     background-color: black;
 }
 
-.item2 {
+.menu {
     grid-area: menu;
 }
 
-.item3 {
+.main {
     grid-area: main;
 }
 
-.item4 {
-    grid-area: right;
+.aside {
+    grid-area: aside;
 
 }
 
-.item5 {
+.footer {
     grid-area: footer;
 }
 
@@ -24,36 +24,24 @@
     display: grid;
     grid-template-areas:
         'header header header header header header'
-        'menu menu menu menu menu right'
-        'main main main main main right'
+        'menu menu menu menu menu aside'
+        'main main main main main aside'
         'footer footer footer footer footer footer';
+    grid-gap: 20px;
 
-    grid-gap: 50px;
 
-    padding: 10px;
+    margin: 20px;
 
 
 }
 
+.grid-container>section {
 
-.h1 {
-    font-family: play;
-    font-size: 80px;
-    font-style: italic;
-    color: white;
-    background-color: black;
-    margin: 50px 0 50px 0;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.img-main {
-    margin-top: 50px;
-    width: 800px;
-    height: 600px;
-    border: 5px solid rgb(138, 10, 10);
-}
-
-.grid-container>div {
-
+.grid-container>header {
     text-align: center;
     padding: 20px 0;
 }
@@ -65,36 +53,29 @@ body {
     font-size: 30px;
 }
 
-.h2 {
-    font-family: oswald;
-    font-style: italic;
-    margin-bottom: 20px;
 
-
+.disabled {
+    pointer-events: none;
+    opacity: 0.1;
 }
 
-
-.titulos {
+.h1 {
     font-family: play;
-    font-size: 45px;
+    font-size: 60px;
     font-style: italic;
     color: white;
     background-color: black;
-    margin: 50px 0 50px 0;
+    margin: 10px 0 10px 0;
+
 }
 
-#bogas-logo {
+.bogas-logo {
     display: flex;
     float: left;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 35px;
     height: 170px;
     width: 170px;
-}
-
-.menu {
-    background-color: black;
-
 }
 
 .menu li {
@@ -102,17 +83,17 @@ body {
     list-style: none;
     margin: 10px 10px 10px 10px;
     padding: 15px;
-    border: 2px solid rgb(138, 10, 10);
+    border: 2px solid white;
     width: 200px;
-    height:30px;
+    height: 30px;
     font-size: 30px;
     font-family: big shoulders display;
     text-align: center;
 }
 
 .menu li:hover {
-    background-color: rgb(138, 10, 10, 0.6);
-    transition: 1.5s;
+    background-color: rgba(255,255,255, 0.3);
+    transition: 1.0s;
     border-color: white;
 }
 
@@ -121,32 +102,75 @@ body {
     color: white;
 }
 
-
-.aside {
+.titulos-main {
+    font-family: play;
+    font-size: 45px;
+    font-style: italic;
     color: white;
     background-color: black;
+
+}
+
+
+.img-main {
     margin-top: 50px;
+    width: 800px;
+    height: 600px;
+    border: 3px solid white;
+}
 
+.aside {
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+   
 
 }
 
-.aside img {
+
+.titulos-aside {
+    font-family: play;
+    font-size: 30px;
+    font-style: italic;
+    color: white;
+    margin: 50px 0 50px 0;
+    text-align: center;
+    border: 1px solid white;
+}
+
+
+.img-aside {
+    width: 220px;
+    height: 200px;
+    border: 2px solid white;
+    margin: 50px 0px 50px 0px;
+}
+
+.img-aside-socio {
+    width: 220px;
+    height: 200px;
+    border: 2px solid white;
+    margin: 50px 0px 50px 0px;
+    background:white;
+}
+.img-aside:hover{
+   border-color: rgb(138, 10, 10);
+}
+
+
+.video-aside {
     width: 250px;
     height: 250px;
-    margin-bottom: 50px;
-    margin: 50px 0px 50px;
-    border: 5px solid rgb(138, 10, 10);
-
+    border: 1px solid white;
+    margin-top:50px;
 }
 
-
-.aside video {
-    width: 250px;
-    height: 250px;
-    border: 5px solid rgb(138, 10, 10);
+.texto-maior {
+    font-family: arial;
+    font-size:20px;
+    margin:20px;
 }
-
-
 
 .footer {
     font-family: play;
@@ -154,58 +178,102 @@ body {
     font-style: italic;
     color: white;
     background-color: black;
-    margin-top: 30px;
 }
 
-.formulario{
-    border:5px solid rgb(138, 10, 10);
-    margin:50px 50px 50px 50px;
+
+.formulario {
+    border: 5px solid rgb(138, 10, 10);
+    margin: 50px 50px 50px 50px;
     align-self: center;
 }
 
 .formulario form {
-    text-align:left;
-    margin:30px 30px 30px 30px;
+    text-align: left;
+    margin: 30px 30px 30px 30px;
 }
 
-.formulario input{
-    margin:15px 15px 15px 15px;
-    padding:10px;
-    
+.formulario input {
+    margin: 15px 15px 15px 15px;
+    padding: 10px;
+
 }
 
 .formulario button {
-    background-color:red;
-    padding:20px;
-    font-family:oswald;
+    background-color: red;
+    padding: 20px;
+    font-family: oswald;
     font-size: 20px;
     font-weight: bolder;
 }
 
-.foto-lista{
-    background-color:rgb(138, 10, 10,0.6);
-    height: 200px;
+
+
+.tabela-lista{
+    width:100%;
+    align-self: center;
+    align-items: center;
+    color: white;
+    border: 5px solid white;
+    padding:20px;
 }
 
-.table-socios{
-    font-family: oswald;
-
-}
-
-table {
-    border: 5px solid rgb(138, 10, 10,0.6);
-    
-
-}
-
-table th {
-    border: 5px solid rgb(138, 10, 10,0.6);
-    font-family: oswald;
-    color:white;
-    background-color:rgb(138, 10, 10,0.6);
-}
-table td {
-    border: 5px solid rgb(138, 10, 10,0.6);
-    font-family: oswald;
+.tabela-lista th{
    
+    margin:20px;
+    color:black;
+    padding:10px;
+    background-color: white;
+
 }
+
+
+.tabela-lista td{
+    border: 1px solid white;
+    margin:20px;
+    color:white;
+    padding:10px;
+
+}
+
+.tabela-lista tbody td{
+    border: 1px solid white;
+}
+.tabela-lista tbody td a{
+   text-decoration-color: orange;
+   color:orange;
+}
+.tabela-lista tbody td a:hover{
+   text-decoration-color: black;
+   color:black;
+   background-color:rgba(255,255,255,0.6);
+   transition: 0.6s;
+
+}
+
+
+
+.aside {
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+   
+
+}
+
+#novo-socio{
+    text-decoration: none;
+    float: left;
+    color:black;
+    background-color:white;
+    margin:25px;
+    padding:5px;
+    
+}
+#novo-socio:hover{
+    color:white;
+    background-color:black;
+
+}
+
+

@@ -4,10 +4,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
 //CARREGAR AS ROTAS QUE SE ENCONTRAM NA PASTA ROUTES
-var modalidadesRouter = require('./routes/modalidades');
-var sociosRouter = require('./routes/socios');
-var treinadoresRouter = require('./routes/treinadores')
+var sociosRouter = require('./routes/sociosRouter');
+
 
 
 
@@ -23,9 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //USAR ROTAS
-app.use('/gym/modalidades',modalidadesRouter);
-app.use('/gym/socios',sociosRouter);
-app.use('/gym/treinadores',treinadoresRouter);
+app.use('/socios',sociosRouter);
+
 
 
 

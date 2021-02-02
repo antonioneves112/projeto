@@ -21,11 +21,11 @@ async function loadSocios(){
 }
 
 function showSocios(socios){
-    let result = document.getElementById('result');
-    let html =""
-    for (let socio in socios){
-        html+= "<div>" + socio.Nome + "</div>"
-    }
-    result.innerHTML = html;
-
+    let result = $("#result");
+    console.log(socios);
+    let linhas = socios.map(function(v){
+        return  "<tr> <td> "+ v.nif_socio+"</td> <td> " + v.nome_socio + " </td> <td> "+ v.email+" </td> <td> <a href='#'> DELETE </a>  </td> <td> <a href='#'> UPDATE </a>  </td> </tr>";
+    });
+   result.append(linhas);
+   
 }
