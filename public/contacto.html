@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="stylesheets/style.css">
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
@@ -21,6 +21,9 @@
     <title>BOGAS TEAM FIGHT CENTER - CONTACTOS
     </title>
     <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
 
 </head>
 
@@ -66,38 +69,40 @@
             ajudar: </p>
 
 
-        <form>
-            <fieldset style="width:60% ; text-align:left; margin: 0px auto;">
+        <form class="formulario">
+            <fieldset>
                 <legend>
                     Contactos
                 </legend>
 
                 <label for="name">Nome</label>
-                <input type="text" size="40" maxlength="50" placeholder="insira nome"><br>
-                &nbsp;
+                <input type="text" size="70" maxlength="50" placeholder="insira Nome"><br>
+
+
+
 
                 <label for="email">Email</label>
-                <input type="text" size="40" maxlength="50" placeholder="insira email"><br>
-                &nbsp;
+                <input type="text" size="70" maxlength="50" placeholder="insira email"><br>
+
 
                 <label for="telefone">Telefone</label>
                 <input type="number" size="40" maxlength="50" placeholder="insira telefone"><br>
-                &nbsp;
 
-                <textarea name="txtmensagem" id="txtmensagem" cols="30"
-                rows="10"> Escreva a sua mensagem</textarea><br>
-            <button type="submit">ENVIAR</button>
 
-                <input type="button" id="btn" value="INSERIR" onclick="addSocio()">
+                <textarea name="txtmensagem" id="txtmensagem" cols="100"
+                    rows="10"> Escreva a sua mensagem</textarea><br>
+                <button type="submit">ENVIAR</button>
+
+
 
             </fieldset>
 
-           
+
 
         </form>
 
-        <p id="result">  </p>
-      
+        <p id="result"> </p>
+
 
     </section>
 

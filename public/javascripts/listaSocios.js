@@ -1,6 +1,28 @@
 window.onload = function (){
+  
     loadSocios();
 }
+
+/*
+function sacaSocio(evt){
+    evt = evt ? evt : window.event;
+    evt.preventDefault();
+    alert(evt.target.id);
+
+    try {
+        let result = $.ajax({
+            url:'/socios',
+            method:'put',
+            dataType:'json',
+
+        })
+    } catch (error) {
+        
+    }
+}
+*/
+
+
 
 
 async function loadSocios(){
@@ -20,12 +42,13 @@ async function loadSocios(){
      
 }
 
+
 function showSocios(socios){
-    let result = $("#result");
-    console.log(socios);
-    let linhas = socios.map(function(v){
-        return  "<tr> <td> "+ v.nif_socio+"</td> <td> " + v.nome_socio + " </td> <td> "+ v.email+" </td> <td> <a href='#'> DELETE </a>  </td> <td> <a href='#'> UPDATE </a>  </td> </tr>";
-    });
-   result.append(linhas);
-   
+    let result = document.getElementById('result');
+    let linhas = ""
+    for (let socio of socios){
+        linhas+= "<tr> <td> "+ socio.nif_socio + " </td> <td> " + socio.nome_socio + " </td> <td> "+ 
+        socio.email+" </td> <td> <a href='#'> DELETE </a>  </td> <td> <a href='./editSocio.html' > UPDATE </a>  </td> </tr>";
+    }
+    result.innerHTML = linhas;
 }
