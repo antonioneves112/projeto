@@ -19,8 +19,9 @@ module.exports.getAllSocios = async function (){
 
 module.exports.registaSocio = async function (socio){
     try {
-        let sql = "insert into socios (nif_socio, nome_socio, morada, email, telefone, nib) "+
-        "values (?,?,?,?,?,?)"
+        let sql = "insert into socios "+"(nif_socio, nome_socio, morada, email, telefone, nib) "+
+        "values (?,?,?,?,?,?)";
+        
         let result = await pool.query(sql,[socio.nif_socio,socio.nome_socio,socio.morada,socio.email,socio.telefone.socio.nib]);
         return {status:200,data:result};
     } catch (error) {
