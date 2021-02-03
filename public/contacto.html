@@ -69,33 +69,38 @@
             ajudar: </p>
 
 
-        <form class="formulario">
+        <form method="get" class="formulario">
             <fieldset>
                 <legend>
                     Contactos
                 </legend>
 
                 <label for="name">Nome</label>
-                <input type="text" size="70" maxlength="50" placeholder="insira Nome"><br>
-
-
+                <input type="text" id="txtnome" size="70" maxlength="50"
+                    placeholder="insira Nome"><br>
 
 
                 <label for="email">Email</label>
-                <input type="text" size="70" maxlength="50" placeholder="insira email"><br>
+                <input type="text" id="txtemail" size="70" maxlength="50"
+                    placeholder="insira email"><br>
 
 
                 <label for="telefone">Telefone</label>
-                <input type="number" size="40" maxlength="50" placeholder="insira telefone"><br>
+                <input type="text" id="txttelefone" size="40" maxlength="50"
+                    placeholder="insira telefone"><br>
 
 
                 <textarea name="txtmensagem" id="txtmensagem" cols="100"
                     rows="10"> Escreva a sua mensagem</textarea><br>
-                <button type="submit">ENVIAR</button>
+
+
+                <button type="submit" onclick="enviarMensagem()"> ENVIAR</button>
 
 
 
             </fieldset>
+
+            <div class="result"> </div>
 
 
 
@@ -126,6 +131,9 @@
             29B, 2720-525 Amadora <p>
 
     </section>
+
+
+    <script src="contactos.js"></script>
 </body>
 
 </html>

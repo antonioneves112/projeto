@@ -3,7 +3,7 @@
 var pool = require('./connectBd');
 
 
-
+//RECEBE TODOS OS ALUNOS DA BASE DE DADOS
 module.exports.getAllSocios = async function (){
     try {
         let sql = "SELECT * FROM socios";
@@ -16,18 +16,24 @@ module.exports.getAllSocios = async function (){
     }
 }
 
-module.exports.getOne = async function(nif_socio) {
+
+
+module.exports.getSocio = async function(nif_socio){
     try {
-        let sql = "select * from socios WHERE nif_socio = ?"
+        let sql = "SELECT * FROM socios WHERE nif_socio =?";
         let socio = await pool.query(sql,[nif_socio]);
-        return {status:200, data: socio};
-    } catch(err) {
-        console.log(err);
-        return {status:500, data: err};
+
+        return {status:200,data:socio}
+
+    } catch (error) {
+        console.log(error);
+        return {status:500,data:error};
     }
 }
 
 
+
+//INSERIR SÒCIO NA BASE DE DADOS
 module.exports.addSocio = async function (socio){
     try {
         let sql = "INSERT INTO socios(nif_socio,nome_socio,morada,email,telefone,nib) "+
@@ -41,3 +47,34 @@ module.exports.addSocio = async function (socio){
         return {status:500,data:error};
     }
 }
+
+
+
+
+//ATUALIZAR SOCIO
+module.exports.updateSocio = async function (socio){
+    try {
+        let sql ="update socios set nome_socio =?,morada =? , email =?, telefone =?,nib =? WHERE nif_socio = ?;";
+        let result = await pool.query(sql,[socio.nome_socio,socio.morada,socio.email,socio.telefone,socio.nib,socio.nif_socio]);
+        return {status:200,data:result};
+
+    } catch (error) {
+        console.log(error);
+        return {status:500,data:error};
+    }
+}
+
+//APAGAR SOCIO
+module.exports.deleteSocio = async function (socio){
+    try {
+        let sql ="DELETE FROM socios WHERE nif_socio = ?;";
+        let result = await pool.query(sql,[socio.nif_socio]);
+        console.log(socio);
+        return {status:200,data:result};
+
+    } catch (error) {
+        console.log('merdanodelete');
+        return {status:500,data:error};
+    }
+}
+
