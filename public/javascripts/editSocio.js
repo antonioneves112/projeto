@@ -1,10 +1,10 @@
-window.onload = async function(){
+//AO CARREGAR A PÀGINA O JAVASCRIPT VAI RECEBER OS CAMPOS DO SOCIO COM O ID QUE FOI PASSADO NA  MYPARAMS
 
+window.onload = async function(){
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('id');
 
     try {
-        
         let socio = await $.ajax({
             url:"/socios/"+myParam,
             method:'get',
@@ -24,9 +24,6 @@ window.onload = async function(){
            }
             
         })
-       
-     
-
         console.log(socio);
     } catch (error) {
         console.log(error);
@@ -37,7 +34,8 @@ window.onload = async function(){
 }
 
 
-
+//RECOLHE OS DADOS PREENCHIDOS NO FORMULÁRIO E PASSA NUM OBJETO RESULT PARA O SOCIO ROUTES
+ 
 async function updateSocio(socio){
     try {
         let socio = {

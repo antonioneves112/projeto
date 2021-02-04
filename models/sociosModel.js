@@ -65,15 +65,14 @@ module.exports.updateSocio = async function (socio){
 }
 
 //APAGAR SOCIO
-module.exports.deleteSocio = async function (socio){
+module.exports.deleteSocio = async function (nif){
     try {
-        let sql ="DELETE FROM socios WHERE nif_socio = ?;";
-        let result = await pool.query(sql,[socio.nif_socio]);
-        console.log(socio);
+        let sql ="delete from socios where nif_socio = ?;";
+        let result = await pool.query(sql,[nif]);
         return {status:200,data:result};
 
     } catch (error) {
-        console.log('merdanodelete');
+        console.log(error);
         return {status:500,data:error};
     }
 }

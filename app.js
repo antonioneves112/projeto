@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 //CARREGAR AS ROTAS QUE SE ENCONTRAM NA PASTA ROUTES
 var sociosRouter = require('./routes/sociosRouter');
+var instrutoresRouter = require('./routes/instrutoresRouter');
 
 
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //USAR ROTAS
 
 app.use('/socios',sociosRouter);
+app.use('/instrutores',instrutoresRouter);
 
 
 

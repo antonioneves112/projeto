@@ -9,9 +9,10 @@ body {
 .grid-container {
     display: grid;
     grid-template-areas:
+
         'header header header header header header'
-        'menu menu menu menu menu aside'
-        'nav nav  nav nav nav aside'
+        'nav nav nav nav nav aside'
+        'main main main main main aside'
         'main main main main main aside '
         'footer footer footer footer footer footer';
 
@@ -64,13 +65,13 @@ body {
     display: inline-table;
     width: 100%;
     border: 2px solid white;
-    width: 200px;
+    width: 150px;
     height: 25px;
     font-size: 35px;
     font-family: big shoulders display;
     text-align: center;
-    margin-right: 30px;
-    margin-left: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
     padding: 10px;
 
 }
