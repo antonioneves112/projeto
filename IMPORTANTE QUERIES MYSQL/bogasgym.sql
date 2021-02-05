@@ -119,6 +119,12 @@ valor decimal (15,2)
 )engine InnoDB;
 
 insert into mensalidade (nif_socio,data_vencimento) values (123456789,'2021-01-01'),(123456789,'2021-02-01');
+CREATE DATABASE `bogasteam` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-delete from aulas where id_aula >  0;
+
+select * from horarios;
+
+delete from horarios where id_aula >0;
+
+
 

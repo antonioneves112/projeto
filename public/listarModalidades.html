@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+  <link rel="stylesheet" href="./stylesheets/style.css">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
@@ -15,12 +15,6 @@
     rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-
-
-
-  <link rel="stylesheet" href="./stylesheets/style.css">
-  <link rel="stylesheet" href="stylesheets/form.css">
-
   <title>BOGAS TEAM FIGHT CENTER - LISTAR SÓCIOS</title>
   <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
 
@@ -43,70 +37,54 @@
           HOME</a></li>
       <li> <a href="modalidades.html">
           MODALIDADES</a></li>
+
       <li> <a href="turmas.html">
           TURMAS</a></li>
-
       <li> <a href="contacto.html">
-          CONTATOS</a></li>
+          CONTACTOS</a></li>
+
       <li> <a href="instrutores.html">
-          INSTRUTORES</a></li>
+          INSTRUTORES </a></li>
+
     </ul>
   </nav>
 
   <section class="main">
-    <h2 class="titulos-main"> Registar Sócio</h2>
+    <h2 class="titulos-main"> Listagem Modalidades</h2>
 
 
-    <form class="formulario">
-      <fieldset>
-        <legend>
-          Dados Sócios
-        </legend>
+    <table class="tabela-lista">
+      <thead>
+        <tr>
+          <th>
+            NIF
+          </th>
+          <th>
+            NOME
+          </th>
+         
+          <th>
+            DELETE
+          </th>
+          <th>
+            UPDATE
+          </th>
+        </tr>
+      </thead>
+      <tbody id="result">
 
-        <label for="nif"> NIF</label>
-        <input type="text" placeholder="insira nif" id="txtnif_socio" name="txtnif_socio">
-        <br>
+      </tbody>
 
-        <label for="txtnome_socio">
-          NOME</label>
-        <input type="text" placeholder="insira nome" id="txtnome_socio" name="txtnome_socio">
-        <br>
-
-        <label for="txtmorada">
-          MORADA</label>
-        <input type="text" placeholder="insira morada" id="txtmorada" name="txtmorada">
-
-        <br>
-
-        <label for="txtemail"> EMAIL</label>
-        <input type="email" placeholder="insira email" id="txtemail" name="txtemail">
-        <br>
-
-        <label for="txttelefone">
-          TELEFONE</label>
-        <input type="text" placeholder="insira telefone" id="txttelefone" name="txttelefone">
-        <br>
-
-        <label for="txtnib"> NIB</label>
-        <input type="text" placeholder="insira nib" id="txtnib" name="txtnib">
-        <br>
-
-        <button id="btn" onclick="addSocio()"> INSERIR</button>
-
-
-      </fieldset>
-
-      <h2 id="result"> </h2>
-    </form>
+    </table>
 
   </section>
 
   <section class="aside">
-    <h2 class="titulos-aside"> Sócios</h2>
-    <a href="listarSocios.html"><img class="img-aside-socio" src="./img/addsocio.png" title=""></a>
-    <p class="texto-aside-socios">Listar Sócios</p>
-    <br>
+    <h2 class="titulos-aside"> Gestão</h2>
 
+    <a href="addSocio.html"><img class="img-aside-socio" src="./img/addsocio.png" title=""></a>
+    <p class="texto-aside-socios">Registar Modalidade</p>
+    <br>
 
   </section>
 
@@ -120,8 +98,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
   </script>
-  <script src="javascripts/addSocio.js">
-  </script>
+  <script src="./javascripts/listarModalidades.js"></script>
 
 </body>
 

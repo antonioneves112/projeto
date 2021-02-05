@@ -16,9 +16,11 @@ async function addInstrutor(instrutor){
             data:JSON.stringify(instrutor),
             contentType:'application/json'
         });
+       
         alert(JSON.stringify(result));
 
     } catch (error) {
         console.log(error);
     }
+
 }

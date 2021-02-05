@@ -39,7 +39,7 @@ router.put('/',async function(req, res, next){
 });
 
 
-
+//APAGAR SÓCIO
 router.delete('/:id',async function(req,res,next){
         let nif_socio = req.params.id;
         let result = await sociosModel.deleteSocio(nif_socio);
