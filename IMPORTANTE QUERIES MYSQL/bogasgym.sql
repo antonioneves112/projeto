@@ -120,4 +120,5 @@ valor decimal (15,2)
 
 insert into mensalidade (nif_socio,data_vencimento) values (123456789,'2021-01-01'),(123456789,'2021-02-01');
 
+delete from aulas where id_aula >  0;
 

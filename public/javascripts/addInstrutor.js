@@ -4,10 +4,9 @@ async function addInstrutor(instrutor){
         let instrutor = {  
             nif : document.getElementById('txtnif').value,
             nome :document.getElementById('txtnome').value,
-            contacto : document.getElementById('txtcontacto'.value),
-            email:document.getElementById('txtemail').value
-            
-            
+            contacto : document.getElementById('txtcontacto').value,
+            email :document.getElementById('txtemail').value
+
         }
 
         let result = await $. ajax({

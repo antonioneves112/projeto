@@ -17,7 +17,7 @@ router.get('/:id', async function(req,res,next){
         let nif_socio = req.params.id;
         let result = await sociosModel.getSocio(nif_socio);
         res.status(result.status).send(result.data)
-        console.log(result.data+'CHEGAMOS ROTA');
+        
 })
 
 
