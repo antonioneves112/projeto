@@ -1,31 +1,40 @@
-.tabela-lista th {
+.tabela-lista  {
 
-    margin: 20px;
-    color: black;
-    padding: 10px;
-    background-color: white;
-
-}
-
-
-.tabela-lista td {
-    border: 1px solid white;
     margin: 20px;
     color: white;
     padding: 10px;
+   
 
 }
 
-.tabela-lista tbody td {
-    border: 1px solid white;
+.tabela-lista th{
+    color:white;
+    font-family: play;
+    padding:10px;
+    margin:10px;
 }
+
+
+
+
+.tabela-lista td {
+
+    margin: 20px;
+    color: white;
+    padding: 10px;
+    text-align:left;
+
+}
+
 
 .tabela-lista tbody td a {
-    text-decoration-color: orange;
-    color: orange;
+    text-decoration-color: greenyellow;
+    color: greenyellow;
+    font-style: 25px;
 }
 
-.tabela-lista tbody td a:hover {
+
+.tabela-lista tbody td button {
     text-decoration-color: black;
     color: black;
     background-color: rgba(255, 255, 255, 0.6);
