@@ -34,7 +34,7 @@ function showSocios(socios){
     let linhas = ""
     for (let socio of socios){
         linhas+= "<tr> <td> "+ socio.nif_socio + " </td> <td> " + socio.nome_socio + " </td> <td> "+ 
-        socio.email+" </td> <td> <input type='button' onclick='deletaSocio(" +encodeURI(socio.nif_socio)+ ")' value ='apagar' id='"+encodeURI(socio.nif_socio)+"' /> </td> <td> <a href='./editSocio.html?id="+encodeURI(socio.nif_socio)+"'> UPDATE </a>  </td> </tr>";
+        socio.morada+" </td> <td>"+socio.telefone +"</td><td> <input type='button'   onclick='deletaSocio(" +encodeURI(socio.nif_socio)+ ")' value ='DEL' id='"+encodeURI(socio.nif_socio)+"' /> </td> <td> <a href='./editSocio.html?id="+encodeURI(socio.nif_socio)+"'> UPDATE </a>  </td> </tr>";
     }
     result.innerHTML = linhas;
 }

@@ -10,7 +10,7 @@ async function loadModalidades(){
             method:'get',
             dataType:'json'
         });
-        showModalidades(modalidades)
+        showModalidades(modalidades);
     } catch (error) {
         let result = document.getElementById('result');
         console.log(error);
@@ -22,15 +22,18 @@ async function loadModalidades(){
 function showModalidades(modalidades){
     let linhas = "";
     let result = document.getElementById('result');
-    for (i of modalidades){
-        linhas+= linhas+= "<tr> <td> "+ i.id_modalidade + " </td> <td> " + i.modalidade + " </td>"+
-       " </td> <td> <input type='button' onclick='deletaModalidade(" +encodeURI(i.id_modalidade)+ ")' value ='apagar' id='"+encodeURI(i.id_modalidade)+"' /> </td> <td> <a href='./editModalidade.html?id="+encodeURI(i.id_modalidade)+"'> UPDATE </a>  </td> </tr>";
+    for (let i of modalidades){
+        linhas+= "<tr> <td> "+i.id_modalidade +"<td>"+i.modalidade+"</td> " +
+        "<td> <input type='button'  id='"+encodeURI(i.id_modalidade) +"'   onclick='deletaModalidade(" + encodeURI(i.id_modalidade) +  ")'  value='DEL'  /> </td>  </tr> "
+
+
+   
     }
     result.innerHTML=linhas;
 }
 
 
-async function deletaModalidade(nif){
+function deletaModalidade(nif){
 
     try {
         let confirma = confirm('Deseja mesmo apagar modalidade ?');
@@ -38,16 +41,20 @@ async function deletaModalidade(nif){
             return false;
         }
        
-        let result = await $.ajax({
+         $.ajax({
             url:'/modalidades/'+nif,
             method:'delete',
             dataType:'json',
             contentType:"application/json",
-            success:function(nifretornado){
-                console.log(nifretornado);
-                var str = "#" + nifretornado;
+            success:function(dados){
+            
+     
+                
+                let str = "#" + dados;
+                console.log(str);
                 $(str).closest("tr").remove();
-            },error:function(){
+            },
+            error:function(){
                 alert('Não foi possível apagar modalidade');
             }
         })

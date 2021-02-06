@@ -85,7 +85,7 @@ body {
 .menu li a {
     text-decoration: none;
     color: white;
-    
+
 }
 
 
@@ -109,11 +109,12 @@ body {
 }
 
 .img-main {
-    width: 500px;
-    height: 400px;
+    width: 650px;
+    height: 450px;
     border: 3px solid white;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+
 
 
 .texto-maior {
@@ -123,34 +124,44 @@ body {
 }
 
 .paragrafos {
-    display:flex;
-    justify-content:center;
-    margin-right:10px 20px 10px 10px; 
+    display: flex;
+    justify-content: center;
+    margin-right: 10px 20px 10px 10px;
     font-size: 40px;
-   
+
 }
 
-.paragrafos p{
+.paragrafos p {
     border: 1px solid white;
-    margin:20px;
-    padding:15px;
+    margin: 20px;
+    padding: 15px;
 }
 
-.img-competicao{
-    width:150px;
-    height:150px;
+.quadro-atletas-competicao {
+    background-color: black;
+    padding: 5px;
+}
+
+.img-competicao {
+    width: 200px;
+    height: 170px;
     border: 1px solid white;
-    margin:20px;
-    padding:5px;
+    margin-left:15px;
+  
    
-    
+
+
 }
 
-.img-competicao:hover{
+.img-competicao:hover {
     filter: grayscale(100%);
-    
+
 }
 
+#gym {
+    width: 750px;
+    margin: 20px;
+}
 
 .aside {
     grid-area: aside;
@@ -158,7 +169,12 @@ body {
     justify-content: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
- 
+
+}
+
+
+.aside p{
+    margin:0;
 }
 
 .titulos-aside {
@@ -170,31 +186,34 @@ body {
     text-align: center;
 }
 
-.texto-aside-socios{
-color:white;
-margin:10px;
+.texto-aside-socios {
+    color: white;
+    margin: 5px;
 }
 
 .img-aside {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border: 2px solid white;
     margin: 20px 0px 20px 0px;
 }
 
-.img-aside:hover {
-    border-color:black;
-}
+
 
 
 .img-aside-socio {
     background: white;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border: 2px solid black;
-    margin: 10px 0px 10px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
+.img-aside-socio:hover {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    transition: 0.6s;
+}
 
 .video-aside {
     width: 250px;
@@ -212,7 +231,6 @@ margin:10px;
     background-color: black;
     text-shadow: 2px 2px 5px white;
 }
-
 
 
 
@@ -245,4 +263,3 @@ margin:10px;
     background-color: black;
 
 }
-

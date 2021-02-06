@@ -15,9 +15,9 @@ module.exports.getAllModalidades = async function(){
 
 module.exports.addModalidade = async function(modalidade){
    try {
-    let sql = "INSERT INTO modalidades(id_modalidade,modalidade) VALUES (?,?)";
+    let sql = "INSERT INTO modalidades(modalidade) VALUES (?)";
 
-    let result = await pool.query(sql,[modalidade.id_modalidade,modalidade.modalidade]);
+    let result = await pool.query(sql,[modalidade.modalidade]);
 
     return {status:200,data:result};
 
@@ -30,7 +30,7 @@ module.exports.addModalidade = async function(modalidade){
 
 module.exports.deleteModalidade = async function(nif){
   try {
-    let sql = "DELETE FROM modalidades WHERE id_modalidade=?";
+    let sql = "delete from modalidades where id_modalidade = ?;";
     let result = await pool.query(sql,[nif]);
     return {status:200,data:result}
   } catch (error) {

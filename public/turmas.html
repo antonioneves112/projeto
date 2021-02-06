@@ -4,8 +4,8 @@
 <head>
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/turmas.css">
-    
-    
+
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
@@ -56,13 +56,21 @@
 
         <div class="quadro-treinadores">
             <a href="#"> <img class="img-treinador" src="img/bogascara.JPG" alt="bogas-cara"> </a>
+
             <a href="#"> <img class="img-treinador" src="img/nevinhos.JPG" alt="antonio-cara"></a>
-            <a href="#"> <img  class="img-treinador" src="img/francisco.JPG" alt="francisco-cara"></a>
+            <a href="#"> <img class="img-treinador" src="img/francisco.JPG"
+                    alt="francisco-cara"></a>
             <a href="#"> <img class="img-treinador" src="img/miguelcara.jpg" alt="miguel-cara"></a>
 
 
+            <button type="submit" name="learn" value="myimage" onclick="getTurma(222351225)">
+                <p>Tutorials for all</p>
+                <img class="img-treinador" src="img/bogascara.JPG" alt="bogas-cara">
+            </button>
 
+            <div id="result">
 
+            </div>
 
         </div>
     </section>
@@ -72,7 +80,7 @@
         <h2 class="titulos-aside">
             Treinadores
         </h2>
-       
+
 
 
     </section>
@@ -83,7 +91,10 @@
             29B, 2720-525 Amadora <p>
     </section>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="javascripts/getTurmas.js">
+    </script>
 </body>
 
 </html>

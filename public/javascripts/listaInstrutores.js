@@ -28,7 +28,7 @@ function showInstrutores(instrutores){
     let linhas = ""
     for (let i of instrutores){
         linhas+= "<tr> <td> "+ i.nif + " </td> <td> " + i.nome + " </td> <td> "+ 
-        i.contacto+" </td> <td> " + i.email +  "<td> <input type='button' onclick='deletaInstrutor(" +encodeURI(i.nif)+ ")' value ='apagar' id='"+encodeURI(i.nif)+"' /> </td> <td> <a href='./editInstrutor.html?id="+encodeURI(i.nif)+"'> UPDATE </a>  </td> </tr>";
+        i.contacto+" </td> <td> " + i.email +  "<td> <input type='button' onclick='deletaInstrutor(" +encodeURI(i.nif)+ ")' value ='DEL' id='"+encodeURI(i.nif)+"' /> </td> <td> <a href='./editInstrutor.html?id="+encodeURI(i.nif)+"'> UPDATE </a>  </td> </tr>";
     }
     result.innerHTML = linhas;
 }

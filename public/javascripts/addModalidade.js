@@ -1,20 +1,25 @@
-async function addModalidade(modalidade){
+ function addModalidade(modalidade){
     try {
 
-        let modalidade = {
-            id_modalidade: document.getElementById('txtid_modalidade').value,
-            modalidade: document.getElementById('txtnomeModalidade').value
-           
-        }
+        let modalidade =  {modalidade: document.getElementById('txtnomeModalidade').value}
 
-        let result = await $.ajax({
+   $.ajax({
             url:'/modalidades',
-            method:'post',
+            type:'post',
             dataType:'json',
             data:JSON.stringify(modalidade),
-            contentType:'application/json'
-        })
+            contentType:'application/json',
+            success:function(){
+                alert('sucesso');
+                location.href="http://localhost:3000/listarmodalidades.html";
+               
+               
 
+            },
+            error:function()
+            {alert("error")}
+        })
+       
     } catch (error) {
         console.log(error);
 

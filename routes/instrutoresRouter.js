@@ -8,11 +8,13 @@ var instrutoresModel = require('../models/instrutoresModel');
 //ROTA PARA RECEBER TODOS OS INSTRUTORES
 router.get('/', async function(req,res,next){
     let socios = await instrutoresModel.getAllInstrutores();
+  
     res.status(socios.status).send(socios.data);
 });
 
 
 //ROTA PARA RECEBER UM INSTRUTOR
+/*
 router.get('/:id',async function(req,res,next){
     
     let nif= req.params.id;
@@ -20,7 +22,17 @@ router.get('/:id',async function(req,res,next){
     let result = await instrutoresModel.getInstrutor(nif);
     res.status(result.status).send(result.data);
 })
+*/
 
+router.get('/:id',async function(req,res,next){
+    
+    let nif= req.params.id;
+    console.log(nif);
+    let inst = await instrutoresModel.getInstrutor(nif);
+    let modls=await instrutoresModel.getmodalidades();
+    let mydata={instrutor:inst,modalidades:modls }
+    res.status(inst.status).send(mydata);
+})
 
 //ROTA PARA INSERIR INSTRUTOR
 router.post('/',async function(req,res,next){

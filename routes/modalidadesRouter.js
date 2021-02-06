@@ -20,6 +20,7 @@ router.get('/:id', async function(req,res,next){
 router.get('/',async function (req,res,next){
     let result = await modalidadeModel.getAllModalidades();
     res.status(result.status).send(result.data);
+    console.log('rota')
 
 })
 
@@ -35,7 +36,7 @@ router.post('/',async function(req,res,next){
 router.delete('/:id',async function(req,res,next){
     let nif = req.params.id;
     let result= await modalidadeModel.deleteModalidade(nif);
-    res.status(result.status).send(result.data);
+    res.status(result.status).send(nif);
 })
 
 

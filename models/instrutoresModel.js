@@ -45,8 +45,8 @@ module.exports.getInstrutor = async function (nif){
 module.exports.updateInstrutor = async function (instrutor){
   try {
     
-    let sql ="update instrutores set nome=?,contacto=?,email=? WHERE nif=?;";
-    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.nif]);
+    let sql ="update instrutores set nome=?,contacto=?,email=?,id_modalidade=? WHERE nif=?;";
+    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.id_modalidade,instrutor.nif]);
     return {status:200,data:result};
   } catch (error) {
       console.log(error);
@@ -67,4 +67,20 @@ module.exports.deleteInstrutor = async function(nif){
         status:500,data:error};
     
     }
+
 }
+
+module.exports.getmodalidades=async function(){
+    try {
+        let sql="select id_modalidade, modalidade from modalidades";
+        let result = await pool.query(sql);
+        return {status:200,data:result};
+
+    } catch (error) {
+     console.log(error);
+     return{
+        status:500,data:error};
+    
+    }
+}
+
