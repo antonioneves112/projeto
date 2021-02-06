@@ -1,6 +1,5 @@
 .formulario {
     display:inline-block;
-    margin: 20px 20px 20px 20px;
     align-self: left;
 }
 
@@ -36,6 +35,7 @@
     font-weight: bolder;
     color:white;
     width: 100%;
+    margin-top:20px;
    
 
 }
