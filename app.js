@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/socios',sociosRouter);
 app.use('/instrutores',instrutoresRouter);
 app.use('/modalidades',modalidadesRouter);
-app.use('/socios/turmas',sociosRouter);
+
 
 
 

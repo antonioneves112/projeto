@@ -3,10 +3,9 @@
 
 <head>
     <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/turmas.css">
     <link rel="stylesheet" href="./stylesheets/tabelas.css">
-
-
+    <link rel="stylesheet" href="./stylesheets/instrutor.css">
+    <link rel="stylesheet" href="./stylesheets/form.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
@@ -23,8 +22,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
 
-    <title>BOGAS TEAM FIGHT CENTER - TURMAS</title>
+    <title>BOGAS TEAM FIGHT CENTER - LISTAGEM INSTRUTORES</title>
     <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+
+
+
 
 </head>
 
@@ -44,89 +46,75 @@
             <li> <a href="listarSocios.html">
                     SÓCIOS</a></li>
 
+            <li> <a href="turmas.html">
+                    TURMAS</a></li>
+
             <li> <a href="contacto.html">
                     CONTACTOS</a></li>
-            <li> <a href="instrutores.html">
-                    INSTRUTORES</a></li>
+
+
 
         </ul>
     </nav>
 
     <section class="main">
-        <h2 class="titulos-main"> TURMAS</h2>
+        <h2 class="titulos-main"> José Ricardo Oliveira - "BOGAS"</h2>
+        <div class="instrutor-dados">
+          
+            <img class="img-aside" id="img" title="bogas-foto">
+            <br>
+            <form class='instrutor-form' action="">
+               
 
-        <div class="quadro-treinadores">
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(222351225)">
+                    <label for="txtnif"> NIF</label>
+                    <input type="email" placeholder="insira nif" readonly="readonly" id="txtnif"
+                        name="txtnif">
+                    <br>
 
-                <img src="img/bogascara.JPG" alt="foto">
-            </button>
+                    <label for="txtnome">
+                        NOME</label>
+                    <input type="text" placeholder="insira nome" readonly="readonly" id="txtnome"
+                        name="txtnome">
+                    <br>
 
+                    <label for="txtcontacto">
+                        CONTACTO</label>
+                    <input type="text" placeholder="insira Contacto Telefónico" readonly="readonly"
+                        id="txtcontacto" name="txtcontacto">
 
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(273666541)">
+                    <br>
 
-                <img class="img-treinador" src="img/nevinhos.JPG" alt="foto">
-            </button>
-
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma()">
-
-                <img src="img/francisco.JPG" alt="foto">
-            </button>
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(240250931)">
-
-                <img src="img/miguelcara.JPG" alt="foto">
-            </button>
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma()">
-
-                <img src="img/eddy.jpg" alt="foto">
-            </button>
-
-
-
+                    <label for="txtemail"> EMAIL</label>
+                    <input type="email" placeholder="insira email" id="txtemail" readonly="readonly"
+                        name="txtemail">
+                    <br>
 
 
+                    <label for="selmodalidade"> MODALIDADE </label>
+                    <input id="selmodalidade" readonly="readonly" name="selmodalidade">
+
+
+                    </input>
+                    <br>
+                    <br>
 
 
 
+
+
+
+
+
+                </fieldset>
+            </form>
 
         </div>
-        <table class="tabela-lista">
-            <thead>
-                <tr>
-                    <th>
-                        NIF
-                    </th>
-                    <th>
-                        NOME
-                    </th>
-                    <th>
-                        MORADA
-                    </th>
-                    <th>
-                        TELEFONE
-                    </th>
-                    <th>
-                        DELETE
-                    </th>
-                    <th>
-                        UPDATE
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="result">
 
-            </tbody>
-
-        </table>
     </section>
 
 
     <section class="aside">
-        <h2 class="titulos-aside">
-            Treinadores
-        </h2>
+
 
 
 
@@ -140,8 +128,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
-    <script src="javascripts/getTurmas.js">
-    </script>
+    <script src="javascripts/listarInstrutor.js"></script>
 </body>
 
 </html>

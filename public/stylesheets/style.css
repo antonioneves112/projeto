@@ -106,7 +106,7 @@ body {
     color: white;
     background-color: black;
     text-shadow: 2px 2px 5px white;
-    margin:0px;
+    margin-bottom: 20px;
 }
 
 .img-main {
@@ -139,6 +139,7 @@ body {
 }
 
 .quadro-atletas-competicao {
+ 
     background-color: black;
     padding: 5px;
 }
@@ -164,8 +165,8 @@ body {
     margin: 20px;
 }
 
-#gestao-modalidade{
-    margin:100px;
+#gestao-modalidade {
+    margin: 100px;
 }
 
 #addModalidade {
@@ -175,10 +176,10 @@ body {
     font-family: goldman;
     text-shadow: 1px 1px 1px black;
     padding: 10px;
-    color:black;
-    margin:30px 0px 0px 30px;
-  
-  
+    color: black;
+    margin: 30px 0px 0px 30px;
+
+
 
 }
 
@@ -194,7 +195,7 @@ body {
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
     width: 200px;
-    margin:0;
+    margin: 0;
 
 }
 
@@ -217,6 +218,15 @@ body {
     margin: 5px;
 }
 
+.btn-img-treinador {
+    width: 140px;
+    height: 140px;
+    background-color: black;
+    margin: 10px;
+    border: 1px solid white;
+
+}
+
 .img-aside {
     width: 130px;
     height: 130px;
@@ -224,7 +234,10 @@ body {
     margin: 20px 0px 20px 0px;
 }
 
-
+.img-aside-treinador {
+    width: 120px;
+    height: 120px;
+}
 
 
 .img-aside-socio {

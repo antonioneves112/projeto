@@ -21,11 +21,12 @@ router.get('/:id', async function(req,res,next){
 })
 
 //ROTA RETORNAR UM SOCIO
-router.get('/socios/turmas/:id', async function(req,res,next){
-        let nif_socio = req.params.id;
+router.get('/turmas/:id', async function(req,res,next){
+    let nif= req.params.id;
         let result = await sociosModel.getTurma(nif);
         console.log('ROTA TURMAS')
         res.status(result.status).send(result.data)
+       
         
         
 })

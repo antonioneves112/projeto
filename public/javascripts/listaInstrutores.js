@@ -2,24 +2,20 @@ window.onload = function () {
     loadInstrutores();
 }
 
-
+//SEMELHANTE AOS OUTROS LISTAR 
 async function loadInstrutores(){
    try {
     let instrutores = await $.ajax({
         url:'/instrutores',
         method:'get',
         dataType:'json'
-
     });
-
     showInstrutores(instrutores);
-
    } catch (error) {
        let elemResult = document.getElementById('result');
        console.log(error);
        elemResult.innerHTML = '<h2> Problema ao Carregar Instrutores </h2>'
    }
-
 }
 
 
@@ -50,16 +46,13 @@ async function  deletaInstrutor(nif){
                 //COM ID RECEBIDO EM DADOS VOU REFERENCIAR EM JQUERY O BOTAO CLICADO NA TABELA. POR SUA VEZ O BOTAO REFERENCIA A LINHA MAIS PROXIMA ONDE ESTA METIDO E REMOVE
                 var str= "#" + nifretornado;
                 $(str).closest("tr").remove();
-           
             },error:function(){
                 alert('O Registo não pode ser apagado enquanto o intrutor tiver aulas');
             }
         });
-        alert(JSON.stringify(result));
     }
      catch (error) {
-         console.log(error);
-        
+         console.log(error); 
     }
 }
 

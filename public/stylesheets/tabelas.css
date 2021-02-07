@@ -1,8 +1,10 @@
 .tabela-lista  {
-
+    display:inline-block;
     margin: 20px;
     color: white;
     padding: 10px;
+    width:auto;
+    
    
 
 }

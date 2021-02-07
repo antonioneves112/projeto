@@ -1,15 +1,11 @@
 //AO CARREGAR A PÁGINA CARREGA A FUNÇÃO LOADSOCIOS
 
-window.onload = function (){
-  
+window.onload = function (){  
     loadSocios();
 }
 
 
-
-
-//ATRAVÈS DA VARIAVEL SÓCIOS VEM OS DADOS REQUISITADOS ATRAVÈS DO SOCIO ROUTES 
-
+//ATRAVÈS DA VARIAVEL SÓCIOS VEM OS DADOS REQUISITADOS DA ROTA SÓCIOS 
 async function loadSocios(){
     try {
         let socios = await $.ajax({
@@ -21,14 +17,11 @@ async function loadSocios(){
     } catch (error) {
         let elemResult = document.getElementById('result');
         console.log(error);
-        elemResult.innerHTML = '<h2> Problema no carregamento do Socio </h2>'+
-                                '<p> Por Favor Tente Novamente mais Tarde</p>'
+        elemResult.innerHTML = '<h2> Problema no carregamento dos Socios </h2>'        
     }
-     
 }
 
-// ESTA FUNÇÃO PERCORRE O OBJETO SOCIOS QUE CONTEM OS VALORES PASSADOS ATRAVÈS DA BASE DE DADOS E INJETA NA DIV RESULT 
-
+// ESTA FUNÇÃO PERCORRE O OBJETO SOCIOS QUE VEM DA BASE DE DADOS ATRAVÉS DA ROTA QUE PROVÈM DA BASE DE DADOS E INJETA NA DIV COM O ID RESULT 
 function showSocios(socios){
     let result = document.getElementById('result');
     let linhas = ""
@@ -39,8 +32,7 @@ function showSocios(socios){
     result.innerHTML = linhas;
 }
 
-//FUNÇÃO PARA APAGAR SÓCIOS PASSAMOS O NIf_SOCIO PARA O SOCIOS ROUTES
-
+//FUNÇÃO PARA APAGAR SÓCIOS PASSAMOS O NIf_SOCIO PARA A ROTA /SOCIOS
 async function  deletaSocio(nif_socio){
     try {
         let confirma = confirm('Deseja mesmo apagar Sócio?');
@@ -58,14 +50,12 @@ async function  deletaSocio(nif_socio){
                 $(str).closest("tr").remove();
            
             },error:function(){
-                alert('errorAJAX');
+                alert('erro no javascript cliente');
             }
         });
-        alert(JSON.stringify(result));
     }
      catch (error) {
          console.log(error);
-        
     }
 }
 

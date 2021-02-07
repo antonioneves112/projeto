@@ -1,0 +1,43 @@
+.instrutor-dados{
+    display: inline-block;
+    border:5px solid white;
+    width:90%;
+    margin:30px;
+
+   
+}
+
+.img-aside{
+    float:left;
+    margin:30px;
+    width:200px;
+    height:200px;
+    border:3px solid white;
+}
+
+.instrutor-form {
+   float:left;
+   font-family: oswald;
+   text-align:left;
+   font-size:30px;
+  
+}
+
+.instrutor-form label{
+    margin-right:30px;
+
+
+}
+
+.instrutor-form input{
+background-color: rgba(255,255,255,0.2);
+color:white;
+width:400px;
+height:40px;
+margin-bottom:20px;
+font-size:20px;
+font-family: oswald;
+text-align:left;
+}
+
+
