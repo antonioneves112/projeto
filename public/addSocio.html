@@ -20,6 +20,7 @@
 
   <link rel="stylesheet" href="./stylesheets/style.css">
   <link rel="stylesheet" href="stylesheets/form.css">
+  <link rel="stylesheet" href="stylesheets/validacao.css">
 
   <title>BOGAS TEAM FIGHT CENTER - REGISTAR SÓCIO</title>
   <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
@@ -46,11 +47,11 @@
       <li> <a href="turmas.html">
           TURMAS</a></li>
 
-      
+
       <li> <a href="instrutores.html">
           INSTRUTORES</a></li>
-          <li> <a href="contacto.html">
-            CONTATOS</a></li>
+      <li> <a href="contacto.html">
+          CONTATOS</a></li>
     </ul>
   </nav>
 
@@ -58,7 +59,7 @@
     <h2 class="titulos-main"> Registar Sócio</h2>
 
 
-    <form class="formulario">
+    <form class="formulario" id="frm">
       <fieldset>
         <legend>
           Dados Sócios
@@ -119,8 +120,14 @@
   </section>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-  </script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" 
+  </script> >-->
+
+  <script src="javascripts/jquery-3.5.1.js"></script>
+  <script src="javascripts/additional-methods.js"></script>
+  <script src="javascripts/jquery.validate.min.js"></script>
+
+
   <script src="javascripts/addSocio.js">
   </script>
 
