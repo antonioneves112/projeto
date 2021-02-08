@@ -1,0 +1,25 @@
+var pool = require('./connectBd');
+
+
+module.exports.getMensalidades = async function (){
+try {
+    let sql = "SELECT * FROM mensalidade";
+    let result = await pool.query(sql);
+    return {status:200,data:result}
+} catch (error) {
+    console.log(error);
+    return {status:500,data:error}
+}
+
+}
+
+module.exports.addMensalidade = async function (mensalidade){
+    try {
+        let sql = "insert into mensalidade (nif_socio,data_vencimento,data_pagamento,valor,pago) VALUES (?,?,?,?,?);"
+        let result = await pool.query(sql,[mensalidade.nif_socio,mensalidade.data_vencimento,mensalidade.data_pagamento,mensalidade.valor,mensalidade.pago]);
+        return {status:200,data:result}
+    } catch (error) {
+        console.log(error);
+        return{status:500,data:error};
+    }
+}
