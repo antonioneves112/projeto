@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/form.css">
+    <link rel="stylesheet" href="stylesheets/validacao.css">
 
     <title>BOGAS TEAM FIGHT CENTER - LISTAR INSTRUTORES</title>
     <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
@@ -42,7 +43,7 @@
         <ul>
             <li> <a href="index.html">
                     HOME</a></li>
-            <li> <a href="socios.html">
+            <li> <a href="listarsocios.html">
                     SÓCIOS</a></li>
             <li> <a href="turmas.html">
                     TURMAS</a></li>
@@ -60,14 +61,14 @@
         <h2 class="titulos-main"> Editar Instrutor</h2>
 
 
-        <form class="formulario">
+        <form id="frm" class="formulario">
             <fieldset>
                 <legend>
                     Instrutor
                 </legend>
 
                 <label for="txtnif"> NIF</label>
-                <input type="email" placeholder="insira nif" readonly="readonly" id="txtnif"
+                <input type="text" placeholder="insira nif" readonly="readonly" id="txtnif"
                     name="txtnif">
                 <br>
 
@@ -126,8 +127,16 @@
     </section>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+
+
+    <script src="javascripts/jquery-3.5.1.js"></script>
+    <script src="javascripts/additional-methods.js"></script>
+    <script src="javascripts/jquery.validate.min.js"></script>
+
+
+
+
+
     <script src="javascripts/editInstrutor.js">
     </script>
 

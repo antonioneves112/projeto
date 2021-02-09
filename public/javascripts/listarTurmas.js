@@ -70,7 +70,10 @@ let aulaantiga = {};
 
 function deletarAlunoTurma(x,idaula,nifsocio){
     try {
-        alert(nifsocio);
+        let confirma = confirm('Deseja realmente apagar Aluno ?');
+        if (!=confirma){
+            return false;
+        }
         $. ajax({
             url:'/turmas/'+idaula+'/'+nifsocio,
             method:'delete',
@@ -87,16 +90,6 @@ function deletarAlunoTurma(x,idaula,nifsocio){
         console-log(error);
     }
 }
-
-
-
-
-
-
-
-
-
-
     $("[name='cancel']").click((evt)=>{
         evt = evt?evt:window.event;
     $(evt.target).closest('tr').css("background-color", "orange");

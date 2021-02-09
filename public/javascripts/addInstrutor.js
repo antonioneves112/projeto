@@ -55,8 +55,6 @@ async function addInstrutor(instrutor){
             contentType:'application/json'
         });
        
-        alert(JSON.stringify(result));
-
     } catch (error) {
         console.log(error);
     }

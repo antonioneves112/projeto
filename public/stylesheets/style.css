@@ -139,9 +139,10 @@ body {
 }
 
 .quadro-atletas-competicao {
- 
+    margin-top: 40px;
     background-color: black;
     padding: 5px;
+    margin-bottom:50px;
 }
 
 .img-competicao {
@@ -149,6 +150,7 @@ body {
     height: 170px;
     border: 1px solid white;
     margin-left: 15px;
+    margin-bottom:30px;
 
 
 
@@ -200,6 +202,8 @@ body {
 }
 
 
+
+
 .aside p {
     margin: 0;
 }
@@ -224,6 +228,7 @@ body {
     background-color: black;
     margin: 10px;
     border: 1px solid white;
+    margin:45px 0px 10px 0px;
 
 }
 

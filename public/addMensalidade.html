@@ -25,6 +25,7 @@
 
 
     <title>BOGAS TEAM FIGHT CENTER - REGISTAR MENSALIDADE</title>
+
     <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
 
 
@@ -79,13 +80,13 @@
 
                 <label for="txtdata_vencimento">
                     DATA VENCIMENTO </label>
-                <input type="datetime" placeholder="insira data vencimento" id="txtdata_vencimento"
+                <input type="text" placeholder="insira data vencimento" id="txtdata_vencimento"
                     name="txtdata_vencimento">
                 <br>
 
                 <label for="txtdata_pagamento">
                     DATA PAGAMENTO </label>
-                <input type="datetime" placeholder="insira data pagamento" id="txtdata_pagamento"
+                <input type="text" placeholder="insira data pagamento" id="txtdata_pagamento"
                     name="txtdata_pagamento">
                 <br>
 
@@ -101,7 +102,7 @@
                 </select>
 
 
-                <button id="btn" onclick="addInstrutor()"> REGISTAR </button>
+                <button id="btn" onclick="addMensalidade()"> REGISTAR MENSALIDADE </button>
 
             </fieldset>
 
@@ -130,12 +131,15 @@
 
 
     <script src="javascripts/jquery-3.5.1.js"></script>
+  <!--
     <script src="javascripts/additional-methods.js"></script>
     <script src="javascripts/jquery.validate.min.js"></script>
+-->
 
 
 
-    <script src="javascripts/addInstrutor.js">
+
+    <script src="javascripts/addMensalidade.js">
     </script>
 
 </body>

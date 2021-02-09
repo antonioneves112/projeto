@@ -1,4 +1,41 @@
 window.onload = async function(){
+    $(function (){
+        $("#frm").validate({
+    
+            wrapper: 'span',
+            errorPlacement: function (error, element) {
+                error.css({'padding-left':'10px','margin-right':'20px','padding-bottom':'2px'});
+                error.addClass("arrow")
+                error.insertAfter(element);
+            },
+    
+    
+            rules: {
+               
+                txtnome: {  required: true,  minlength: 3 },
+                txtcontacto: {  required: true , digits: true , minlength: 9 , maxlength:9 },
+                txtemail: {  required: true,  email:true },
+                selmodalidade: {  required: true },
+              
+            }
+            
+            ,
+            messages: {
+                
+                txtnome: {  required:'Campo obrigatório', minlength:'Campo deve conter mais de dois caracteres'},
+                txtcontacto: { required:'Campo obrigatório', digits:'Insira apenas digitos', minlength:'Minimo 9 caracteres', maxlength: 'Máximo 9 digitos'},
+                txtemail: {  required:'Campo obrigatório',  email:'coloque um endereço de email válido '},
+                selmodalidadee: {  required:'Campo obrigatório' },
+                
+            },
+        });
+    });
+
+
+
+
+
+
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('id');
     

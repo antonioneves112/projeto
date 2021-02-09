@@ -15,7 +15,7 @@ $(function (){
         }
         ,
         messages: {
-            txtnomeModalidade: {  required:'Campo obrigatório', minlength:'Minimo 9 caracteres'},
+            txtnomeModalidade: {  required:'Campo obrigatório', minlength:'Minimo três caracteres'},
           
             
         },

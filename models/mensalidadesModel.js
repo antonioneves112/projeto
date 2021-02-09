@@ -23,3 +23,15 @@ module.exports.addMensalidade = async function (mensalidade){
         return{status:500,data:error};
     }
 }
+
+
+module.exports.deletaMensalidade = async function (id_mensalidade) {
+    try {
+        let sql = "DELETE FROM mensalidade WHERE id_mensalidade= ?;";
+        let result = await pool.query(sql,[id_mensalidade]);
+        return {status:200,data:result};
+    } catch (error) {
+        console.log(error);
+        return {status:500,data:error};
+    }
+}

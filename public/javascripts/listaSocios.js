@@ -27,7 +27,7 @@ function showSocios(socios){
     let linhas = ""
     for (let socio of socios){
         linhas+= "<tr> <td> "+ socio.nif_socio + " </td> <td> " + socio.nome_socio + " </td> <td> "+ 
-        socio.morada+" </td> <td>"+socio.telefone +"</td><td> <input type='button' id='btnk'   onclick='deletaSocio(" +encodeURI(socio.nif_socio)+ ")' value ='DEL' id='"+encodeURI(socio.nif_socio)+"' /> </td> <td> <a href='./editSocio.html?id="+encodeURI(socio.nif_socio)+"'> UPDATE </a>  </td> </tr>";
+        socio.morada+" </td> <td>"+socio.telefone +"</td><td> <input type='button' class='btnk'   onclick='deletaSocio(" +encodeURI(socio.nif_socio)+ ")' value ='DEL' id='"+encodeURI(socio.nif_socio)+"' /> </td> <td> <a href='./editSocio.html?id="+encodeURI(socio.nif_socio)+"'> UPDATE </a>  </td> </tr>";
     }
     result.innerHTML = linhas;
 }
@@ -35,7 +35,7 @@ function showSocios(socios){
 //FUNÇÃO PARA APAGAR SÓCIOS PASSAMOS O NIf_SOCIO PARA A ROTA /SOCIOS
 async function  deletaSocio(nif_socio){
     try {
-        let confirma = confirm('Deseja mesmo apagar Sócio?');
+        let confirma = confirm('Deseja realmente apagar Sócio?');
         if(!confirma){
             return false;
         }
@@ -50,7 +50,7 @@ async function  deletaSocio(nif_socio){
                 $(str).closest("tr").remove();
            
             },error:function(){
-                alert('erro no javascript cliente');
+                alert('Não Foi possível apagar sócio ');
             }
         });
     }
