@@ -63,7 +63,6 @@ body {
 
 .menu li {
     display: inline-table;
-    width: 100%;
     border: 2px solid white;
     width: 150px;
     height: 25px;
@@ -106,7 +105,7 @@ body {
     color: white;
     background-color: black;
     text-shadow: 2px 2px 5px white;
-    margin-bottom: 20px;
+  
 }
 
 .img-main {

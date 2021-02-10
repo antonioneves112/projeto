@@ -1,58 +1,65 @@
-.formulario {
+.formulario{
     display:inline-block;
-    align-self: left;
+    align-self:left;
 }
 
-
 .formulario fieldset {
-   width:auto;
-    text-align:left ;
-    margin:50px auto;
-    }
+    width: auto;
+    text-align: left;
+    margin: 50px auto;
+}
 
 .formulario input {
     margin: 10px 0px 30px 20px;
     padding: 10px;
-    background-color: rgba(255,255,255,0.2);
-    color:white;
-    width:300px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 300px;
 }
 
 
 .formulario textarea {
-    background-color: rgba(255,255,255,0.2);
-    color:white;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
     margin-bottom: 20px;
     margin: 0px 20px 40px 20px;
-    
-    }
+
+}
 
 .formulario button {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 7px;
     font-family: oswald;
     font-size: 20px;
     font-weight: bolder;
-    color:white;
+    color: white;
     width: 100%;
-    margin-top:20px;
-   
+    margin-top: 20px;
 
+
+}
+
+.formulario select {
+    background-color: rgba(255, 255, 255, 0.2);
+    color:white;
+    margin-left:20px;
+    padding:7px;
+    height:35px;
 }
 
 .formulario button:hover {
-    background-color: rgba(0,0,0,0.2);
- 
+    background-color: rgba(0, 0, 0, 0.2);
+
 
 }
 
-.formulario legend{
-    font-size:50px;
-    margin:20px;
-    padding:10px;
+.formulario legend {
+    font-size: 50px;
+    margin: 20px;
+    padding: 10px;
 }
 
 
 ::-webkit-input-placeholder {
     color: white;
- }
+}

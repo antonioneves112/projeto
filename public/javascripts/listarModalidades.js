@@ -44,7 +44,7 @@ function deletaModalidade(nif){
             success:function(dados){
                 //COM ID RECEBIDO EM DADOS VOU REFERENCIAR EM JQUERY O BOTAO CLICADO NA TABELA. POR SUA VEZ O BOTAO REFERENCIA A LINHA MAIS PROXIMA ONDE ESTA METIDO E REMOVE.
                 let str = "#" + dados;
-                console.log(str);
+                alert(str);
                 $(str).closest("tr").remove();
             },
             error:function(){

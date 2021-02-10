@@ -19,13 +19,10 @@ async function loadMensalidades(){
 
 
 function showMensalidades(mensalidades){
-    
-    
-    let result = document.getElementById('result');
     let html="";
+    let result = document.getElementById('result');
 
     for (let i of mensalidades){
-        var date = new Date();
         html+= "<tr>  <td>" + i.id_mensalidade + " </td><td>" + i.nif_socio +" </td><td>" + i.data_vencimento.replace(/T00:00:00.000Z/g,"") + "</td> <td> "+ i.data_pagamento.replace(/T00:00:00.000Z/g,"")+ "</td> <td> "+i.valor+" </td> <td>"+i.pago+" </td> <td> <input type='button' class='btnk' onclick='deletaMensalidade("+encodeURI(i.id_mensalidade)+")' value='DEL' id='"+encodeURI(i.id_mensalidade)+"'/> </td>   </tr>";
     }
 
@@ -36,27 +33,31 @@ function showMensalidades(mensalidades){
 
 
 function deletaMensalidade (id_mensalidade){
-    try {
-        let confirma = confirm ('Deseja realmente apagar Mensalidade ?');
-        if (!confirma){
-            return false;
-        }
+    let confirma = confirm('deseja mesmo apagar mensalidade ?');
+    if (!confirma){
+        return false;
+    }else{
         $ .ajax({
             url:"/mensalidades/"+id_mensalidade,
             method:"delete",
             dataType:"json",
             contentType:"application/json",
+
             success:function(dados){
-                var str = "#" + dados;
-                $(str).closest("tr").remove();
                 
+                alert('modalidade apagada com sucesso !');
+                window.location.href = "./listarMensalidades.html";
+
+              
             },
             error:function(){
                 console.log('Não Foi Possível apagar mensalidade!');
             }
+
+           
         });
-    } 
-    catch (error) {
-        console.log(error);
     }
-}
+      
+      
+    }
+
