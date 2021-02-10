@@ -15,9 +15,9 @@ module.exports.getAllModalidades = async function(){
 
 module.exports.addModalidade = async function(modalidade){
    try {
-    let sql = "INSERT INTO modalidades(modalidade) VALUES (?)";
+    let sql = "INSERT INTO modalidades(modalidade,nif_instrutor) VALUES (?,?)";
 
-    let result = await pool.query(sql,[modalidade.modalidade]);
+    let result = await pool.query(sql,[modalidade.modalidade,modalidade.nif]);
 
     return {status:200,data:result};
 

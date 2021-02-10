@@ -37,7 +37,7 @@ let x=0;
 
 for (i of turmas){
     x++;
-       html+= "<tr> <td>"+ i.nif +"</td> <td> "+ i.nome+"</td> <td>"+i.id_aula+"</td> <td>"+i.nome_socio+"</td> <td> <input type='button' onclick='deletarAlunoTurma("+encodeURI(x)+ "," + encodeURI(i.id_aula) + "," +encodeURI(i.nif_socio)+")'   value='DEL' id='"+x+"'> &nbsp; <input type='button' value='EDIT' name='edit' id='"+i.id_aula+"'> </td> </tr> "
+       html+= "<tr> <td>"+ i.nif +"</td> <td> "+ i.nome+"</td> <td>"+i.id_aula+"</td> <td>"+i.nome_socio+"</td> <td> <input type='button'   onclick='deletarAlunoTurma("+encodeURI(x)+ "," + encodeURI(i.id_aula) + "," +encodeURI(i.nif_socio)+")'   value='DEL' id='"+x+"'> &nbsp; <input type='button' value='EDIT' name='edit' id='"+i.id_aula+"'> </td> </tr> "
     }
    
     result.innerHTML = html

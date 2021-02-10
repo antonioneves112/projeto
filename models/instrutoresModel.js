@@ -45,8 +45,8 @@ module.exports.getInstrutor = async function (nif){
 module.exports.updateInstrutor = async function (instrutor){
   try {
     
-    let sql ="update instrutores set nome=?,contacto=?,email=?,id_modalidade=? WHERE nif=?;";
-    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.id_modalidade,instrutor.nif]);
+    let sql ="update instrutores set nome=?,contacto=?,email=? WHERE nif=?;";
+    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.nif]);
     return {status:200,data:result};
   } catch (error) {
       console.log(error);

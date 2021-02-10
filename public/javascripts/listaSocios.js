@@ -48,7 +48,6 @@ async function  deletaSocio(nif_socio){
                 console.log(dados);
                 var str= "#" + dados;
                 $(str).closest("tr").remove();
-           
             },error:function(){
                 alert('Não Foi possível apagar sócio ');
             }

@@ -23,7 +23,7 @@ function showModalidades(modalidades){
     let linhas = "";
     let result = document.getElementById('result');
     for (let i of modalidades){
-        linhas+= "<tr> <td> "+i.id_modalidade +"<td>"+i.modalidade+"</td> " +
+        linhas+= "<tr> <td> "+i.id_modalidade +"<td>"+i.modalidade+"</td> " + "<td>" + i.nif_instrutor + "</td>" +
         "<td> <input type='button' class='btnk'  id='"+encodeURI(i.id_modalidade) +"'     onclick='deletaModalidade(" + encodeURI(i.id_modalidade) +  ")'  value='DEL'  /> </td>  </tr> ";
     }
     result.innerHTML=linhas;

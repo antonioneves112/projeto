@@ -1,6 +1,6 @@
 var pool = require('./connectBd');
 
-
+//CONSULTA NA BASE DE DAODS E RETORNA UM OBJETO COM OS VALORES DA CONSULTA
 module.exports.getMensalidades = async function (){
 try {
     let sql = "SELECT * FROM mensalidade";
@@ -13,9 +13,10 @@ try {
 
 }
 
+//CRIA UMA NOVA MENSALIDADE
 module.exports.addMensalidade = async function (mensalidade){
     try {
-        let sql = "insert into mensalidade (nif_socio,data_vencimento,data_pagamento,valor,pago) VALUES (?,?,?,?,?);"
+        let sql = "insert into mensalidade(nif_socio,data_vencimento,data_pagamento,valor,pago) VALUES (?,?,?,?,?);";
         let result = await pool.query(sql,[mensalidade.nif_socio,mensalidade.data_vencimento,mensalidade.data_pagamento,mensalidade.valor,mensalidade.pago]);
         return {status:200,data:result}
     } catch (error) {
