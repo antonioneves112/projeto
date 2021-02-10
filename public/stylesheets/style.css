@@ -150,6 +150,7 @@ body {
     border: 1px solid white;
     margin-left: 20px;
     margin-bottom:30px;
+    filter: grayscale(100%);
 
 
 
@@ -158,6 +159,8 @@ body {
 
 .img-competicao:hover {
   border: 1px solid black;
+  filter:none;
+
 
 }
 

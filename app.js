@@ -11,6 +11,7 @@ var instrutoresRouter = require('./routes/instrutoresRouter');
 var modalidadesRouter = require('./routes/modalidadesRouter');
 var turmasRouter = require('./routes/turmasRouter');
 var mensalidadesRouter = require('./routes/mensalidadesRouter');
+var mensalidadesRouter = require('./routes/mensalidadesRouter');
 
 
 
