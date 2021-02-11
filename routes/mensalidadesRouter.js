@@ -25,7 +25,7 @@ router.post('/',async function (req,res,next){
 router.delete('/:id',async function (req,res,next){
     let id_mensalidade = req.params.id;
     let result = await mensalidadesModel.deletaMensalidade(id_mensalidade);
-    res.status(result.status).send(result.data);
+    res.status(result.status).send(id_mensalidade);
     console.log('cheguei Rota');
 })
 

@@ -44,9 +44,9 @@ function deletaMensalidade (id_mensalidade){
             contentType:"application/json",
 
             success:function(dados){
-                
+                console.log(dados);
                 alert('modalidade apagada com sucesso !');
-                window.location.href = "./listarMensalidades.html";
+                
 
               
             },
