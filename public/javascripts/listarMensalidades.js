@@ -44,11 +44,9 @@ function deletaMensalidade (id_mensalidade){
             contentType:"application/json",
 
             success:function(dados){
-                console.log(dados);
                 alert('modalidade apagada com sucesso !');
-                
-
-              
+                str = "#"+dados;
+                $(str).closest("tr").remove();
             },
             error:function(){
                 console.log('Não Foi Possível apagar mensalidade!');
