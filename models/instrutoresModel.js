@@ -3,7 +3,7 @@ var pool = require('./connectBd');
 
 module.exports.getAllInstrutores = async function(){
     try {
-        let sql = "SELECT * FROM instrutores";
+        let sql = " select i.*,m.modalidade from instrutores AS i  inner join modalidades AS m on i.id_modalidade=m.id_modalidade; ";
         let result = await pool.query(sql);
         return {status:200,data:result}
 
@@ -17,8 +17,8 @@ module.exports.getAllInstrutores = async function(){
 
 module.exports.addInstrutor = async function(instrutor){
     try {
-        let sql = "insert into instrutores (nif, nome, contacto, email) VALUES (?,?,?,?)";
-        let result = await pool.query(sql,[instrutor.nif,instrutor.nome,instrutor.contacto,instrutor.email]);
+        let sql = "insert into instrutores (nif, nome, contacto, email, id_modalidade) VALUES (?,?,?,?,?)";
+        let result = await pool.query(sql,[instrutor.nif,instrutor.nome,instrutor.contacto,instrutor.email,instrutor.id_modalidade]);
         return {status:200,data:result};
     
     } catch (error) {
@@ -45,8 +45,8 @@ module.exports.getInstrutor = async function (nif){
 module.exports.updateInstrutor = async function (instrutor){
   try {
     
-    let sql ="update instrutores set nome=?,contacto=?,email=? WHERE nif=?;";
-    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.nif]);
+    let sql ="update instrutores set nome=?,contacto=?,email=?,id_modalidade=? WHERE nif=?;";
+    let result = await pool.query(sql,[instrutor.nome,instrutor.contacto,instrutor.email,instrutor.id_modalidade,instrutor.nif]);
     return {status:200,data:result};
   } catch (error) {
       console.log(error);

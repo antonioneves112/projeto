@@ -47,6 +47,12 @@
     height:35px;
 }
 
+.formulario option {
+    margin: 40px;
+    background:black;
+    color: #fff;
+}
+
 .formulario button:hover {
     background-color: rgba(0, 0, 0, 0.2);
 

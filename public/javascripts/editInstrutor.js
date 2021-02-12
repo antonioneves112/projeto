@@ -1,4 +1,23 @@
 window.onload = function () {
+    $.ajax({
+        url:'/modalidades',
+        method:'get',
+        dataType:'json',
+        success:function(dados){
+            console.log(dados);
+            let options =  $.map(dados,function(v,i){
+               return "<option value='"+v.id_modalidade+"'> "+v.modalidade+" </option>";
+            });
+
+            console.log(options);
+            $("#selectmodalidade").append(options);
+
+
+            
+        },error:function(err){
+            console.log(err)
+        }
+    });
 
     $("#frm").validate({
 
@@ -40,6 +59,7 @@ window.onload = function () {
             document.getElementById('txtnome').value = dados.instrutor.data[0].nome;
             document.getElementById('txtcontacto').value = dados.instrutor.data[0].contacto;
             document.getElementById('txtemail').value = dados.instrutor.data[0].email;
+            document.getElementById('selectmodalidade').value = dados.instrutor.data[0].id_modalidade;
 
 
         }, error: function () {
@@ -61,7 +81,8 @@ $("#btn").click(function (evt) {
             nif: document.getElementById('txtnif').value,
             nome: document.getElementById('txtnome').value,
             contacto: document.getElementById('txtcontacto').value,
-            email: document.getElementById('txtemail').value
+            email: document.getElementById('txtemail').value,
+            id_modalidade : document.getElementById('selectmodalidade').value,
 
 
         };

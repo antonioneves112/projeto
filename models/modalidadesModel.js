@@ -4,7 +4,7 @@ var pool = require('./connectBd');
 
 module.exports.getAllModalidades = async function(){
     try {
-        let sql = "SELECT * FROM modalidades";
+        let sql = "select m.*, i.nome from modalidades AS m inner join instrutores AS i on m.nif_instrutor = i.nif;";
         let result = await pool.query(sql);
         return {status:200,data:result};
     } catch (error) {

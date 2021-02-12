@@ -6,7 +6,7 @@ var pool = require('./connectBd');
 //RECEBE TODOS OS ALUNOS DA BASE DE DADOS
 module.exports.getAllSocios = async function (){
     try {
-        let sql = "SELECT * FROM socios";
+        let sql = "select * from socios AS s inner join VIEW_modalidadessocios AS v on s.nif_socio = v.nif_socio;";
         let socios = await pool.query(sql);
         return {status:200,data:socios};
 
@@ -94,4 +94,3 @@ module.exports.deleteSocio = async function (nif){
         return {status:500,data:error};
     }
 }
-

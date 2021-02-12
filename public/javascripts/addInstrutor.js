@@ -1,5 +1,26 @@
 // =================================== JAVASCRIPT CLIENTE PARA ADICIONAR INSTRUTOR ================================================================================
 $(function (){
+   
+        $.ajax({
+            url:'/modalidades',
+            method:'get',
+            dataType:'json',
+            success:function(dados){
+                console.log(dados);
+                let options =  $.map(dados,function(v,i){
+                   return "<option value='"+v.id_modalidade+"'> "+v.modalidade+" </option>";
+                });
+
+                console.log(options);
+                $("#selectmodalidade").append(options);
+
+    
+                
+            },error:function(err){
+                console.log(err)
+            }
+        });
+   
     $("#frm").validate({
     
             wrapper: 'span',
@@ -41,8 +62,12 @@ $(function (){
               nome: document.getElementById('txtnome').value,
               contacto : document.getElementById('txtcontacto').value,
               email : document.getElementById('txtemail').value,
+              id_modalidade : document.getElementById('selectmodalidade').value,
+
+              
              
           };
+
           $.ajax({
               url:"/instrutores",
               method:"post",
@@ -53,8 +78,9 @@ $(function (){
                   alert('instrutor inserido com sucesso !');
                   window.location.href="./instrutores.html";
               },
-              error:function(){
-                  alert('erro no registo do instrutor');
+              error:function(err){
+              
+                  alert('Chave duplicada');
               }
           });
        }
