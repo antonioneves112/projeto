@@ -19,6 +19,12 @@ router.post('/',async function (req,res,next){
     res.status(result.status).send(result.data);
 })
 
+router.put('/',async function(req,res,next){
+    let mensalidade = req.body;
+   let result = await mensalidadesModel.editMensa(mensalidade);
+    res.status(result.status).send(mensalidade);
+    
+})
 
 
 

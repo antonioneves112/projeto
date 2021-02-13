@@ -3,7 +3,7 @@ var pool = require('./connectBd');
 //CONSULTA NA BASE DE DAODS E RETORNA UM OBJETO COM OS VALORES DA CONSULTA
 module.exports.getMensalidades = async function (){
 try {
-    let sql = "SELECT * FROM mensalidade";
+    let sql = "select m.*,s.nome_socio from socios AS s  inner join mensalidade AS m on s.nif_socio = m.nif_socio order by data_vencimento desc;";
     let result = await pool.query(sql);
     return {status:200,data:result}
 } catch (error) {
@@ -45,3 +45,19 @@ module.exports.deletaMensalidade = async function (id_mensalidade) {
         return {status:500,data:error};
     }
 }
+
+
+module.exports.editMensa = async function(mensalidade){
+    console.log(mensalidade);
+    try {
+        let sql = "update mensalidade set data_pagamento =? , pago=1 , mes=?  where id_mensalidade=? ;"
+        let result = await pool.query(sql,[mensalidade.data_pagamento,mensalidade.mes,mensalidade.id_mensalidade]);
+        return {status:200,data:result};
+        
+    } catch (error) {
+        console.log(error);
+        return {status:500,data:error};
+        
+    }
+} 
+
