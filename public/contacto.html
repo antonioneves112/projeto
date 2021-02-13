@@ -1,9 +1,8 @@
+<!-- Código adaptado de https://www.staticforms.xyz/-->
 <!DOCTYPE html>
 <html>
 
 <head>
-
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,7 +19,7 @@
 
     <title>BOGAS TEAM FIGHT CENTER - CONTACTOS
     </title>
-    
+
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="stylesheets/style.css">
@@ -69,43 +68,24 @@
 
 
         <form action="https://api.staticforms.xyz/submit" method="POST" class="formulario">
-            <input type="hidden" name="accessKey" value="ca6a0505-346b-41c4-8858-fb49e14612b1">
-
-            ca6a0505-346b-41c4-8858-fb49e14612b1
+            
             <fieldset>
                 <legend>
                     Contactos
                 </legend>
-
+                <input type="hidden" name="accessKey" value="ca6a0505-346b-41c4-8858-fb49e14612b1">
                 <label for="name">Nome</label>
-                <input type="text" id="txtnome" name="name" size="70" maxlength="50"
-                    placeholder="insira Nome"><br>
-
-
+                <input type="text" name="name" size="100" maxlength="50"
+                placeholder="Insira o seu nome">
+                <br>
                 <label for="email">Email</label>
-                <input type="text" id="txtemail" name="email" size="70" maxlength="50"
-                    placeholder="insira email"><br>
-
-
-                <textarea name="txtmensagem" id="txtmensagem" name="menssage" cols="100"
-                    rows="10"> Escreva a sua mensagem</textarea><br>
-
-
-                <button type="submit" onclick="enviarMensagem()"> ENVIAR</button>
-
-
-
+                <input type="text" name="email" size="100" maxlength="100" placeholder="insira o seu email" />
+                <br>
+                <textarea name="message" cols="100" rows="10" placeholder="diga nos o que pretende iremos entrar em contacto assim que possível"> </textarea>
+                <input type="hidden" id="txtnome" name="redirectTo" value="./contacto.html">
+                <button> ENVIAR</button>
             </fieldset>
-
-            <div class="result"> </div>
-
-
-
         </form>
-
-        <p id="result"> </p>
-
-
     </section>
 
 

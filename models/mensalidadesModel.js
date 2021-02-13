@@ -50,8 +50,10 @@ module.exports.deletaMensalidade = async function (id_mensalidade) {
 module.exports.editMensa = async function(mensalidade){
     console.log(mensalidade);
     try {
-        let sql = "update mensalidade set data_pagamento =? , pago=1 , mes=?  where id_mensalidade=? ;"
-        let result = await pool.query(sql,[mensalidade.data_pagamento,mensalidade.mes,mensalidade.id_mensalidade]);
+        let sql = "update mensalidade set data_pagamento =?, valor=?, pago=? where id_mensalidade=? ;"
+        let result = await pool.query(sql,[mensalidade.data_pagamento,mensalidade.valor,mensalidade.pago,mensalidade.id_mensalidade]);
+        console.log("xxxxxxxxxxxxxx");
+        console.log(result)
         return {status:200,data:result};
         
     } catch (error) {

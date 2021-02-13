@@ -32,7 +32,7 @@ module.exports.getSocio = async function(nif_socio){
 }
 module.exports.getTurma = async function(nif){
     try {
-        let sql = "select  s.*  from instrutores AS i  inner join aulas AS a on i.nif = a.nif_instrutor inner join turmas AS t on t.id_aula = a.id_aula inner join socios AS s on s.nif_socio = t.nif_socio where i.nif =?;";
+        let sql = "select  s.*, divida(s.nif_socio) AS divida  from instrutores AS i  inner join aulas AS a on i.nif = a.nif_instrutor inner join turmas AS t on t.id_aula = a.id_aula inner join socios AS s on s.nif_socio = t.nif_socio where i.nif =?;";
         let socios = await pool.query(sql,[nif]);
 
         return {status:200,data:socios}
