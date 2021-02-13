@@ -68,28 +68,26 @@
             ajudar: </p>
 
 
-        <form method="get" class="formulario">
+        <form action="https://api.staticforms.xyz/submit" method="POST" class="formulario">
+            <input type="hidden" name="accessKey" value="ca6a0505-346b-41c4-8858-fb49e14612b1">
+
+            ca6a0505-346b-41c4-8858-fb49e14612b1
             <fieldset>
                 <legend>
                     Contactos
                 </legend>
 
                 <label for="name">Nome</label>
-                <input type="text" id="txtnome" size="70" maxlength="50"
+                <input type="text" id="txtnome" name="name" size="70" maxlength="50"
                     placeholder="insira Nome"><br>
 
 
                 <label for="email">Email</label>
-                <input type="text" id="txtemail" size="70" maxlength="50"
+                <input type="text" id="txtemail" name="email" size="70" maxlength="50"
                     placeholder="insira email"><br>
 
 
-                <label for="telefone">Telefone</label>
-                <input type="text" id="txttelefone" size="40" maxlength="50"
-                    placeholder="insira telefone"><br>
-
-
-                <textarea name="txtmensagem" id="txtmensagem" cols="100"
+                <textarea name="txtmensagem" id="txtmensagem" name="menssage" cols="100"
                     rows="10"> Escreva a sua mensagem</textarea><br>
 
 

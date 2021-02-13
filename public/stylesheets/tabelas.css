@@ -1,21 +1,21 @@
-.tabela-lista  {
-    display:inline-block;
+.tabela-lista {
+    display: inline-block;
     margin: 20px;
     color: white;
     padding: 10px;
-    width:auto;
-    
-   
+    width: auto;
+
+
 
 }
 
-.tabela-lista th{
-    font-size:25px;
-    color:white;
+.tabela-lista th {
+    font-size: 25px;
+    color: white;
     font-family: play;
-    padding:5px;
-    margin:20px;
-    text-align:left;
+    padding: 5px;
+    margin: 20px;
+    text-align: left;
     border: 1px solid white;
 }
 
@@ -27,18 +27,21 @@
     margin: 15px;
     color: white;
     padding: 7px;
-    text-align:left;
-    font-size:25px;
-   
+    text-align: left;
+    font-size: 25px;
+
 
 }
 
 
 .tabela-lista tbody td a {
-    text-decoration-color: greenyellow;
-    color: greenyellow;
-    font-style: 15px;
-    margin-left:30px;
+    text-decoration-color: white;
+    font-style: 23px;
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
 }
 
 
@@ -47,19 +50,30 @@
     color: black;
     background-color: rgba(255, 255, 255, 0.6);
     transition: 0.6s;
-    margin:0px;
+    margin: 0px;
 
 }
 
-.btnk{
-    
-    color:red;
-    background-color:rgba(0, 0, 0, 0);
+.btnk {
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
     font-family: oswald;
-    font-size:15px;
-    border:1px black;
-    text-decoration:underline;
-    margin-left:30px;
-    
-   
+    font-size: 20px;
+    border: 1px black;
+    margin-left: 30px;
+    font-weight: bold;
+
+
+}
+
+.btnk:hover {
+
+    color: red;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: bold;
+
+
 }
