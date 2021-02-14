@@ -77,3 +77,21 @@
 
 
 }
+
+#selectsocios {
+    margin: 30px;
+    font-size: 20px;
+    width: 400px;
+    background-color: black;
+    color: white;
+    font-family: oswald;
+    
+}
+
+#labelsocios {
+    color: white;
+    font-size:40px;
+    font-family: goldman;
+    font-weight:bold;
+
+}

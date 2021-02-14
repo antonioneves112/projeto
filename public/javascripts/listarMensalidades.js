@@ -17,8 +17,20 @@ function cancelMensalidade(id_mensalidade) {
 }
 
 
-
 $(function () {
+    $.ajax({
+        url:'/socios',
+        method:'get',
+        dataType:'json',
+        success:function(dados){
+            let options =  $.map(dados,function(v,i){
+               return "<option value='"+v.nome_socio+"'> "+v.nome_socio+" </option>";
+            });
+            $("#selectsocios").append(options);
+        },error:function(err){
+            console.log('erro select')
+        }
+    });
     loadMensalidades();
 });
 
