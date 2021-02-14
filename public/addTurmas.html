@@ -2,8 +2,6 @@
 <html>
 
 <head>
-
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,21 +14,14 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-
-
-
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/form.css">
     <link rel="stylesheet" href="stylesheets/tabelas.css">
-
+    <link rel="stylesheet" href="stylesheets/validacao.css">
     <title>BOGAS TEAM FIGHT CENTER - REGISTAR TURMA</title>
 
-    
+
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
-
-
-
-
 </head>
 
 
@@ -39,16 +30,13 @@
         <img class="bogas-logo" src="./img/logo-bogas-oval.png" alt="logo-bogas">
         <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
     </header>
-
-
     <nav class="menu">
         <li> <a href="index.html">
                 HOME</a></li>
-        <li> <a href="socios.html">
+        <li> <a href="listarSocios.html">
                 SÓCIOS</a></li>
         <li> <a href="instrutores.html">
                 INSTRUTORES</a></li>
-
         <li> <a href="listarModalidades.html">
                 MODALIDADES</a></li>
         <li> <a href="listarMensalidades.html">
@@ -58,51 +46,37 @@
     <section class="main">
         <h2 class="titulos-main"> Gestão Inscrição na aula </h2>
 
+        <form id="frm" class="formulario">
+            <fieldset>
+                <legend>
+                    Turma
+                </legend>
+                <label for="txtnif_socio">
+                    NIF SÓCIO </label>
+                <input type="text" placeholder="insira nif sócio" id="txtnif_socio"
+                    name="txtnif_socio">
 
+                <br>
+                <label for="txtid_aula">
+                    ID AULA </label>
+                <input type="text" placeholder="insira id da aula" id="txtid_aula"
+                    name="txtid_aula">
+                <br>
+                <button id="btn"> REGISTAR </button>
+            </fieldset>
 
-
-
-
-
-
-        <table class="tabela-lista">
-            <thead>
-                <tr>
-                    <th>
-                        NIF
-                    </th>
-                    <th>
-                        INSTRUTOR
-                    </th>
-                    <th>
-                        ID_AULA
-                    </th>
-                    <th>
-                        NOME SÓCIO
-                    </th>
-                    <th>
-                        DEL /
-
-                        EDIT
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="result">
-
-            </tbody>
-
-        </table>
-
-
+            <h2 id="result"> </h2>
         </form>
+
+
+
 
     </section>
 
     <section class="aside">
         <h2 class="titulos-aside"> Sócios</h2>
-        <a href="listarSocios.html"><img class="img-aside-socio" src="./img/listaicon.png"
-                title=""></a>
-        <p class="texto-aside-socios">Listar Sócios</p>
+        <a href="turmas.html"><img class="img-aside-socio" src="./img/listaicon.png" title=""></a>
+        <p class="texto-aside-socios">Turmas</p>
         <br>
 
 
@@ -116,9 +90,12 @@
     </section>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    <script src="javascripts/jquery-3.5.1.js"></script>
+    <script src="javascripts/additional-methods.js"></script>
+    <script src="javascripts/jquery.validate.min.js"></script>
+
     </script>
-    <script src="javascripts/listarTurmas.js">
+    <script src="javascripts/addTurmas.js">
     </script>
 
 </body>

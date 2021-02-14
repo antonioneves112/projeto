@@ -26,9 +26,12 @@ router.delete('/:id_aula/:nif_socio',async function (req,res,next){
 })
 
 
-
-
-
+router.post('/',async function (req,res,next){
+    let turma = req.body;
+    console.log()
+    let result = await turmasModel.addSocioTurma(turma);
+    res.status(result.status).send(result.data);
+})
 
 
 
