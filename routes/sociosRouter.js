@@ -20,6 +20,8 @@ router.get('/:id', async function(req,res,next){
         
 })
 
+
+
 //ROTA RETORNAR UM SOCIO
 router.get('/turmas/:id', async function(req,res,next){
     let nif= req.params.id;

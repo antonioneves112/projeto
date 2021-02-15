@@ -6,7 +6,7 @@ var pool = require('./connectBd');
 //RECEBE TODOS OS ALUNOS DA BASE DE DADOS
 module.exports.getAllSocios = async function (){
     try {
-        let sql = "select * from socios AS s inner join VIEW_modalidadessocios AS v on s.nif_socio = v.nif_socio;";
+        let sql = "select * from socios;";
         let socios = await pool.query(sql);
         return {status:200,data:socios};
 
@@ -16,6 +16,20 @@ module.exports.getAllSocios = async function (){
     }
 }
 
+
+/*
+module.exports.getFiltroMensalidadeNome = async function (nome){
+    try {
+        let sql = "select * from socios AS s left join VIEW_modalidadessocios AS v on s.nif_socio = v.nif_socio where nome_socio";
+        let socios = await pool.query(sql);
+        return {status:200,data:socios};
+
+    } catch (error) {
+        console.log(error);
+        return {status:500,data:error};
+    }
+}
+*/
 
 
 module.exports.getSocio = async function(nif_socio){

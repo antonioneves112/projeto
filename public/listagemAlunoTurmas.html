@@ -2,6 +2,13 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/tabelas.css">
+
+
+
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,17 +20,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap"
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-    <title>BOGAS TEAM FIGHT CENTER - TURMAS</title>
+    <title>BOGAS TEAM FIGHT CENTER - LISTAGEM ALUNOS TURMA </title>
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
 
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
 
-    <link rel="shortcut icon" href="./img/favicon2.ico" />
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/turmas.css">
-    <link rel="stylesheet" href="./stylesheets/tabelas.css">
 </head>
 
 
@@ -33,88 +35,57 @@
         <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
     </header>
 
+
     <nav class="menu">
         <ul>
             <li> <a href="gestao.html">
                     GESTÃO</a></li>
-
             <li> <a href="listarSocios.html">
                     SÓCIOS</a></li>
 
             <li> <a href="instrutores.html">
                     INSTRUTORES</a></li>
-
             <li> <a href="listarMensalidades.html">
                     MENSALIDADES</a></li>
 
-
             <li> <a href="listarModalidades.html">
                     MODALIDADES</a></li>
+
+
 
 
         </ul>
     </nav>
 
     <section class="main">
-        <h2 class="titulos-main"> SÓCIOS POR INSTRUTOR</h2>
+        <h2 class="titulos-main"> Listagem Alunos Turmas</h2>
 
-        <div class="quadro-treinadores">
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(222351225)">
-
-                <img src="img/bogascara.JPG" alt="foto">
-            </button>
-
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(273666541)">
-
-                <img class="img-treinador" src="img/nevinhos.JPG" alt="foto">
-            </button>
-
-
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(240250931)">
-
-                <img src="img/miguelcara.JPG" alt="foto">
-            </button>
-
-            <button type="submit" name="learn" value="myimage" onclick="getTurma(267925484)">
-
-                <img src="img/edson.PNG" alt="foto">
-            </button>
-
-
-
-
-
-
-
-
-
-        </div>
         <table class="tabela-lista">
             <thead>
                 <tr>
+
                     <th>
-                        NIF
+                        ID AULA
                     </th>
                     <th>
-                        DIVIDA
+                        MODALIDADE
                     </th>
                     <th>
-                        NOME
+                        INSTRUTOR
+                    </th>
+
+                    <th>
+                        NIF SÓCIO
                     </th>
                     <th>
-                        MORADA
+                        NOME SÓCIO
                     </th>
+
                     <th>
-                        TELEFONE
+                        Del
                     </th>
-                    <th>
-                        DELETE
-                    </th>
-                    <th>
-                        UPDATE
-                    </th>
+
+                    
                 </tr>
             </thead>
             <tbody id="result">
@@ -122,21 +93,34 @@
             </tbody>
 
         </table>
-    </section>
+        <br>
+        <label for="selectfiltrosocio"> Filtro por sócio : </label>
+        <select class="filtros-select" name="selectsocios" id="selectfiltrosocio">
 
+        </select>
+        <br>
+        <label for="selectfiltroinstrutor"> Filtro por Instrutor : </label>
+        <select class="filtros-select" name="selectdivida" id="selectfiltroinstrutor">
 
-    <section class="aside">
-        <h2 class="titulos-aside">
-            Treinadores
-        </h2>
-
-        <a href="addTurmas.html"><img class="img-aside-socio" src="./img/addsocio.png" title=""></a>
-        <p class="texto-aside-socios">Registar Sócio Aula </p>
+        </select>
         <br>
 
 
 
+
+
     </section>
+
+    <section class="aside">
+        <h2 class="titulos-aside"> Gestão</h2>
+
+        <a href="addMensalidade.html"><img class="img-aside-socio" src="./img/addsocio.png"
+                title=""></a>
+        <p class="texto-aside">Registar Mensalidade</p>
+        <br>
+
+    </section>
+
 
     <section class="footer">
         <p> BOGAS TEAM FIGHT CENTER - R. Ten.
@@ -144,10 +128,17 @@
             29B, 2720-525 Amadora <p>
     </section>
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
-    <script src="javascripts/getTurmas.js">
-    </script>
+    <script src="jquery-3.5.1.js"></script>
+
+
+    <script src="javascripts/listagemAlunosTurmas.js"></script>
+</body>
+
+</html>
+
 </body>
 
 </html>

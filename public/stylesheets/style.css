@@ -262,6 +262,14 @@ body {
     transition: 0.6s;
 }
 
+.img-aside-logo {
+    margin-top:30px;
+    width: 150px;
+}
+.img-aside-logo:hover {
+   border: 2px solid white;
+}
+
 .video-aside {
     width: 180px;
     height: 180px;
