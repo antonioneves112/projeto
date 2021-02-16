@@ -1,59 +1,67 @@
-//AO CARREGAR A PÁGINA CARREGA A FUNÇÃO LOADMODALIDADES
-window.onload = function (){
-    loadModalidades();
-}
 
-//LADO CLIENTE PASSA REQUISIÇÃO DE QUE QUER TODAS AS MODALIDADES PARA A ROTA QUE POR SUA VEZ VAI RETORNAR DO MODEL OS VALORES RETIRADOS DA BASE DE DADOS
-async function loadModalidades(){
+//-----------------------------------------------------------------------------------  ONLOAD ------------------------------------------------------------------------------------------------
+$(function () {
+    loadModalidades();
+});
+
+//-----------------------------------------------------------------------------------  FIM ONLOAD ------------------------------------------------------------------------------------------------
+
+async function loadModalidades() {
     try {
         let modalidades = await $.ajax({
-            url:'/modalidades',
-            method:'get',
-            dataType:'json'
+            url: '/modalidades',
+            method: 'get',
+            dataType: 'json',
+            contentType: 'application/jason',
+            success: function (dados) {
+                showModalidades(dados);
+            }, error: function () {
+                alert('falha na listagem das modalidades');
+            }
         });
-        showModalidades(modalidades);
     } catch (error) {
-        let result = document.getElementById('result');
-        result.innerHTML = "<h2> FALHA NA LISTAGEM DE MODALIDADES </h2>"
+        console.log(error);
+        let result = $('#result');
+        result.html('<h2> Falha ao Carregar Modalidades </h2>')
     }
 }
 
-//FUNÇÃO QUE INJETA OS VALORES DO OBJETO RETORNADOS PELO MODEL 
-function showModalidades(modalidades){
-    console.log(modalidades);
-    let linhas = "";
-    let result = document.getElementById('result');
-    for (let i of modalidades){
-        linhas+= "<tr> <td> "+i.id_modalidade +"<td>"+i.modalidade+"</td> " + "<td>" + i.nif_instrutor + "</td>" + "<td> "+ i.nome+" </td>"+
-        "<td> <input type='button' class='btnk'  id='"+encodeURI(i.id_modalidade) +"'     onclick='deletaModalidade(" + encodeURI(i.id_modalidade) +  ")'  value='DEL'  /> </td>  </tr> ";
-    }
-    result.innerHTML=linhas;
-}
-
-//FUNÇÃO PARA APAGAR MODALIDADE CLIENTE ENVIA O NIF PARA A ROTA , A ROTA ENVIA PARA O MODEL O NIF PARA FAZER A QUERY NA BASE DE DADOS
-function deletaModalidade(nif){
+function showModalidades(modalidades) {
     try {
-        let confirma = confirm('Deseja mesmo apagar modalidade ?');
-        if(!confirma){
-            return false;
+        let linhas = '';
+        let result = document.getElementById('result');
+        for (let i of modalidades) {
+            linhas += "<tr> <td> " + i.id_modalidade + "<td>" + i.modalidade + "</td> " + "<td>" + i.nif_instrutor + "</td>" + "<td> " + i.nome + " </td>" +
+                "<td> <input type='button' class='btnk'  id='" + encodeURI(i.id_modalidade) + "'     onclick='deletaModalidade(" + encodeURI(i.id_modalidade) + ")'  value='DEL'  /> </td>  </tr> ";
         }
-         $.ajax({
-            url:'/modalidades/'+nif,
+        result.innerHTML = linhas;
+    } catch (error) {
+        console.log(error);
+        let result = $('#result');
+        result.html('<h2> Falha ao mostrar Modalidades </h2>')
+    }
+
+}
+
+async function deletaModalidade(id_modalidade){
+    try {
+        let confirma = confirm('Deseja realmente apagar modalidade?');
+        if (!confirma) return false;
+        await $.ajax({
+            url:'/modalidades/'+ id_modalidade,
             method:'delete',
             dataType:'json',
-            contentType:"application/json",
+            contentType:'application/json',
             success:function(dados){
-                //COM ID RECEBIDO EM DADOS VOU REFERENCIAR EM JQUERY O BOTAO CLICADO NA TABELA. POR SUA VEZ O BOTAO REFERENCIA A LINHA MAIS PROXIMA ONDE ESTA METIDO E REMOVE.
-                let str = "#" + dados;
-                alert(str);
-                $(str).closest("tr").remove();
-            },
-            error:function(){
-                alert('Não foi possível apagar modalidade!');
+                alert('modalidade eliminada com sucesso');
+                let str = '#' + dados;
+                $(str).closest('tr').remove();
+
+            },error:function(){
+                alert('erro na eliminação da modalidade');
             }
         })
     } catch (error) {
         console.log(error);
     }
-
 }

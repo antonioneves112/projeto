@@ -1,36 +1,20 @@
 var express = require('express');
-
 var router = express.Router();
 var instrutoresModel = require('../models/instrutoresModel');
 
-
-
 //ROTA PARA RECEBER TODOS OS INSTRUTORES
 router.get('/', async function(req,res,next){
-    let socios = await instrutoresModel.getAllInstrutores();
-  
+    let socios = await instrutoresModel.getAllInstrutores();  
     res.status(socios.status).send(socios.data);
 });
 
-
-//ROTA PARA RECEBER UM INSTRUTOR
-/*
+//ROTA PARA RECEBER UM INSTRUTOR | RECEBE TAMBÉM MODALIDADES
 router.get('/:id',async function(req,res,next){
-    
-    let nif= req.params.id;
-    console.log(nif);
-    let result = await instrutoresModel.getInstrutor(nif);
-    res.status(result.status).send(result.data);
-})
-*/
-
-router.get('/:id',async function(req,res,next){
-    
     let nif= req.params.id;
     console.log(nif);
     let inst = await instrutoresModel.getInstrutor(nif);
-    let modls=await instrutoresModel.getmodalidades();
-    let mydata={instrutor:inst,modalidades:modls }
+    let modls = await instrutoresModel.getmodalidadesInstrutor();
+    let mydata= {instrutor:inst,modalidades:modls }
     res.status(inst.status).send(mydata);
 })
 
@@ -41,8 +25,6 @@ router.post('/',async function(req,res,next){
     res.status(result.status).send(result.data);
 });
 
-
-
 //ROTA PARA ATUALIZAR UM INSTRUTOR
 router.put('/',async function(req,res,next){
         let instrutor = req.body;
@@ -50,20 +32,12 @@ router.put('/',async function(req,res,next){
         res.status(result.status).send(result.data);
 })
 
-
-
+//ROTA PARA APAGAR UM SÓCIO 
 router.delete('/:id',async function(req,res,next){
     let nif = req.params.id;
     let result = await instrutoresModel.deleteInstrutor(nif);
     res.status(result.status).send(nif);
 })
 
-
-
-
-
-
-
-
-
 module.exports = router;
+
