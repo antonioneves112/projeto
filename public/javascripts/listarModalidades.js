@@ -9,7 +9,7 @@ $(function () {
 async function loadModalidades() {
     try {
         let modalidades = await $.ajax({
-            url: '/modalidades',
+            url: '/modalidades/ins',
             method: 'get',
             dataType: 'json',
             contentType: 'application/jason',
@@ -31,7 +31,7 @@ function showModalidades(modalidades) {
         let linhas = '';
         let result = document.getElementById('result');
         for (let i of modalidades) {
-            linhas += "<tr> <td> " + i.id_modalidade + "<td>" + i.modalidade + "</td> " + "<td>" + i.nif_instrutor + "</td>" + "<td> " + i.nome + " </td>" +
+            linhas += "<tr> <td> " + i.id_modalidade + "<td>" + i.modalidade + "</td> " + "<td> " + i.nome + " </td>" +
                 "<td> <input type='button' class='btnk'  id='" + encodeURI(i.id_modalidade) + "'     onclick='deletaModalidade(" + encodeURI(i.id_modalidade) + ")'  value='DEL'  /> </td>  </tr> ";
         }
         result.innerHTML = linhas;
@@ -43,21 +43,21 @@ function showModalidades(modalidades) {
 
 }
 
-async function deletaModalidade(id_modalidade){
+async function deletaModalidade(id_modalidade) {
     try {
         let confirma = confirm('Deseja realmente apagar modalidade?');
         if (!confirma) return false;
         await $.ajax({
-            url:'/modalidades/'+ id_modalidade,
-            method:'delete',
-            dataType:'json',
-            contentType:'application/json',
-            success:function(dados){
+            url: '/modalidades/' + id_modalidade,
+            method: 'delete',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (dados) {
                 alert('modalidade eliminada com sucesso');
                 let str = '#' + dados;
                 $(str).closest('tr').remove();
 
-            },error:function(){
+            }, error: function () {
                 alert('erro na eliminação da modalidade');
             }
         })

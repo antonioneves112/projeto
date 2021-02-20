@@ -18,9 +18,9 @@ router.get('/:id', async function (req, res, next) {
 })
 
 //ROTA RETORNAR UM SOCIO DE UMA TURMA
-router.get('/turmas/:id', async function (req, res, next) {
+router.get('/home/:id', async function (req, res, next) {
         let nif = req.params.id;
-        let result = await sociosModel.getAlunoTurma(nif);
+        let result = await sociosModel.getAlunoTurmaHome(nif);
         res.status(result.status).send(result.data)
 })
 

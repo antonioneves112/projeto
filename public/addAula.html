@@ -22,7 +22,8 @@
   <link rel="stylesheet" href="stylesheets/form.css">
   <link rel="stylesheet" href="stylesheets/validacao.css">
 
-  <title>BOGAS TEAM FIGHT CENTER - LISTAR SÓCIOS</title>
+  <title>BOGAS TEAM FIGHT CENTER - REGISTAR AULA</title>
+
   <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
 
 
@@ -40,75 +41,54 @@
 
 
   <nav class="menu">
+    <ul>
+      <li> <a href="listarSocios.html">
+          SÓCIOS</a></li>
+      <li> <a href="listarInstrutores.html">
+          INSTRUTORES</a></li>
 
-    <li> <a href="listarInstrutores.html">
-        INSTRUTORES</a></li>
+      <li> <a href="listagemAlunoTurmas.html">
+          LISTA TURMA</a></li>
 
-    <li> <a href="listagemAlunoTurmas.html">
-        LISTA TURMA</a></li>
+      <li> <a href="listarMensalidades.html">
+          MENSALIDADES</a></li>
+      <li> <a href="listarModalidades.html">
+          MODALIDADES</a></li>
 
-    <li> <a href="listarMensalidades.html">
-        MENSALIDADES</a></li>
-    <li> <a href="listarModalidades.html">
-        MODALIDADES</a></li>
-    <li> <a href="listaAulas.html">
-        AULAS</a></li>
   </nav>
 
   <section class="main">
-    <h2 class="titulos-main"> Editar Sócio</h2>
+    <h2 class="titulos-main"> Registar Aula</h2>
 
 
     <form id="frm" class="formulario">
       <fieldset>
         <legend>
-          Sócio
+          Aula
         </legend>
 
-        <label for="txtnif_socio"> NIF</label>
-        <input type="text" placeholder="insira nif" id="txtnif_socio" name="txtnif_socio">
+        <label for="selectnif"> NIF INSTRUTOR</label>
+        <select id="selectnif">
+
+        </select>
         <br>
 
-        <label for="txtnome_socio">
-          NOME</label>
-        <input type="text" placeholder="insira nome" id="txtnome_socio" name="txtnome_socio">
-        <br>
-
-        <label for="txtmorada">
-          MORADA</label>
-        <input type="text" placeholder="insira morada" id="txtmorada" name="txtmorada">
-
-        <br>
-
-        <label for="txtemail"> EMAIL</label>
-        <input type="email" placeholder="insira email" id="txtemail" name="txtemail">
-        <br>
-
-        <label for="txttelefone">
-          TELEFONE</label>
-        <input type="text" placeholder="insira Contacto Telefónico" id="txttelefone"
-          name="txttelefone">
-        <br>
-
-        <label for="txtnib"> NIB</label>
-        <input type="text" placeholder="insira nib" id="txtnib" name="txtnib">
-        <br>
-
-        <button id="btn"> ATUALIZAR </button>
-
+        <button id="btn"> REGISTAR </button>
 
       </fieldset>
 
       <h2 id="result"> </h2>
     </form>
 
+
   </section>
 
   <section class="aside">
-    <h2 class="titulos-aside"> Sócios</h2>
-    <a href="listarSocios.html"><img class="img-aside-socio" src="./img/listaicon.png" title=""></a>
-    <p class="texto-aside-socios">Listar Sócios</p>
+    <h2 class="titulos-aside"> INSTRUTOR</h2>
+    <a href="listaAulas.html"><img class="img-aside-socio" src="./img/listaicon.png" title=""></a>
+    <p class="texto-aside-socios">Listar Aulas</p>
     <br>
+
 
   </section>
 
@@ -126,9 +106,7 @@
 
 
 
-
-
-  <script src="javascripts/editSocio.js">
+  <script src="javascripts/addAula.js">
   </script>
 
 </body>

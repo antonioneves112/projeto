@@ -1,43 +1,34 @@
-var pool = require('./connectBd');
+const pool = require('./connectBd');
 
-module.exports.getAllTurmas = async function () {
+module.exports.getAulas = async function () {
     try {
-        let sql = "SELECT * from turmas";
+        let sql = "select a.*,i.nome from aulas AS a inner join instrutores AS i on i.nif = a.nif_instrutor;";
         let result = await pool.query(sql);
-        return { status: 200, data: result };
+        return { status: 200, data: result }
     } catch (error) {
         console.log(error);
-        return { status: 500, data: error };
+        return { status: 200, data: result }
     }
 }
 
-module.exports.getAllTurmasModalidade = async function () {
+module.exports.apagaAula = async function (nif) {
     try {
-        let sql = "select id_aula, concat(i.nome ,' - ' , m.modalidade) as descricao from  instrutores i inner join  modalidades m  on m.id_modalidade =i.id_modalidade inner join aulas a on a.nif_instrutor =i.nif;";
-        let result = await pool.query(sql);
-        return { status: 200, data: result };
+        let sql = "DELETE from aulas where id_aula = ?";
+        let result = await pool.query(sql, [nif]);
+        return { status: 200, data: result }
     } catch (error) {
         console.log(error);
-        return { status: 500, data: error };
+        return { status: 500, data: error }
     }
 }
 
-
-
-
-module.exports.getAllTurmasSocioAula = async function () {
+module.exports.addAula = async function (aulas) {
     try {
-        let sql = "select s.nif_socio,s.nome_socio from socios AS s;";
-        let result = await pool.query(sql);
-        return { status: 200, data: result };
+        let sql = "INSERT INTO aulas (nif_instrutor) VALUES (?)";
+        let result = await pool.query(sql, [aulas.nif_instrutor]);
+        return { status: 200, data: result }
     } catch (error) {
         console.log(error);
-        return { status: 500, data: error };
+        return { status: 500, data: error }
     }
 }
-
-
-
-
-
-

@@ -11,6 +11,7 @@ var instrutoresRouter = require('./routes/instrutoresRouter');
 var modalidadesRouter = require('./routes/modalidadesRouter');
 var turmasRouter = require('./routes/turmasRouter');
 var mensalidadesRouter = require('./routes/mensalidadesRouter');
+var aulasRouter = require('./routes/aulasRouter');
 
 
 
@@ -35,6 +36,7 @@ app.use('/instrutores',instrutoresRouter);
 app.use('/modalidades',modalidadesRouter);
 app.use('/turmas',turmasRouter);
 app.use('/mensalidades',mensalidadesRouter);
+app.use('/aulas',aulasRouter);
 
 
 

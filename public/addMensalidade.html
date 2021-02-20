@@ -36,26 +36,27 @@
 
 <body class="grid-container">
     <header class="header">
-        <img class="bogas-logo" src="./img/logo-bogas-oval.png" alt="logo-bogas">
+        <a href="index.html"> <img class="bogas-logo" src="./img/logo-bogas-oval.png"
+                alt="logo-bogas"></a>
         <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
     </header>
 
 
     <nav class="menu">
         <ul>
-            <li> <a href="index.html">
-                    HOME</a></li>
             <li> <a href="listarSocios.html">
                     SÓCIOS</a></li>
             <li> <a href="listarInstrutores.html">
                     INSTRUTORES</a></li>
-            <li> <a href="turmas.html">
-                    TURMAS</a></li>
+
             <li> <a href="listagemAlunoTurmas.html">
-                    TURMAS</a></li>
+                    LISTA TURMA</a></li>
+
+
             <li> <a href="listarModalidades.html">
                     MODALIDADES</a></li>
-
+            <li> <a href="listaAulas.html">
+                    AULAS</a></li>
 
         </ul>
     </nav>
@@ -70,10 +71,11 @@
                     MENSALIDADE
                 </legend>
 
-                <label for="txtnif_socio">
-                    NIF SÓCIO </label>
-                <input type="text" placeholder="insira nif_mensalidade" id="txtnif_socio"
-                    name="txtnif_socio">
+
+                <label for="selecttxtnif"> NIF SÓCIO </label>
+                <select id="selecttxtnif">
+
+                </select>
                 <br>
 
                 <label for="txtdata_vencimento">
@@ -88,8 +90,11 @@
                     name="txtdata_pagamento">
                 <br>
 
-                <label for="txtvalor"> VALOR PAGAMENTO </label>
-                <input type="text" placeholder="insira valor" id="txtvalor" name="txtvalor">
+                <label for="txtvalor"> VALOR </label>
+                <select id="txtvalor">
+                    <option value="25"> 25 € - Modalidade</option>
+                    <option value="25"> 50 € - Livre trânsito</option>
+                </select>
                 <br>
 
 

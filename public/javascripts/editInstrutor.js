@@ -21,7 +21,6 @@ function preencheSelectModalidades() {
                 let options = $.map(dados, function (v, i) {
                     return `<option value='${v.id_modalidade}'> ${v.modalidade} </option>`;
                 });
-                console.log(options);
                 $('#selectmodalidade').append(options);
 
             }, error: function () {
@@ -67,11 +66,11 @@ function insereDadosNoFormulario(myParam) {
             dataType: 'json',
             contentType: 'application/jason',
             success: function (dados) {
-                document.getElementById('txtnif').value = dados.instrutor.data[0].nif;
-                document.getElementById('txtnome').value = dados.instrutor.data[0].nome;
-                document.getElementById('txtcontacto').value = dados.instrutor.data[0].contacto;
-                document.getElementById('txtemail').value = dados.instrutor.data[0].email;
-                document.getElementById('selectmodalidade').value = dados.instrutor.data[0].id_modalidade;
+                document.getElementById('txtnif').value = dados[0].nif;
+                document.getElementById('txtnome').value = dados[0].nome;
+                document.getElementById('txtcontacto').value = dados[0].contacto;
+                document.getElementById('txtemail').value = dados[0].email;
+                document.getElementById('selectmodalidade').value = dados[0].id_modalidade;
             }, error: function () {
                 alert('falha na inserção dos dados no formulário');
             }
@@ -87,9 +86,8 @@ function submeterFormulario() {
             evt = evt ? evt : window.event;
             evt.preventDefault();
             if ($("#frm").valid()) {
-
                 let instrutor = {
-                    nif: document.getElementById('txtnif').value,
+                    nif:document.getElementById('txtnif').value,
                     nome: document.getElementById('txtnome').value,
                     contacto: document.getElementById('txtcontacto').value,
                     email: document.getElementById('txtemail').value,

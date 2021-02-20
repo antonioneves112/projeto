@@ -1,8 +1,14 @@
-//---------------------------------------------------------------- ONLOAD ----------------------------------------------------------------------------------------
 
-// ---------------- FUNÇÃO QUE VALIDA OS CAMPOS DO FORMULÁRIO   ADAPTADO DE : https://jqueryvalidation.org/validate/  ---------------------------------
+//------------------------------------------------------------- ON LOAD ------------------------------------------------------------------
 $(function () {
+    validarFomulario();
+    submeterFormulario();
 
+});
+
+//------------------------------------------------------------- FIM ONLOAD -------------------------------------------------------------------
+//FUNÇÃO QUE VALIDA OS CAMPOS DO FORMULÁRIO   ADAPTADO DE : https://jqueryvalidation.org/validate/ 
+function validarFomulario() {
     $("#frm").validate({
         wrapper: 'span',
         errorPlacement: function (error, element) {
@@ -26,39 +32,39 @@ $(function () {
             txttelefone: { required: 'Campo obrigatório', digits: 'insira apenas digitos' },
         },
     });
-});
+}
 
-// -------------------------------------------------------------------------------  FIM ONLOAD ------------------------------------------------------------------------------
-//-------------------  QUANDO O BOTÃO FOR CLICADO ENVIA OS DADOS RETIRADOS DO FORMULÁRIO SÃO ENVIADOS PARA A ROTA -------------------
-$("#btn").click(function (evt) {
-    evt = evt ? evt : window.event;
-    evt.preventDefault();
-    if ($("#frm").valid()) {
-        let socio = {
-            nif_socio: document.getElementById('txtnif_socio').value,
-            nome_socio: document.getElementById('txtnome_socio').value,
-            morada: document.getElementById('txtmorada').value,
-            email: document.getElementById('txtemail').value,
-            telefone: document.getElementById('txttelefone').value,
-            nib: document.getElementById('txtnib').value
-        };
-        $.ajax({
-            url: "/socios",
-            method: "post",
-            dataType: "json",
-            data: JSON.stringify(socio),
-            contentType: "application/json",
-            success: function (dados) {
-                alert('Sócio inserido com sucesso !');
-                window.location.href = "./listarSocios.html";
-            },
-            error: function () {
-                alert('erro no registo do sócio');
-            }
-        });
-    }
-    else {
-        alert("Formulário Inválido");
-    }
+function submeterFormulario() {
+    $("#btn").click(function (evt) {
+        evt = evt ? evt : window.event;
+        evt.preventDefault();
+        if ($("#frm").valid()) {
+            let socio = {
+                nif_socio: document.getElementById('txtnif_socio').value,
+                nome_socio: document.getElementById('txtnome_socio').value,
+                morada: document.getElementById('txtmorada').value,
+                email: document.getElementById('txtemail').value,
+                telefone: document.getElementById('txttelefone').value,
+                nib: document.getElementById('txtnib').value
+            };
+            $.ajax({
+                url: "/socios",
+                method: "post",
+                dataType: "json",
+                data: JSON.stringify(socio),
+                contentType: "application/json",
+                success: function (dados) {
+                    alert('Sócio inserido com sucesso !');
+                    window.location.href = "./listarSocios.html";
+                },
+                error: function () {
+                    alert('erro no registo do sócio');
+                }
+            });
+        }
+        else {
+            alert("Formulário Inválido");
+        }
 
-});
+    });
+}

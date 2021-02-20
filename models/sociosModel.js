@@ -13,6 +13,8 @@ module.exports.getAllSocios = async function () {
     }
 }
 
+
+
 /*
 module.exports.getFiltroMensalidadeNome = async function (nome){
     try {
@@ -41,9 +43,9 @@ module.exports.getSocio = async function (nif_socio) {
     }
 }
 
-module.exports.getAlunoTurma = async function (nif) {
+module.exports.getAlunoTurmaHome = async function (nif) {
     try {
-        let sql = "SELECT  s.*, divida(s.nif_socio) AS divida  FROM instrutores AS i  inner join aulas AS a on i.nif = a.nif_instrutor inner join turmas AS t on t.id_aula = a.id_aula inner join socios AS s on s.nif_socio = t.nif_socio WHERE i.nif =?;";
+        let sql = "select s.nome_socio from socios AS s inner join turmas AS t on s.nif_socio=t.nif_socio inner join aulas AS a on a.id_aula= t.id_aula inner join instrutores AS i on i.nif=a.nif_instrutor where i.nif=?;"
         let socios = await pool.query(sql, [nif]);
         return { status: 200, data: socios }
     } catch (error) {
@@ -55,7 +57,7 @@ module.exports.getAlunoTurma = async function (nif) {
 //INSERE UM NOVO SÓCIO
 module.exports.addSocio = async function (socio) {
     try {
-        let sql = "INSERT INTO socios(nif_socio,nome_socio,morada,email,telefone,nib) VALUES (?,?,?,?,?,?);" 
+        let sql = "INSERT INTO socios(nif_socio,nome_socio,morada,email,telefone,nib) VALUES (?,?,?,?,?,?);"
         let result = await pool.query(sql, [socio.nif_socio, socio.nome_socio, socio.morada, socio.email, socio.telefone, socio.nib]);
         return { status: 200, data: result };
     } catch (error) {

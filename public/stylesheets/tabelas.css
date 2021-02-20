@@ -4,6 +4,7 @@
     color: white;
     padding: 10px;
     width: auto;
+    margin-top: 50px;
 
 
 
@@ -17,81 +18,146 @@
     margin: 20px;
     text-align: left;
     border: 1px solid white;
-}
+    text-align: center;
+    background-color: rgba(70, 102, 255, 0.5);
+    }
 
 
 
 
-.tabela-lista td {
+    .tabela-lista td {
 
-    margin: 15px;
-    color: white;
-    padding: 7px;
-    text-align: left;
-    font-size: 25px;
-
-
-}
+        margin: 15px;
+        color: white;
+        padding: 7px;
+        text-align: left;
+        font-size: 25px;
 
 
-.tabela-lista tbody td a {
-    text-decoration-color: white;
-    font-style: 23px;
-    margin-left: 30px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-
-}
+    }
 
 
-.tabela-lista tbody td button {
-    text-decoration-color: black;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.6);
-    transition: 0.6s;
-    margin: 0px;
+    .tabela-lista tbody td a {
+        text-decoration-color: white;
+        font-style: 23px;
+        margin-left: 30px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
 
-}
-
-.btnk {
-
-    color: white;
-    background-color: rgba(0, 0, 0, 0);
-    font-family: oswald;
-    font-size: 20px;
-    border: 1px black;
-    margin-left: 30px;
-    font-weight: bold;
+    }
 
 
-}
+    .tabela-lista tbody td button {
+        text-decoration-color: black;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: 0.6s;
+        margin: 0px;
 
-.btnk:hover {
+    }
 
-    color: red;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 20px;
-    text-decoration: underline;
-    font-weight: bold;
+    .btnk {
+
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        font-family: oswald;
+        font-size: 20px;
+        border: 1px black;
+        margin-left: 30px;
+        font-weight: bold;
 
 
-}
+    }
 
-.filtros-select {
-    margin: 30px;
-    font-size: 20px;
-    width: 400px;
-    background-color: black;
-    color: white;
-    font-family: oswald;
-    
-}
+    .btnk:hover {
 
-#labelsocios {
-    color: white;
-    font-size:40px;
-    font-family: goldman;
-    font-weight:bold;
+        color: red;
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 20px;
+        text-decoration: underline;
+        font-weight: bold;
 
-}
+
+    }
+
+    .filtros-select {
+        margin: 0px 20px 0px 20px;
+        font-size: 20px;
+        width: 250px;
+        background-color: black;
+        color: white;
+        font-family: oswald;
+
+    }
+
+    #labelsocios {
+        color: white;
+        font-size: 25px;
+        font-family: goldman;
+        font-weight: bold;
+
+    }
+
+    .filtros {
+
+        display: flex;
+        margin: 25px;
+        align-items: center;
+    }
+
+    .filtros label {
+        position: relative;
+        align-items: left;
+        color: white;
+        font-size: 35px;
+        font-family: goldman;
+        margin: 0px;
+    }
+
+
+    .tabela-lista-1 {
+        display: inline-block;
+        color: white;
+        padding: 10px;
+        width: auto;
+        margin-top: 15px;
+    }
+
+
+
+
+
+
+    .tabela-lista-1 td {
+
+        color: white;
+        padding: 7px;
+        text-align: left;
+        font-size: 30px;
+        border: 1px solid white;
+        width: 500px;
+
+
+    }
+
+
+    .tabela-lista-1 tbody td a {
+        text-decoration-color: white;
+        font-style: 23px;
+
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+
+    }
+
+
+    .tabela-lista-1 tbody td button {
+        text-decoration-color: black;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.6);
+        transition: 0.6s;
+        margin: 0px;
+
+    }

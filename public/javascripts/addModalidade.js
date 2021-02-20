@@ -32,7 +32,6 @@ function submeterFormulario() {
             evt = evt ? evt : window.event;
             evt.preventDefault();
             if ($("#frm").valid()) {
-
                 let modalidade = {
                     modalidade: document.getElementById('txtnomeModalidade').value,
                     nif_instrutor: document.getElementById('txtnif').value
@@ -44,7 +43,7 @@ function submeterFormulario() {
                     data: JSON.stringify(modalidade),
                     contentType: "application/json",
                     success: function (dados) {
-                        alert('instrutor inserido com sucesso !');
+                        alert('modalidade inserida com sucesso !');
                         window.location.href = "./listarModalidades.html";
                     },
                     error: function () {

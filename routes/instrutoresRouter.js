@@ -2,42 +2,54 @@ var express = require('express');
 var router = express.Router();
 var instrutoresModel = require('../models/instrutoresModel');
 
-//ROTA PARA RECEBER TODOS OS INSTRUTORES
-router.get('/', async function(req,res,next){
-    let socios = await instrutoresModel.getAllInstrutores();  
-    res.status(socios.status).send(socios.data);
+
+router.get('/', async function (req, res, next) {
+    let result = await instrutoresModel.getTodosInstrutores();
+    res.status(result.status).send(result.data);
+    console.log('cheguei a rota');
 });
 
-//ROTA PARA RECEBER UM INSTRUTOR | RECEBE TAMBÉM MODALIDADES
-router.get('/:id',async function(req,res,next){
-    let nif= req.params.id;
-    console.log(nif);
-    let inst = await instrutoresModel.getInstrutor(nif);
-    let modls = await instrutoresModel.getmodalidadesInstrutor();
-    let mydata= {instrutor:inst,modalidades:modls }
-    res.status(inst.status).send(mydata);
-})
 
-//ROTA PARA INSERIR INSTRUTOR
-router.post('/',async function(req,res,next){
-    let instrutor = req.body;
+router.get('/:id', async function (req, res, next) {
+    let nif = req.params.id;
+    let result = await instrutoresModel.getInstrutor(nif);
+    res.status(result.status).send(result.data);
+    console.log('cheguei a rota');
+});
+
+router.get('/instrutoreshome/:id', async function (req, res, next) {
+    let nif = req.params.id;
+    let result = await instrutoresModel.getTodosInstrutoresHome(nif);
+    res.status(result.status).send(result.data);
+    console.log('cheguei a rota');
+});
+
+
+
+router.post('/', async function (req, res, next) {
+    let instrutor = req.body
     let result = await instrutoresModel.addInstrutor(instrutor);
     res.status(result.status).send(result.data);
+    console.log('cheguei a rota criar instrutor');
+    console.log(result);
 });
 
-//ROTA PARA ATUALIZAR UM INSTRUTOR
-router.put('/',async function(req,res,next){
-        let instrutor = req.body;
-        let result = await instrutoresModel.updateInstrutor(instrutor);
-        res.status(result.status).send(result.data);
+router.put('/', async function (req, res, next) {
+    let instrutor = req.body;
+    let result = await instrutoresModel.updateInstrutor(instrutor);
+    res.status(result.status).send(result.data);
+    console.log('cheguei a rota criar instrutor');
+    console.log(result);
+});
+
+router.delete('/:id', async function (req, res, next) {
+    let nif = req.params.id;
+    let result = await instrutoresModel.eliminaInstrutor(nif);
+    res.status(result.status).send(nif);
+    console.log('cheguei a rota eliminar');
 })
 
-//ROTA PARA APAGAR UM SÓCIO 
-router.delete('/:id',async function(req,res,next){
-    let nif = req.params.id;
-    let result = await instrutoresModel.deleteInstrutor(nif);
-    res.status(result.status).send(nif);
-})
+
 
 module.exports = router;
 

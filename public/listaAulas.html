@@ -5,10 +5,6 @@
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/tabelas.css">
 
-
-
-
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,8 +17,9 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-    <title>BOGAS TEAM FIGHT CENTER - LISTAGEM ALUNOS TURMA </title>
+    <title>BOGAS TEAM FIGHT CENTER - LISTAR AULAS</title>
     <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
+
 
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
 
@@ -35,6 +32,7 @@
                 alt="logo-bogas"></a>
         <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
     </header>
+
 
     <nav class="menu">
         <ul>
@@ -51,44 +49,25 @@
             <li> <a href="listarModalidades.html">
                     MODALIDADES</a></li>
 
+
         </ul>
     </nav>
 
     <section class="main">
-        <h2 class="titulos-main"> Listagem Alunos Turmas</h2>
-        <br>
+        <h2 class="titulos-main"> Listagem Aulas</h2>
 
-        <div class="filtros">
-            <label for="selectfiltrosocio"> Filtragem Sócio </label>
-            <select class="filtros-select" name="selectsocios" id="selectfiltrosocio">
-
-            </select>
-            <br>
-            <label for="selectfiltroinstrutor"> Filtragem Instrutor</label>
-            <select class="filtros-select" name="selectdivida" id="selectfiltroinstrutor">
-
-            </select>
-            <br>
-        </div>
         <table class="tabela-lista">
             <thead>
                 <tr>
-
                     <th>
-                        AULA
+                        ID AULA
                     </th>
                     <th>
-                        MODALIDADE
+                        NIF INSTRUTOR
                     </th>
                     <th>
-                        INSTRUTOR
+                        NOME
                     </th>
-
-
-                    <th>
-                        SÓCIO
-                    </th>
-
                     <th>
                         DEL
                     </th>
@@ -102,20 +81,13 @@
 
         </table>
 
-
-
-
-
-
     </section>
 
     <section class="aside">
         <h2 class="titulos-aside"> Gestão</h2>
 
-        <a href="addTurmas.html"><img class="img-aside-socio" src="./img/addsocio.png" title=""></a>
-        <p class="texto-aside-socios">Registar Sócio Aula </p>
-        <br>
-
+        <a href="addAula.html"><img class="img-aside-socio" src="./img/addsocio.png" title=""></a>
+        <p class="texto-aside">Registar Aula</p>
         <br>
 
     </section>
@@ -130,13 +102,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
-    <script src="jquery-3.5.1.js"></script>
-
-
-    <script src="javascripts/listarAlunosTurmas.js"></script>
-</body>
-
-</html>
+    <script src="./javascripts/listaraulas.js"></script>
 
 </body>
 

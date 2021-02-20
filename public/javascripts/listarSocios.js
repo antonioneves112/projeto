@@ -18,6 +18,7 @@ async function loadSocios() {
                 alert('erro no carregamento dos sócios');
             }
         });
+
     } catch (error) {
         console.log(error);
     }
@@ -25,13 +26,18 @@ async function loadSocios() {
 
 // ---------------- FUNÇÃO QUE MOSTRA OS SÓCIOS VINDOS  DA ROTA ---------------------------------
 function showSocios(socios) {
-    let linhas = '';
-    let result = document.getElementById('result');
-    for (let i of socios) {
-        linhas += "<tr> <td> " + i.nif_socio + " </td> <td> " + i.nome_socio + " </td> <td> " +
-            i.morada + " </td> <td>" + i.telefone + "</td> <td> <input type='button' class='btnk'   onclick='deletaSocio(" + encodeURI(i.nif_socio) + ")' value ='DEL' id='" + encodeURI(i.nif_socio) + "' /> </td> <td> <a href='./editSocio.html?id=" + encodeURI(i.nif_socio) + "'> UPDATE </a>  </td> </tr>";
+    try {
+        let linhas = '';
+        let result = document.getElementById('result');
+        for (let i of socios) {
+            linhas += "<tr> <td> " + i.nif_socio + " </td> <td> " + i.nome_socio + " </td> <td> " +
+                i.morada + " </td> <td>" + i.telefone + "</td> <td> <input type='button' class='btnk'   onclick='deletaSocio(" + encodeURI(i.nif_socio) + ")' value ='DEL' id='" + encodeURI(i.nif_socio) + "' /> </td> <td> <a href='./editSocio.html?id=" + encodeURI(i.nif_socio) + "'> UPDATE </a>  </td> </tr>";
+        }
+        result.innerHTML = linhas;
+    } catch (error) {
+        console.log(error);
+
     }
-    result.innerHTML = linhas;
 }
 
 // ---------------- FUNÇÃO ELIMINA O SÓCIO ATRAVÉS DO NIF_SÓCIO DO MESMO ---------------------------------

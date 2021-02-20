@@ -1,6 +1,6 @@
-.formulario{
-    display:inline-block;
-    align-self:left;
+.formulario {
+    display: inline-block;
+    align-self: left;
 }
 
 .formulario fieldset {
@@ -41,15 +41,18 @@
 
 .formulario select {
     background-color: rgba(255, 255, 255, 0.2);
-    color:white;
-    margin-left:20px;
-    padding:7px;
-    height:35px;
+    color: white;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    padding: 7px;
+    height: 43px;
+    font-size: 17px;
+    font-family: oswald;
 }
 
 .formulario option {
     margin: 40px;
-    background:black;
+    background: black;
     color: #fff;
 }
 
@@ -68,4 +71,8 @@
 
 ::-webkit-input-placeholder {
     color: white;
+}
+
+#txtvalor{
+    width: 200px;
 }
