@@ -1,8 +1,10 @@
 
 //---------------------------------------------------------------- ONLOAD ----------------------------------------------------------------------------------------
 $(function () {
+    preencheNifInstrutor();
     validarFormulario();
     submeterFormulario();
+
 });
 // -------------------------------------------------------------------------------  FIM ONLOAD ------------------------------------------------------------------------------
 
@@ -34,7 +36,7 @@ function submeterFormulario() {
             if ($("#frm").valid()) {
                 let modalidade = {
                     modalidade: document.getElementById('txtnomeModalidade').value,
-                    nif_instrutor: document.getElementById('txtnif').value
+                    nif_instrutor: document.getElementById('selnif').value
                 };
                 $.ajax({
                     url: "/modalidades",
@@ -57,5 +59,27 @@ function submeterFormulario() {
         });
     } catch (error) {
         console.log(error)
+    }
+}
+
+function preencheNifInstrutor() {
+    try {
+        $.ajax({
+            url: '/instrutores',
+            method: 'get',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (dados) {
+                alert('sucesso');
+                option = $.map(dados, function (v, i) {
+                    return "<option value='" + v.nif + "' > " + v.nome + " </option>";
+                })
+                $('#selnif').append(option);
+            }, error: function () {
+                alert('erro ao carregar nif instrutor');
+            }
+        })
+    } catch (error) {
+
     }
 }

@@ -119,7 +119,7 @@ DELIMITER ;
 
 
 
-delete from mensalidades where id_mensalidade = 0;
+delete from mensalidades where id_mensalidade > 0;
 
 
 
@@ -206,7 +206,7 @@ drop event mensalidadesmes
 DELIMITER $$
 CREATE EVENT mensalidadesmes
 ON SCHEDULE EVERY '1' MONTH
-STARTS '2021-2-12 19:18:00'
+STARTS '2021-2-20 22:15:00'
 DO 
 BEGIN
 DECLARE data date default now();
@@ -214,8 +214,8 @@ call cria_mensalidades(data);
 END$$
 
 DELIMITER ;
-
-
+select * from mensalidade;
+select * from modalidades;
 connection.query("call procedure_name(?,?)", [param1, param2], function (err, result) {
     if (err) {
         console.log("err:", err);
@@ -439,22 +439,25 @@ select * from mensalidade;
 
 
 
+delete from mensalidade where id_mensalidade>0;
 
 
 
+delete from modalidades where id_modalidade = 152;
+
+select * from aulas;
+
+select * from modalidades;
+
+select * from horarios;
 
 
+select a.*,m.nome from aulas AS a inner modalidades AS m on a.nif_instrutor=m.nif_instrutor; 
 
+select a.*,m.modalidade from aulas AS a inner join modalidades AS m on a.nif_instrutor=m.nif_instrutor;
 
+insert into horarios (id_aula,dia_semana,inicio,fim) VALUES (21,'Quinta','17:00','18:30');
 
+update horarios set fim='21:30' where id_aula=23;  
 
-
-
-
-
-
-
-
-
-
-
+select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores AS i on i.nif=a.nif_instrutor inner join modalidades AS m on m.nif_instrutor=i.nif; 

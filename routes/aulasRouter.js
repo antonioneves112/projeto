@@ -9,6 +9,13 @@ router.get('/', async function (req, res, next) {
 
 })
 
+
+router.get('/horarios/', async function (req, res, next) {
+    let result = await aulasModel.getAulasHorarios();
+    res.status(result.status).send(result.data);
+
+})
+
 router.post('/', async function (req, res, next) {
     let aulas = req.body;
     let result = await aulasModel.addAula(aulas);

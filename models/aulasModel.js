@@ -11,6 +11,17 @@ module.exports.getAulas = async function () {
     }
 }
 
+module.exports.getAulasHorarios = async function () {
+    try {
+        let sql = "select a.*,m.modalidade from aulas AS a inner join modalidades AS m on a.nif_instrutor=m.nif_instrutor;";
+        let result = await pool.query(sql);
+        return { status: 200, data: result }
+    } catch (error) {
+        console.log(error);
+        return { status: 200, data: result }
+    }
+}
+
 module.exports.apagaAula = async function (nif) {
     try {
         let sql = "DELETE from aulas where id_aula = ?";

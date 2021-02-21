@@ -45,8 +45,9 @@ router.post('/', async function (req, res, next) {
 router.delete('/', async function (req, res, next) {
     let dados = req.body;
     let result = await turmasModel.apagaDaTurma(dados.nif_socio, dados.id_aula);
-    res.status(result.status).send(result.data);
     console.log('chegamos a eliminar alunos da turma');
+    res.status(result.status).send(result.data);
+
 })
 
 

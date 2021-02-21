@@ -2,6 +2,11 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/tabelas.css">
+
+
+
 
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,24 +21,19 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
-
-    <title>BOGAS TEAM FIGHT CENTER - GESTÃO ADMINISTRATIVA
-    </title>
+    <title>BOGAS TEAM FIGHT CENTER - LISTAGEM HORÁRIOS </title>
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
 
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="stylesheets/form.css">
-
 </head>
+
 
 <body class="grid-container">
     <header class="header">
         <a href="index.html"> <img class="bogas-logo" src="./img/logo-bogas-oval.png"
                 alt="logo-bogas"></a>
-        <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER
-        </h1>
+        <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
     </header>
 
     <nav class="menu">
@@ -50,37 +50,85 @@
                     MENSALIDADES</a></li>
             <li> <a href="listarModalidades.html">
                     MODALIDADES</a></li>
-            <li> <a href="listaAulas.html">
-                    AULAS</a></li>
-            <li> <a href="listarHorarios.html">
-                    HORÁRIOS</a></li>
 
         </ul>
     </nav>
 
     <section class="main">
+        <h2 class="titulos-main"> Listagem Horários</h2>
+        <br>
 
-        <h2 class="titulos-main">
-            Parte administrativa do site</h2>
-        <p> Apenas administradores autorizados a realizar alterações.</p>
+
+        </div>
+        <table class="tabela-lista">
+            <thead>
+                <tr>
+
+                    <th>
+                        AULA
+                    </th>
+                    <th>
+                        DIA SEMANA
+                    </th>
+                    <th>
+                        INÍCIO
+                    </th>
+
+
+                    <th>
+                        FIM
+                    </th>
+
+                    <th>
+                        DEL
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody id="result">
+
+            </tbody>
+
+        </table>
+
+
+
 
 
 
     </section>
-
 
     <section class="aside">
-        <h2 class="titulos-aside"> Administração</h2>
+        <h2 class="titulos-aside"> Gestão</h2>
 
-        <a href="index.html"><img class="img-aside-logo" src="./img/Bogas-logo.png" title=""></a>
-        <p class='titulos-aside'> HOME</p>
+        <a href="addHorarios.html"><img class="img-aside-socio" src="./img/addsocio.png"
+                title=""></a>
+        <p class="texto-aside-socios">Registar Horário</p>
+        <br>
 
-
+        <br>
 
     </section>
 
 
-    <script src="contactos.js"></script>
+    <section class="footer">
+        <p> BOGAS TEAM FIGHT CENTER - R. Ten.
+            Gouveia
+            29B, 2720-525 Amadora <p>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="jquery-3.5.1.js"></script>
+
+
+    <script src="javascripts/listarHorarios.js"></script>
+</body>
+
+</html>
+
 </body>
 
 </html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+    <link rel="stylesheet" href="stylesheets/validacao.css">
+
+    <title>BOGAS TEAM FIGHT CENTER - REGISTAR H</title>
+
+    <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
+
+
+
+
+</head>
+
+
+<body class="grid-container">
+    <header class="header">
+        <a href="index.html"> <img class="bogas-logo" src="./img/logo-bogas-oval.png"
+                alt="logo-bogas"></a>
+        <h1 class="titulo-principal">BOGAS TEAM FIGHT CENTER</h1>
+    </header>
+
+
+    <nav class="menu">
+        <ul>
+            <li> <a href="listarSocios.html">
+                    SÓCIOS</a></li>
+            <li> <a href="listarInstrutores.html">
+                    INSTRUTORES</a></li>
+
+            <li> <a href="listagemAlunoTurmas.html">
+                    LISTA TURMA</a></li>
+
+            <li> <a href="listarMensalidades.html">
+                    MENSALIDADES</a></li>
+
+            <li> <a href="listaAulas.html">
+                    AULAS</a></li>
+    </nav>
+
+    <section class="main">
+        <h2 class="titulos-main"> Registar Horário</h2>
+
+
+        <form id="frm" class="formulario">
+            <fieldset>
+                <legend>
+                    Horário
+                </legend>
+
+                <label for="selectaula">
+                    Aula</label>
+                <select name="selectaula" id="selectaula"></select>
+                <br>
+
+                <label for="seldia"> Dia</label>
+                <select name="seldia" id="seldia">
+                    <option value="Segunda"> Segunda</option>
+                    <option value="Terça"> Terça</option>
+                    <option value="Quarta"> Quarta</option>
+                    <option value="Quinta"> Quinta</option>
+                    <option value="Sexta"> Sexta</option>
+                    <option value="Sábado"> Sábado</option>
+                    <option value="Domingo"> Domingo</option>
+                </select>
+                <br>
+
+                <label for="txtinicio">
+                    Início</label>
+                <input type="time"  id="txtinicio"
+                    name="txtinicio">
+                <br>
+                <label for="txtfim">
+                    Fim</label>
+                <input type="time"  id="txtfim" name="txtfim">
+                <br>
+
+
+
+
+                <button id="btn"> REGISTAR </button>
+
+            </fieldset>
+
+            <h2 id="result"> </h2>
+        </form>
+
+
+    </section>
+
+    <section class="aside">
+        <h2 class="titulos-aside"> INSTRUTOR</h2>
+        <a href="listarHorarios.html"><img class="img-aside-socio" src="./img/listaicon.png"
+                title=""></a>
+        <p class="texto-aside-socios">Listar Modalidades</p>
+        <br>
+
+
+    </section>
+
+
+    <section class="footer">
+        <p> BOGAS TEAM FIGHT CENTER - R. Ten.
+            Gouveia
+            29B, 2720-525 Amadora <p>
+    </section>
+
+
+    <script src="javascripts/jquery-3.5.1.js"></script>
+    <script src="javascripts/additional-methods.js"></script>
+    <script src="javascripts/jquery.validate.min.js"></script>
+
+
+
+    <script src="javascripts/addHorarios.js">
+    </script>
+
+</body>
+
+</html>
+
+<!--
+        <label for="txtnomeModalidade">
+          MODALIDADE </label>
+        <input type="text" placeholder="insira nome modalidade" id="txtnomeModalidade"
+          name="txtnomeModalidade">
+        <br>
+
+        <label for="txtnif">
+          NIF INSTRUTOR </label>
+        <input type="text" placeholder="insira nome modalidade" id="txtnif" name="txtnif">
+        <br>
+-->
