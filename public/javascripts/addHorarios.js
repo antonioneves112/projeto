@@ -36,15 +36,16 @@ async function submeterFormulario() {
         $("#btn").click(async function (evt) {
             evt = evt ? evt : window.event;
             evt.preventDefault();
-            
+
             let horario = {
                 id_aula: $("#selectaula").val(),
                 dia_semana: $("#seldia").val(),
                 inicio: $("#txtinicio").val(),
                 fim: $("#txtfim").val()
             }
+            console.log(horario);
             await $.ajax({
-                url: '/horarios/home',
+                url: '/horarios/',
                 method: 'post',
                 dataType: 'json',
                 data: JSON.stringify(horario),
@@ -58,8 +59,6 @@ async function submeterFormulario() {
                     alert('falha na inserção de novo horário');
                 }
             })
-
-
         });
 
 

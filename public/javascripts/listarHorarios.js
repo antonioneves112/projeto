@@ -26,35 +26,27 @@ async function loadHorarios() {
 function showHorarios(dados) {
     let linha = '';
     let result = $("#result");
-    pos = 0;
     let tabela = $.map(dados, function (v, i) {
-        pos++;
-        return " <tr> <td> " + v.id_aula + "</td> <td> " + v.dia_semana + "</td><td> " + v.inicio + "</td> <td> " + v.fim + "</td>  <td> " + btd(encodeURI(v.id_aula), encodeURI(pos), encodeURI(v.dia_semana)) + " </td> </tr>"
+        return " <tr> <td> " + v.id_horario + "</td><td> " + v.id_aula + "</td> <td> " + v.dia_semana + "</td><td> " + v.inicio + "</td> <td> " + v.fim + "</td>  <td> " + btd(encodeURI(v.id_horario)) + " </td> </tr>"
     })
     result.append(tabela);
 }
 
-function btd(id_aula, pos, dia_semana) {
-
-    let myid = pos + 'del'
-    return "<input type='submit' id='" + myid + "'  class='btnk' value='DEL' onclick='deletarHorario(" + id_aula + "," + pos + "," + dia_semana + "," + ")' name='btd' >"
+function btd(id_horario) {
+    return "<input id='" + id_horario + "' type='button' class='btnk' value='DEL' onclick='deletarHorario(" + id_horario + ")' name='btdel' />"
 }
 
-async function deletarHorario(id_aula, dia_semana) {
+async function deletarHorario(id_horario) {
     try {
-        alert(id_aula);
+        alert(id_horario);
         $.ajax({
-            url: '/horarios/',
+            url: '/horarios/' + id_horario,
             method: 'delete',
             dataType: 'json',
-            data: {
-                id_aula: id_aula,
-                dia_semana: dia_semana
-            },
-
             contentType: 'application/json',
             success: function (dados) {
-                alert('sucesso');
+                let str = "#" + id_horario;
+                $(str).closest("tr").remove();
             }, error: function () {
                 alert('falha');
             }

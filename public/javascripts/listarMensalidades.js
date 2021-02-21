@@ -124,8 +124,6 @@ function carregaEditButton() {
             evt.preventDefault();
             let linha = $(evt.target).closest("tr");
             linha.css("background-color", 'black');
-
-
             let id_mensalidade = evt.target.id
             let data_pagamento = linha.find("td:eq(4)").html();
             linha.find("td:eq(4)").html("<input type='date' name='id_m' value='" + data_pagamento + "' style='width:130px;' />");

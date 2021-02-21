@@ -23,9 +23,9 @@ router.post('/', async function (req, res, next) {
 })
 
 
-router.delete('/', async function (req, res, next) {
-    let dados = req.body;
-    let result = await horariosModel.apagaHorarios(dados.id_aula, dados.dia_semana);
+router.delete('/:id', async function (req, res, next) {
+    let id = req.params.id;
+    let result = await horariosModel.apagaHorarios(id);
     console.log('rota horario');
     res.status(result.status).send(result.data);
 })

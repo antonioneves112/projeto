@@ -21,10 +21,10 @@ module.exports.getHorariosHome = async function (nif) {
     }
 }
 
-module.exports.apagaHorarios = async function (id_aula, dia_semana) {
+module.exports.apagaHorarios = async function (id) {
     try {
-        let sql = "DELETE FROM horarios where id_aula=? and dia_semana=?";
-        let result = await pool.query(sql, [id_aula, dia_semana]);
+        let sql = "DELETE FROM horarios where id_horario=?";
+        let result = await pool.query(sql, [id]);
         return { status: 200, data: result }
     } catch (error) {
         console.log(error);
