@@ -70,7 +70,6 @@ function preencheNifInstrutor() {
             dataType: 'json',
             contentType: 'application/json',
             success: function (dados) {
-                alert('sucesso');
                 option = $.map(dados, function (v, i) {
                     return "<option value='" + v.nif + "' > " + v.nome + " </option>";
                 })

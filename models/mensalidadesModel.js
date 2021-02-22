@@ -33,7 +33,7 @@ module.exports.getFiltroMensalidadeNome = async function (nif) {
 //CONSULTAR TODAS AS MENSALIDADES ATRAVÉS DO ESTADO DE PAGAMENTO DA MENSALIDADE
 module.exports.getFiltroMensalidadePago = async function (pago) {
     try {
-        let sql = "SELECT m.*,s.nome_socio from socios AS s  inner join mensalidade AS m on s.nif_socio = m.nif_socio WHERE m.pago=? order by data_vencimento desc ;";
+        let sql = "SELECT id_mensalidade,m.nif_socio,DATE_FORMAT(data_vencimento,'%d-%m-%Y') AS data_vencimento,DATE_FORMAT(data_pagamento,'%d-%m-%Y') AS data_pagamento,valor,pago,data_update,mes,s.nome_socio from socios AS s  inner join mensalidade AS m on s.nif_socio = m.nif_socio WHERE m.pago=? order by data_vencimento desc ;";
         let result = await pool.query(sql, [pago]);
         return { status: 200, data: result }
     } catch (error) {

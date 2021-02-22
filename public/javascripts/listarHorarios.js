@@ -1,5 +1,6 @@
 $(function () {
     loadHorarios();
+  
 })
 
 
@@ -27,10 +28,15 @@ function showHorarios(dados) {
     let linha = '';
     let result = $("#result");
     let tabela = $.map(dados, function (v, i) {
-        return " <tr> <td> " + v.id_horario + "</td><td> " + v.id_aula + "</td> <td> " + v.dia_semana + "</td><td> " + v.inicio + "</td> <td> " + v.fim + "</td>  <td> " + btd(encodeURI(v.id_horario)) + " </td> </tr>"
+        return " <tr> <td> " + v.id_horario + "</td><td> " + v.id_aula + "</td> <td> " + v.dia_semana + "</td><td> " + v.modalidade + "</td><td> " + v.inicio + "</td> <td> " + v.fim + "</td>  <td> " + btd(encodeURI(v.id_horario)) + " </td> </tr>"
     })
     result.append(tabela);
+  
+
 }
+
+
+
 
 function btd(id_horario) {
     return "<input id='" + id_horario + "' type='button' class='btnk' value='DEL' onclick='deletarHorario(" + id_horario + ")' name='btdel' />"

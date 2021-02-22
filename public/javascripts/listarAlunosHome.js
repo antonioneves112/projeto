@@ -6,7 +6,6 @@ $(function () {
 
 async function getTurma(nif) {
     try {
-
         $("#alunos").show();
         $("#horarios").show();
         $("#esconde").show();
@@ -18,6 +17,7 @@ async function getTurma(nif) {
             datatype: 'json',
             success: function (socios) {
                 showTurma(socios);
+                
             }, error: function () {
             }
         });

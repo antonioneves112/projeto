@@ -71,6 +71,7 @@ body {
     text-align: center;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
     padding: 10px;
 
 }
@@ -87,13 +88,6 @@ body {
 
 }
 
-
-.disabled {
-    pointer-events: none;
-    opacity: 0.1;
-}
-
-
 .main {
     grid-area: main;
 }
@@ -105,7 +99,7 @@ body {
     color: white;
     background-color: black;
     text-shadow: 2px 2px 5px white;
-  
+
 }
 
 .img-main {
@@ -142,7 +136,7 @@ body {
     margin-top: 40px;
     background-color: black;
     padding: 10px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 .img-competicao {
@@ -150,7 +144,7 @@ body {
     height: 190px;
     border: 1px solid white;
     margin-left: 20px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     filter: grayscale(100%);
 
 
@@ -159,8 +153,8 @@ body {
 }
 
 .img-competicao:hover {
-  border: 1px solid black;
-  filter:none;
+    border: 1px solid black;
+    filter: none;
 
 
 }
@@ -231,7 +225,7 @@ body {
     background-color: black;
     margin: 10px;
     border: 1px solid white;
-    margin:45px 0px 10px 0px;
+    margin: 45px 0px 10px 0px;
 
 }
 
@@ -263,11 +257,12 @@ body {
 }
 
 .img-aside-logo {
-    margin-top:30px;
+    margin-top: 30px;
     width: 150px;
 }
+
 .img-aside-logo:hover {
-   border: 2px solid white;
+    border: 2px solid white;
 }
 
 .video-aside {

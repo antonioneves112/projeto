@@ -2,7 +2,7 @@ const pool = require('./connectBd');
 
 module.exports.getHorarios = async function () {
     try {
-        let sql = "select * from horarios";
+        let sql = "select h.*, m.modalidade from horarios AS h inner join aulas AS a on h.id_aula = a.id_aula inner join instrutores AS i on i.nif = a.nif_instrutor inner join modalidades AS m on m.nif_instrutor = i.nif order by h.dia_semana;";
         let result = await pool.query(sql);
         return { status: 200, data: result }
     } catch (error) {
