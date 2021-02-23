@@ -8,7 +8,7 @@ $(function () {
 // ---------------- FUNÇÃO QUE CARREGA OS SÓCIOS DA ROTA ---------------------------------
 async function loadSocios() {
     try {
-        let socios = await $.ajax({
+        await $.ajax({
             url: '/socios',
             method: 'get',
             dataType: 'json',
@@ -18,7 +18,6 @@ async function loadSocios() {
                 alert('erro no carregamento dos sócios');
             }
         });
-
     } catch (error) {
         console.log(error);
     }
@@ -27,13 +26,10 @@ async function loadSocios() {
 // ---------------- FUNÇÃO QUE MOSTRA OS SÓCIOS VINDOS  DA ROTA ---------------------------------
 function showSocios(socios) {
     try {
-        let linhas = '';
-        let result = document.getElementById('result');
-        for (let i of socios) {
-            linhas += "<tr> <td> " + i.nif_socio + " </td> <td> " + i.nome_socio + " </td> <td> " +
-                i.morada + " </td> <td>" + i.telefone + "</td> <td> <input type='button' class='btnk'   onclick='deletaSocio(" + encodeURI(i.nif_socio) + ")' value ='DEL' id='" + encodeURI(i.nif_socio) + "' /> </td> <td> <a href='./editSocio.html?id=" + encodeURI(i.nif_socio) + "'> UPDATE </a>  </td> </tr>";
-        }
-        result.innerHTML = linhas;
+        let linha = $.map(socios, function (v, i) {
+            return `<tr><td>${v.nif_socio}</td><td>${v.nome_socio}</td><td>${v.morada}</td><td>${v.telefone}</td><td>${delbutton(encodeURI(v.nif_socio))}</td><td><a href='./editSocio.html?id=${encodeURI(v.nif_socio)}'> UPDATE </a></td></tr>`
+        })
+        $("#result").append(linha);
     } catch (error) {
         console.log(error);
 
@@ -46,7 +42,6 @@ async function deletaSocio(nif_socio) {
     try {
         let confirma = confirm('Deseja realmente apagar Sócio ?');
         if (!confirma) return false;
-
         let result = await $.ajax({
             url: '/socios/' + nif_socio,
             method: 'delete',
@@ -64,3 +59,13 @@ async function deletaSocio(nif_socio) {
         console.log(error);
     }
 }
+
+
+
+function delbutton(nif) {
+    return `<input type='button' id='${nif}' class='btnk' value='DEL' onclick='deletaSocio(${nif})' />`
+}
+
+
+
+

@@ -6,22 +6,25 @@ var turmasModel = require('../models/turmasModel');
 
 router.get('/', async function (req, res, next) {
     let result = await turmasModel.getListagemAlunosTurma();
-    res.status(result.status).send(result.data);
     console.log('chegamos a rota sacar alunos turmas')
+    res.status(result.status).send(result.data);
+
 })
 
 router.get('/filtroprof/:id', async function (req, res, next) {
     let nif = req.params.id;
     let result = await turmasModel.filtroInstrutor(nif);
+    console.log('chegamos a rota sacar alunos turmas filtro socios');
     res.status(result.status).send(result.data);
-    console.log('chegamos a rota sacar alunos turmas filtro prof');
+
 })
 
 router.get('/filtrosocio/:id', async function (req, res, next) {
     let nif = req.params.id;
     let result = await turmasModel.filtroSocio(nif);
-    res.status(result.status).send(result.data);
     console.log('chegamos a rota sacar alunos turmas filtro prof');
+    res.status(result.status).send(result.data);
+
 })
 
 
@@ -29,15 +32,17 @@ router.get('/filtrosocio/:id', async function (req, res, next) {
 
 router.get('/selectidAula/', async function (req, res, next) {
     let result = await turmasModel.selectIdaula();
-    res.status(result.status).send(result.data);
     console.log('chegamos a rota selectidaula');
+    res.status(result.status).send(result.data);
+
 })
 
 router.post('/', async function (req, res, next) {
     let socioturma = req.body;
     let result = await turmasModel.addSocioTurma(socioturma);
-    res.status(result.status).send(result.data);
     console.log('chegamos a rota adicionar alunos na turma');
+    res.status(result.status).send(result.data);
+
 })
 
 

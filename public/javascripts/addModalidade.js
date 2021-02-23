@@ -18,12 +18,12 @@ function validarFormulario() {
         },
         rules: {
             txtnomeModalidade: { required: true, minlength: 3 },
-            txtnif: { required: true, digits: true, minlength: 9, maxlength: 9 }
+         
         }
         ,
         messages: {
-            txtnomeModalidade: { required: 'Campo obrigatório', minlength: 'Campo deve conter mais de dois caracteres' },
-            txtnif: { required: 'Campo obrigatório', digits: 'Insira apenas digitos', minlength: 'Minimo 9 caracteres', maxlength: 'Máximo 9 digitos' },
+            txtnomeModalidade: { required: 'Campo obrigatório', minlength: 'Campo deve conter mais de dois caracteres' }
+           
         },
     });
 }
@@ -35,9 +35,10 @@ function submeterFormulario() {
             evt.preventDefault();
             if ($("#frm").valid()) {
                 let modalidade = {
-                    modalidade: document.getElementById('txtnomeModalidade').value,
-                    nif_instrutor: document.getElementById('selnif').value
-                };
+                    modalidade: $("#txtnomeModalidade").val()
+                    
+                }
+                console.log(modalidade);
                 $.ajax({
                     url: "/modalidades",
                     method: "post",
@@ -53,6 +54,8 @@ function submeterFormulario() {
                     }
                 });
             }
+
+
             else {
                 alert("Formulário Inválido");
             }

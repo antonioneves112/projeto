@@ -1,7 +1,5 @@
 var pool = require('./connectBd');
 
-
-
 module.exports.getAllModalidades = async function () {
     try {
         let sql = "SELECT * from modalidades";
@@ -29,8 +27,8 @@ module.exports.getAllModalidadesComInstrutor = async function () {
 
 module.exports.addModalidade = async function (modalidade) {
     try {
-        let sql = "INSERT INTO modalidades(modalidade,nif_instrutor) VALUES (?,?)";
-        let result = await pool.query(sql, [modalidade.modalidade, modalidade.nif]);
+        let sql = "INSERT INTO modalidades(modalidade) VALUES (?)";
+        let result = await pool.query(sql, [modalidade.modalidade]);
         return { status: 200, data: result };
     } catch (error) {
         console.log(error);

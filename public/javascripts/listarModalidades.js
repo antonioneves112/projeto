@@ -8,7 +8,7 @@ $(function () {
 async function loadModalidades() {
     try {
         let modalidades = await $.ajax({
-            url: '/modalidades/ins',
+            url: '/modalidades/',
             method: 'get',
             dataType: 'json',
             contentType: 'application/jason',
@@ -27,13 +27,10 @@ async function loadModalidades() {
 
 function showModalidades(modalidades) {
     try {
-        let linhas = '';
-        let result = document.getElementById('result');
-        for (let i of modalidades) {
-            linhas += "<tr> <td> " + i.id_modalidade + "<td>" + i.modalidade + "</td> " + "<td> " + i.nome + " </td>" +
-                "<td> <input type='button' class='btnk'  id='" + encodeURI(i.id_modalidade) + "'     onclick='deletaModalidade(" + encodeURI(i.id_modalidade) + ")'  value='DEL'  /> </td>  </tr> ";
-        }
-        result.innerHTML = linhas;
+        let linhas = $.map(modalidades, function (v, i) {
+            return `<tr><td>${v.id_modalidade}</td><td>${v.modalidade}</td><td>${delButton(encodeURI(v.id_modalidade))}</td></tr>`
+        })
+        $("#result").append(linhas);
     } catch (error) {
         console.log(error);
         let result = $('#result');
@@ -44,6 +41,7 @@ function showModalidades(modalidades) {
 
 async function deletaModalidade(id_modalidade) {
     try {
+        alert(id_modalidade)
         let confirma = confirm('Deseja realmente apagar modalidade?');
         if (!confirma) return false;
         await $.ajax({
@@ -55,7 +53,6 @@ async function deletaModalidade(id_modalidade) {
                 alert('modalidade eliminada com sucesso');
                 let str = '#' + dados;
                 $(str).closest('tr').remove();
-
             }, error: function () {
                 alert('erro na eliminação da modalidade');
             }
@@ -63,4 +60,8 @@ async function deletaModalidade(id_modalidade) {
     } catch (error) {
         console.log(error);
     }
+}
+
+function delButton(id_modalidade) {
+    return `<input type='button' class='btnk' id='${id_modalidade}'  onclick='deletaModalidade(${id_modalidade})' value='DEL' />`
 }

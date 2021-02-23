@@ -17,13 +17,12 @@ async function preencheSelectNifSocio() {
         method: 'get',
         dataType: 'json',
         success: function (dados) {
-            console.log(dados);
             let options = $.map(dados, function (v, i) {
-                return "<option value='" + v.nif_socio + "'> " + v.nome_socio + " </option>";
+                return `<option value='${v.nif_socio}'> ${v.nome_socio} </option>`;
             });
             $("#selectsocio").append(options);
-        }, error: function (err) {
-            console.log(err)
+        }, error: function () {
+            alert('Falha ao carregar select sócio')
         }
     });
 }
@@ -35,7 +34,7 @@ async function preencheSelectIdAula() {
         dataType: 'json',
         success: function (dados) {
             let options = $.map(dados, function (v, i) {
-                return "<option value='" + v.id_aula + "'> " + v.modalidade + " </option>";
+                return `<option value='${v.id_aula}'> ${v.modalidade} </option>`;
             });
             $("#selectaula").append(options);
         }, error: function (err) {
@@ -53,8 +52,8 @@ async function submeterFormulario() {
             evt = evt ? evt : window.event;
             evt.preventDefault();
             let turma = {
-                nif_socio: document.getElementById('selectsocio').value,
-                id_aula: document.getElementById('selectaula').value
+                nif_socio: $("#selectsocio").val(),
+                id_aula: $("#selectaula").val()
             };
             await $.ajax({
                 url: "/turmas",

@@ -6,9 +6,6 @@ $(function () {
     preencheSelectInstrutor();
     filtroPorSocio();
     filtroPorInstrutor();
-
-
-
 });
 
 // ------------------------------------------------------------------ ACABA ONLOAD -----------------------------------------------------------------------------------------------------
@@ -32,23 +29,22 @@ async function loadTurmas() {
 }
 
 function showAlunosTurmas(turma) {
-    let html = '';
-    let linhas = $('#result');
-    pos = 0;
-    for (let i of turma) {
-        pos++;
-        html += `<tr><td>${i.id_aula}</td><td>${i.modalidade}</td><td>${i.nome}</td><td>${i.nome_socio}</td><td>${deleteB(i.nif_socio, i.id_aula, pos)}</td></tr>`
+    try {
+        pos = 0;
+        let linhas = $.map(turma, function (v, i) {
+            pos++;
+            return `<tr><td>${v.id_aula}</td><td>${v.modalidade}</td><td>${v.nome}</td><td>${v.nome_socio}</td><td>${deleteB(v.nif_socio, v.id_aula, v.pos)}</td></tr>`
+        })
+        $("#result").append(linhas);
+    } catch (error) {
+        console.log(error);
     }
-    linhas.html(html);
-    corPago();
-
-
 }
 
 
 function deleteB(nif_socio, id_aula, pos) {
     let myid = pos + 'del';
-    return " <input type='submit' id='" + myid + "' onclick='deletarAlunoTurma(" + encodeURI(nif_socio) + "," + encodeURI(id_aula) + "," + encodeURI(pos) + ")'  name='btdel' class='btnk' value ='DEL'>";
+    return `<input type='button' id='${myid}' class='btnk' value='DEL' onclick='deletarAlunoTurma(${encodeURI(nif_socio), encodeURI(id_aula), encodeURI(pos)})' />`
 }
 
 
@@ -57,15 +53,14 @@ async function deletarAlunoTurma(nif_socio, id_aula, pos) {
         let confirma = confirm('Deseja realmente excluir aluno da turma )');
         if (!confirma) return false;
         let myid = '#' + pos + 'del';
-
         await $.ajax({
             url: '/turmas/',
             method: 'delete',
             dataType: 'json',
             data: { nif_socio: nif_socio, id_aula: id_aula },
             success: function (dados) {
-                $(myid).closest('tr').remove();
                 alert('aluno eliminado da turma com sucesso');
+                $(myid).closest('tr').remove();
             }, error: function () {
                 alert('erro ao eliminar aluno da turma');
             }
@@ -86,7 +81,7 @@ async function preencheSelectSocios() {
                 $('#selectfiltrosocio').html('');
                 $('#selectfiltrosocio').append("<option value='-1'> Todos </option>");
                 let options = $.map(dados, function (v, i) {
-                    return "<option value ='" + v.nif_socio + "'> " + v.nome_socio + " </option> ";
+                    return `<option value='${v.nif_socio}'> ${v.nome_socio}</option>`;
                 });
                 $('#selectfiltrosocio').append(options);
             }, error: function () {
@@ -108,13 +103,11 @@ async function preencheSelectInstrutor() {
                 $('#selectfiltroinstrutor').html('');
                 $("#selectfiltroinstrutor").append("<option value='-1'> Todos </option>");
                 let options = $.map(dados, function (v, i) {
-                    return "<option value='" + v.nif + "'> " + v.nome + " </option>";
+                    return `<option value='${v.nif}'> ${v.nome} </option>`
                 });
-
                 $("#selectfiltroinstrutor").append(options);
-
-            }, error: function (err) {
-                console.log('erro no select')
+            }, error: function () {
+                alert('erro no select instrutor')
             }
         });
     } catch (error) {
@@ -129,13 +122,13 @@ async function filtroPorSocio(show) {
             evt = evt ? evt : window.event;
             let nif = $(evt.target).val();
             let rota = (nif == -1) ? '/turmas/' : '/turmas/filtrosocio/' + nif;
+            $("#result").html('');
             $('#selectfiltroinstrutor option').eq(0).prop('selected', true);
             await $.ajax({
                 url: rota,
                 method: 'get',
                 dataType: 'json',
                 success: function (dados) {
-                    console.log(dados);
                     showAlunosTurmas(dados);
                 }, error: function () {
                     alert('erro na execução do filtro');
@@ -154,27 +147,21 @@ async function filtroPorInstrutor() {
             evt = evt ? evt : window.event;
             let nif = $(evt.target).val();
             let rota = (nif == -1) ? '/turmas/' : '/turmas/filtroprof/' + nif;
+            $("#result").html('');
             $('#selectfiltrosocio option').eq(0).prop('selected', true);
             await $.ajax({
                 url: rota,
                 method: 'get',
                 dataType: 'json',
                 success: function (dados) {
-                    console.log(dados);
                     showAlunosTurmas(dados);
                 }, error: function () {
                     alert('erro na execução do filtro');
                 }
             })
         });
-
     } catch (error) {
         console.log(error);
     }
 }
 
-function corPago() {
-    $("tr").filter(function () {
-        return $(this).find('td:eq(3)').text() == 1;
-    }).css('background-color', 'rgba(76, 175, 80, 0.3)');
-}

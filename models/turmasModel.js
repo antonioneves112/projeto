@@ -31,6 +31,7 @@ module.exports.filtroSocio = async function (nif) {
     try {
         let sql = "select * from modalidades AS m inner join instrutores AS i on m.id_modalidade=i.id_modalidade inner join aulas AS a on i.nif=a.nif_instrutor inner join turmas as t on a.id_aula=t.id_aula inner join socios as s on t.nif_socio = s.nif_socio WHERE  s.nif_socio=?;";
         let result = await pool.query(sql, [nif]);
+        console.log(result);
         return { status: 200, data: result }
     } catch (error) {
         console.log(error);

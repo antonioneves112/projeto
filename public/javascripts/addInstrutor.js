@@ -20,9 +20,7 @@ function preencheSelectModalidades() {
                 let options = $.map(dados, function (v, i) {
                     return `<option value='${v.id_modalidade}'> ${v.modalidade} </option>`;
                 });
-                console.log(options);
                 $('#selectmodalidade').append(options);
-
             }, error: function () {
                 alert('erro ao carregar modalidade');
             }
@@ -64,12 +62,12 @@ function submeterformulario() {
             evt.preventDefault();
             if ($("#frm").valid()) {
                 let instrutor = {
-                    nif: document.getElementById('txtnif').value,
-                    nome: document.getElementById('txtnome').value,
-                    contacto: document.getElementById('txtcontacto').value,
-                    email: document.getElementById('txtemail').value,
-                    id_modalidade: document.getElementById('selectmodalidade').value,
-                };
+                    nif: $("#txtnif").val(),
+                    nome: $("#txtnome").val(),
+                    contacto: $("#txtcontacto").val(),
+                    email: $("#txtemail").val(),
+                    id_modalidade: $("#selectmodalidade").val()
+                }
                 $.ajax({
                     url: "/instrutores",
                     method: "post",

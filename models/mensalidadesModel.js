@@ -20,7 +20,7 @@ module.exports.listarMensalidades = async function () {
 //CONSULTAR TODAS AS MENSALIDADES ATRAVÉS DO NIF DE SÒCIO
 module.exports.getFiltroMensalidadeNome = async function (nif) {
     try {
-         let sql = "SELECT id_mensalidade,m.nif_socio,DATE_FORMAT(data_vencimento,'%d-%m-%Y') AS data_vencimento,DATE_FORMAT(data_pagamento,'%d-%m-%Y') AS data_pagamento,valor,pago,data_update,mes,s.nome_socio from socios AS s  inner join mensalidade AS m on s.nif_socio = m.nif_socio WHERE m.nif_socio=? order by data_vencimento desc ;";
+        let sql = "SELECT id_mensalidade,m.nif_socio,DATE_FORMAT(data_vencimento,'%d-%m-%Y') AS data_vencimento,DATE_FORMAT(data_pagamento,'%d-%m-%Y') AS data_pagamento,valor,pago,data_update,mes,s.nome_socio from socios AS s  inner join mensalidade AS m on s.nif_socio = m.nif_socio WHERE m.nif_socio=? order by data_vencimento desc ;";
         let result = await pool.query(sql, [nif]);
         console.log('filtra mes');
         console.log(result);
@@ -70,13 +70,15 @@ module.exports.getFiltroMensalidadeMes = async function (mes) {
 //CRIA UMA NOVA MENSALIDADE
 module.exports.addMensalidade = async function (mensalidade) {
     try {
+        data = new Date(mensalidade.data_vencimento);
+        mes = data.getMonth() + 1;
         if (mensalidade.data_pagamento == null || mensalidade.data_pagamento == '') {
-            let sql = "INSERT into mensalidade(nif_socio,data_vencimento,valor) VALUES (?,?,?);";
-            let result = await pool.query(sql, [mensalidade.nif_socio, mensalidade.data_vencimento, mensalidade.valor]);
+            let sql = "INSERT into mensalidade(nif_socio,data_vencimento,valor,mes) VALUES (?,?,?,?);";
+            let result = await pool.query(sql, [mensalidade.nif_socio, mensalidade.data_vencimento, mensalidade.valor, mes]);
             return { status: 200, data: result }
         } else {
-            let sql = "INSERT into mensalidade(nif_socio,data_vencimento,data_pagamento,valor) VALUES (?,?,?,?);";
-            let result = await pool.query(sql, [mensalidade.nif_socio, mensalidade.data_vencimento, mensalidade.data_pagamento, mensalidade.valor]);
+            let sql = "INSERT into mensalidade(nif_socio,data_vencimento,data_pagamento,valor,mes) VALUES (?,?,?,?,?);";
+            let result = await pool.query(sql, [mensalidade.nif_socio, mensalidade.data_vencimento, mensalidade.data_pagamento, mensalidade.valor, mes]);
             return { status: 200, data: result }
         }
     } catch (error) {

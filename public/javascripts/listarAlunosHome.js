@@ -9,6 +9,7 @@ async function getTurma(nif) {
         $("#alunos").show();
         $("#horarios").show();
         $("#esconde").show();
+
         $("#resulth").text(" ");
 
         let socios = await $.ajax({
@@ -17,7 +18,7 @@ async function getTurma(nif) {
             datatype: 'json',
             success: function (socios) {
                 showTurma(socios);
-                
+
             }, error: function () {
             }
         });
@@ -29,7 +30,7 @@ async function getTurma(nif) {
             contentType: 'application/json',
             success: function (dados) {
                 let aux = $.map(dados, function (v, i) {
-                    return "<tr> <td> " + v.id_aula + "</td> <td> " + v.dia_semana + "</td><td> " + v.inicio + "</td><td> " + v.fim + "</td> <td> " + v.modalidade + "</td>  </tr>"
+                    return `<tr><td>${v.id_aula}</td><td>${v.dia_semana}</td> <td>${v.inicio}</td><td>${v.fim}</td><td>${v.modalidade}</td></tr>`
                 })
                 $("#resulth").append(aux);
             }, error: function () {
@@ -41,17 +42,14 @@ async function getTurma(nif) {
     }
 }
 
-
 function showTurma(socios) {
     try {
-        let result = document.getElementById('result');
-        let linhas = ""
-        for (let socio of socios) {
-            linhas += "<tr><td>" + socio.nome_socio + "</td></tr>";
-        }
-        result.innerHTML = linhas;
+        $("#result").html('');
+        let linhas = $.map(socios, function (v, i) {
+            return `<tr><td>${v.nome_socio}</td></tr>`
+        })
+        $("#result").append(linhas);
         $("tr").css('background-color', 'rgba(70,102,255,0.5');
-
     } catch (error) {
         alert('falha no carregamento dos sócios');
     }

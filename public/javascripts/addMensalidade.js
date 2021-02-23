@@ -45,6 +45,7 @@ function submeterformulario() {
                     data_vencimento: document.getElementById('txtdata_vencimento').value,
                     data_pagamento: document.getElementById('txtdata_pagamento').value,
                     valor: document.getElementById('txtvalor').value,
+
                 };
                 $.ajax({
                     url: "/mensalidades/add/",

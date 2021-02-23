@@ -68,11 +68,6 @@ CREATE TABLE horarios (
 CREATE TABLE modalidades (
   id_modalidade int NOT NULL AUTO_INCREMENT,
   modalidade varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  nif_instrutor int DEFAULT NULL,
   PRIMARY KEY (id_modalidade),
-  UNIQUE KEY modalidade (modalidade),
-  KEY fkmodalidadesinstrutor (nif_instrutor)
-) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
+  UNIQUE KEY modalidade (modalidade)
+) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

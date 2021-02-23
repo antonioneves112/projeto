@@ -14,29 +14,12 @@ module.exports.getAllSocios = async function () {
 }
 
 
-
-/*
-module.exports.getFiltroMensalidadeNome = async function (nome){
-    try {
-        let sql = "select * from socios AS s left join VIEW_modalidadessocios AS v on s.nif_socio = v.nif_socio where nome_socio";
-        let socios = await pool.query(sql);
-        return {status:200,data:socios};
-
-    } catch (error) {
-        console.log(error);
-        return {status:500,data:error};
-    }
-}
-*/
-
 //RECEBE O SÓCIO COM O RESPETIVO NIF
 module.exports.getSocio = async function (nif_socio) {
     try {
         let sql = "SELECT * FROM socios WHERE nif_socio =?";
         let socio = await pool.query(sql, [nif_socio]);
-
         return { status: 200, data: socio }
-
     } catch (error) {
         console.log(error);
         return { status: 500, data: error };

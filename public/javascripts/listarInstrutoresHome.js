@@ -19,22 +19,17 @@ async function recolherDadosInstrutor() {
                 alert('erro ao carregar instrutores ');
             }
         })
-        showInstrutores(instrutor);
+        preencherInstrutores(instrutor);
     } catch (error) {
         console.log(error);
     }
 }
 
-function showInstrutores(instrutor) {
+function preencherInstrutores(instrutor) {
     document.querySelector("[name='img1']").setAttribute("src", instrutor[0].foto);
     document.querySelector("[name='txtnif']").value = instrutor[0].nif;
     document.querySelector("[name='txtnome']").value = instrutor[0].nome;
     document.querySelector("[name='txtcontacto']").value = instrutor[0].contacto;
     document.querySelector("[name='txtemail']").value = instrutor[0].email;
     document.querySelector("[name='selmodalidade']").value = instrutor[0].modalidade;
-
-
-
-
-
 }

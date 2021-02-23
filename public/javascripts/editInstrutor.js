@@ -22,7 +22,6 @@ function preencheSelectModalidades() {
                     return `<option value='${v.id_modalidade}'> ${v.modalidade} </option>`;
                 });
                 $('#selectmodalidade').append(options);
-
             }, error: function () {
                 alert('erro ao carregar modalidade');
             }
@@ -66,11 +65,11 @@ function insereDadosNoFormulario(myParam) {
             dataType: 'json',
             contentType: 'application/jason',
             success: function (dados) {
-                document.getElementById('txtnif').value = dados[0].nif;
-                document.getElementById('txtnome').value = dados[0].nome;
-                document.getElementById('txtcontacto').value = dados[0].contacto;
-                document.getElementById('txtemail').value = dados[0].email;
-                document.getElementById('selectmodalidade').value = dados[0].id_modalidade;
+                $("#txtnif").val(dados[0].nif);
+                $("#txtnome").val(dados[0].nome);
+                $("#txtcontacto").val(dados[0].contacto);
+                $("#txtemail").val(dados[0].email);
+                $("#selectmodalidade").val(dados[0].id_modalidade);
             }, error: function () {
                 alert('falha na inserção dos dados no formulário');
             }
@@ -86,13 +85,14 @@ function submeterFormulario() {
             evt = evt ? evt : window.event;
             evt.preventDefault();
             if ($("#frm").valid()) {
+
                 let instrutor = {
-                    nif:document.getElementById('txtnif').value,
-                    nome: document.getElementById('txtnome').value,
-                    contacto: document.getElementById('txtcontacto').value,
-                    email: document.getElementById('txtemail').value,
-                    id_modalidade: document.getElementById('selectmodalidade').value,
-                };
+                    nif:$("#txtnif").val(),
+                    nome: $("#txtnome").val(),
+                    contacto: $("#txtcontacto").val(),
+                    email: $("#txtemail").val(),
+                    id_modalidade: $("#selectmodalidade").val()
+                }
                 $.ajax({
                     url: "/instrutores",
                     method: "put",

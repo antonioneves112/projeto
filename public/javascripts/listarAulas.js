@@ -3,8 +3,6 @@ $(function () {
 
 });
 
-
-
 async function loadAulas() {
     try {
         $.ajax({
@@ -23,28 +21,21 @@ async function loadAulas() {
     }
 }
 
-
 function showAulas(dados) {
     try {
-        let linhas = '';
-        let result = document.getElementById('result');
-        for (let i of dados) {
-            linhas += "<tr> <td>" + i.id_aula + "</td><td>" + i.nif_instrutor + "</td><td>" + i.nome + "</td><td><input type='button' id='" + encodeURI(i.id_aula) + "' class='btnk' onclick='apagaAula(" + encodeURI(i.id_aula) + ")' value='DEL'</td></tr>"
-        }
-        result.innerHTML = linhas;
-
+        linhas = $.map(dados, function (v, i) {
+            return `<tr><td>${v.id_aula}</td><td>${v.nif_instrutor}</td><td>${v.nome}</td><td>${delButton(encodeURI(v.id_aula))}</td></tr>`
+        })
+        $("#result").append(linhas);
     } catch (error) {
         console.log(error);
     }
 }
 
-
 async function apagaAula(id) {
     try {
         let confirma = confirm('Deseja realmente apagar aula?');
         if (!confirma) return false;
-
-        myid = id;
         $.ajax({
             url: '/aulas/' + id,
             method: 'delete',
@@ -52,19 +43,18 @@ async function apagaAula(id) {
             contentType: 'application/json',
             success: function (dados) {
                 alert('Aula eliminada com sucesso');
-
-
             }, error: function () {
                 alert('Falha na eliminação da aula');
             }
         })
-        
-        str = "#" + myid;
+        str = "#" + id;
         $(str).closest("tr").remove();
-
     } catch (error) {
         console.log(error);
     }
 
 }
 
+function delButton(id) {
+    return `<input type='button' class='btnk' id='${id}' onclick='apagaAula(${id})' value='DEL' /> `
+}

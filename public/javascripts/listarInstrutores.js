@@ -26,18 +26,10 @@ async function loadInstrutores() {
 
 
 function showInstrutores(instrutores) {
-    try {
-        let result = document.getElementById('result');
-        html = '';
-        for (let i of instrutores) {
-            html += "<tr>  <td> " + i.nif + " </td><td> " + i.nome + " </td><td> " + i.contacto + " </td><td> " + i.email + " </td><td> " + i.modalidade + " </td> " +
-                "<td><input type='submit' value='DEL' id='" + encodeURI(i.nif) + "' class='btnk' onclick='delins(" + encodeURI(i.nif) + ")' ></td><td><a href='./editInstrutor.html?id=" + encodeURI(i.nif) + "'> UPDATE </td></tr>"
-        }
-        result.innerHTML = html;
-
-    } catch (error) {
-
-    }
+    let lista = $.map(instrutores, function (v, i) {
+        return `<tr><td>${v.nif}</td><td>${v.nome}</td><td>${v.contacto}</td><td>${v.email}</td><td>${v.modalidade}</td><td>${delButton(encodeURI(v.nif))}</td><td><a href='./editInstrutor.html?id=${encodeURI(v.nif)}'> UPDATE</a> </td><tr>`
+    })
+    $("#result").append(lista);
 }
 
 
@@ -56,11 +48,14 @@ async function delins(nif) {
             }, error: function () {
                 alert('erro ao eliminar instrutor');
             }
-
         });
         str = "#" + myID;
         $(str).closest("tr").remove();
     } catch (error) {
         console.log(error);
     }
+}
+
+function delButton(nif) {
+    return `<input type='button' class='btnk' value='DEL' id='${nif}' onclick='delins(${nif})' />`
 }
