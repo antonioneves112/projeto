@@ -76,3 +76,10 @@
 #txtvalor{
     width: 200px;
 }
+
+.formulario textarea{
+width: 500px;
+margin:20px;   
+font-family: oswald;
+font-size: 25px; 
+}

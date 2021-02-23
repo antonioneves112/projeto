@@ -8,9 +8,8 @@ $(function () {
 
 async function preencheaula() {
     try {
-
         await $.ajax({
-            url: '/aulas/horarios/',
+            url: '/aulas/horarios',
             method: 'get',
             dataType: 'json',
             contentType: 'application/json',

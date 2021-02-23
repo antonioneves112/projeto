@@ -32,6 +32,8 @@ module.exports.getselectsemana = async function () {
     }
 }
 
+
+
 module.exports.gethorariosFiltrados = async function (semana) {
     try {
         let sql = "select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores as i on i.nif=a.nif_instrutor inner join modalidades AS m on m.id_modalidade=i.id_modalidade where h.dia_semana=?;";

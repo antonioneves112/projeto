@@ -13,7 +13,7 @@ module.exports.getAulas = async function () {
 
 module.exports.getAulasHorarios = async function () {
     try {
-        let sql = "select a.*,m.modalidade from aulas AS a inner join modalidades AS m on a.nif_instrutor=m.nif_instrutor;";
+        let sql = "select a.id_aula, m.modalidade from aulas AS a inner join instrutores AS i on a.nif_instrutor = i.nif inner join modalidades AS m on m.id_modalidade = i.id_modalidade; ";
         let result = await pool.query(sql);
         return { status: 200, data: result }
     } catch (error) {

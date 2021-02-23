@@ -19,12 +19,9 @@
 
     <title>BOGAS TEAM FIGHT CENTER - CONTACTOS
     </title>
-
     <link rel="shortcut icon" href="./img/favicon2.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/form.css">
-
 </head>
 
 <body class="grid-container">
@@ -64,8 +61,6 @@
 
 
 
-        <p>Como podemos
-            ajudar: </p>
 
 
         <form action="https://api.staticforms.xyz/submit" method="POST" class="formulario">
@@ -74,19 +69,21 @@
                 <legend>
                     Contactos
                 </legend>
+
                 <input type="hidden" name="accessKey" value="ca6a0505-346b-41c4-8858-fb49e14612b1">
+
                 <label for="name">Nome</label>
-                <input type="text" name="name" size="100" maxlength="50"
-                    placeholder="Insira o seu nome">
+                <input type="text" id="inputNome" name="name" maxlength="50" placeholder="Insira o seu nome">
                 <br>
-                <label for="email">Email</label>
-                <input type="text" name="email" size="100" maxlength="100"
-                    placeholder="insira o seu email" />
+                <label for="inputEmail">Email</label>
+                <input type="email" id="inputEmail" name="email" maxlength="50" placeholder="insira o seu email" />
                 <br>
-                <textarea name="message" cols="100" rows="10"
-                    placeholder="diga nos o que pretende iremos entrar em contacto assim que possível"> </textarea>
-                <input type="hidden" id="txtnome" name="redirectTo" value="./contacto.html">
-                <button> ENVIAR</button>
+                <label for="textAreaMensagem"> Mensagem:</label>
+                <br>
+            
+                <textarea name="message" id="textAreaMensagem" required  rows="10" size="200" ></textarea>
+                <input type="hidden" id="txtnome">
+                <button type="submit" onclick="(redirecionar())""> ENVIAR</button>
             </fieldset>
         </form>
     </section>
@@ -113,7 +110,7 @@
     </section>
 
 
-    <script src="contactos.js"></script>
+    <script src="contacto.js"></script>
 </body>
 
 </html>

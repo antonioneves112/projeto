@@ -24,7 +24,7 @@ async function loadAulas() {
 function showAulas(dados) {
     try {
         linhas = $.map(dados, function (v, i) {
-            return `<tr><td>${v.id_aula}</td><td>${v.nif_instrutor}</td><td>${v.nome}</td><td>${delButton(encodeURI(v.id_aula))}</td></tr>`
+            return `<tr><td>${v.id_aula}</td><td>${v.nome}</td><td>${delButton(encodeURI(v.id_aula))}</td></tr>`
         })
         $("#result").append(linhas);
     } catch (error) {
