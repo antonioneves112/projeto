@@ -1,5 +1,4 @@
 $(function () {
-
     carregaSelect();
     loadHorarios();
     filtroSemana();
@@ -15,7 +14,6 @@ async function loadHorarios() {
             dataType: 'json',
             contentType: 'application/json',
             success: function (dados) {
-
                 showHorarios(dados);
             }, error: function () {
                 alert('falha');
@@ -31,7 +29,7 @@ function showHorarios(dados) {
     let linha = '';
     let result = $("#result");
     let linhas = $.map(dados, function (v, i) {
-        return `<tr><td >${v.id_horario}</td><td id='aula'>${v.id_aula}</td><td>${v.dia_semana}</td><td>${v.modalidade}</td><td>${v.inicio}</td><td>${v.fim}</td><td>${btd(encodeURI(v.id_horario))}</td><<</tr>`
+        return `<tr><td>${v.dia_semana}</td><td>${v.modalidade}</td><td>${v.inicio}</td><td>${v.fim}</td><td>${btd(encodeURI(v.id_horario))}</td><<</tr>`
     })
     result.append(linhas);
 
@@ -99,7 +97,6 @@ async function filtroSemana(semana) {
             let semana = $(evt.target).val();
             let rota = (semana == -1) ? '/horarios/' : '/horarios/filtro/' + semana;
             semana = JSON.stringify(semana);
-            alert(semana);
             $("#result").html('');
             // $('#selectfiltroinstrutor option').eq(0).prop('selected', true);
             await $.ajax({
