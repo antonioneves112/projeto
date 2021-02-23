@@ -1,18 +1,19 @@
 
 $(function () {
-
-    getTurma();
+    $("#alunos").hide();
+    $("#horarios").hide();
+    $("#esconde").hide();
+    getTurma(nif);
     showTurma();
 });
 
 async function getTurma(nif) {
     try {
+
+        $("#resulth").text(" ");
         $("#alunos").show();
         $("#horarios").show();
         $("#esconde").show();
-
-        $("#resulth").text(" ");
-
         let socios = await $.ajax({
             url: '/socios/home/' + nif,
             method: 'get',
@@ -34,6 +35,7 @@ async function getTurma(nif) {
                     return `<tr><td>${v.id_aula}</td><td>${v.dia_semana}</td> <td>${v.inicio}</td><td>${v.fim}</td><td>${v.modalidade}</td></tr>`
                 })
                 $("#resulth").append(aux);
+
             }, error: function () {
                 alert('falha');
             }
