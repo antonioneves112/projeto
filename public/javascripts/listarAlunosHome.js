@@ -1,7 +1,8 @@
 
 $(function () {
-    loadHorario();
+
     getTurma();
+    showTurma();
 });
 
 async function getTurma(nif) {
@@ -23,7 +24,7 @@ async function getTurma(nif) {
             }
         });
 
-        $.ajax({
+        await $.ajax({
             url: '/horarios/home/' + nif,
             method: 'get',
             datatype: 'json',

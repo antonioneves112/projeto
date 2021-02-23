@@ -2,7 +2,7 @@ const pool = require('./connectBd');
 
 module.exports.getHorarios = async function () {
     try {
-        let sql = "select h.*, m.modalidade from horarios AS h inner join aulas AS a on h.id_aula = a.id_aula inner join instrutores AS i on i.nif = a.nif_instrutor inner join modalidades AS m on m.nif_instrutor = i.nif order by h.dia_semana;";
+        let sql = "select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores as i on i.nif=a.nif_instrutor inner join modalidades AS m on m.id_modalidade=i.id_modalidade  order by h.dia_semana,h.inicio;";
         let result = await pool.query(sql);
         return { status: 200, data: result }
     } catch (error) {
@@ -12,7 +12,7 @@ module.exports.getHorarios = async function () {
 }
 module.exports.getHorariosHome = async function (nif) {
     try {
-        let sql = "select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores AS i on i.nif=a.nif_instrutor inner join modalidades AS m on m.nif_instrutor=i.nif WHERE i.nif=?;";
+        let sql = "select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores as i on i.nif=a.nif_instrutor inner join modalidades AS m on m.id_modalidade=i.id_modalidade WHERE i.nif=? order by h.dia_semana,h.inicio;";
         let result = await pool.query(sql, [nif]);
         return { status: 200, data: result }
     } catch (error) {
@@ -20,6 +20,31 @@ module.exports.getHorariosHome = async function (nif) {
         return { status: 500, data: result }
     }
 }
+
+module.exports.getselectsemana = async function () {
+    try {
+        let sql = "select distinct (dia_semana) from horarios order by dia_semana;";
+        let result = await pool.query(sql);
+        return { status: 200, data: result }
+    } catch (error) {
+        console.log(error);
+        return { status: 500, data: result }
+    }
+}
+
+module.exports.gethorariosFiltrados = async function (semana) {
+    try {
+        let sql = "select h.*,m.modalidade from horarios AS h inner join aulas AS a on a.id_aula=h.id_aula inner join instrutores as i on i.nif=a.nif_instrutor inner join modalidades AS m on m.id_modalidade=i.id_modalidade where h.dia_semana=?;";
+        let result = await pool.query(sql, [semana]);
+
+        return { status: 200, data: result }
+    } catch (error) {
+        console.log(error);
+        return { status: 500, data: result }
+    }
+}
+
+
 
 module.exports.apagaHorarios = async function (id) {
     try {

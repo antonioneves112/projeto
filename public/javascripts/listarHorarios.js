@@ -1,5 +1,8 @@
 $(function () {
+
+    carregaSelect();
     loadHorarios();
+    filtroSemana();
 
 })
 
@@ -67,3 +70,51 @@ async function deletarHorario(id_horario) {
 
 }
 
+
+async function carregaSelect() {
+    try {
+        await $.ajax({
+            url: '/horarios/select/',
+            method: 'get',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (dados) {
+                let select = $.map(dados, function (v, i) {
+                    return `<option value='${v.dia_semana}'> ${v.dia_semana} </option>`
+                })
+                $("#selectsemana").append(select);
+            }, error: function () {
+                alert('error');
+            }
+        })
+    } catch (error) {
+
+    }
+}
+
+async function filtroSemana(semana) {
+    try {
+        $('#selectsemana').change(async function (evt) {
+            evt = evt ? evt : window.event;
+            let semana = $(evt.target).val();
+            let rota = (semana == -1) ? '/horarios/' : '/horarios/filtro/' + semana;
+            semana = JSON.stringify(semana);
+            alert(semana);
+            $("#result").html('');
+            // $('#selectfiltroinstrutor option').eq(0).prop('selected', true);
+            await $.ajax({
+                url: rota,
+                method: 'get',
+                dataType: 'json',
+                success: function (dados) {
+                    showHorarios(dados);
+                }, error: function () {
+                    alert('erro na execução do filtro');
+                }
+            })
+        });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
