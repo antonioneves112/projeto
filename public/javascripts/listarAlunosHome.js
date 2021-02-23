@@ -1,8 +1,6 @@
 
 $(function () {
-    $("#alunos").hide();
-    $("#horarios").hide();
-    $("#esconde").hide();
+  
     getTurma(nif);
     showTurma();
 });
