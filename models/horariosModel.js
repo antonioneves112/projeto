@@ -6,7 +6,7 @@ module.exports.getHorarios = async function () {
         let result = await pool.query(sql);
         return { status: 200, data: result }
     } catch (error) {
-        console.log(err);
+        console.log(error);
         return { status: 500, data: result }
     }
 }
@@ -16,7 +16,7 @@ module.exports.getHorariosHome = async function (nif) {
         let result = await pool.query(sql, [nif]);
         return { status: 200, data: result }
     } catch (error) {
-        console.log(err);
+        console.log(error);
         return { status: 500, data: result }
     }
 }

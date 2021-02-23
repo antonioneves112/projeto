@@ -59,7 +59,6 @@ async function saveMensalidade(id) {
         let ctrl = "#" + id;
         let linha = $(ctrl).closest("tr");
         console.log(linha);
-
         let pago2 = (new Date(Date.parse(linha.find("td:eq(4)").find('input').val()))) ? 1 : 0;
         let mensalidade = {
             id_mensalidade: id,
@@ -76,18 +75,19 @@ async function saveMensalidade(id) {
             dataType: 'json',
             contentType: "application/json",
             success: function (dados) {
+                alert('mensalidade editada com sucesso')
                 linha.find("td:eq(5)").text(dados.valor);
                 linha.find("td:eq(4)").text(dados.data_pagamento);
                 linha.find("td:eq(6)").text(dados.pago);
-
-                corPago();
-                alert('mensalidade editada com sucesso')
-
+                linha.find("td:eq(7)").html(delButton(dados.id_mensalidade));
+                linha.find("td:eq(8)").html(editButton(dados.id_mensalidade));
             }, error: function () {
                 alert('error');
             }
+
         })
 
+        corPago();
 
     } catch (error) {
         console.log(error)
@@ -272,12 +272,6 @@ async function filtrarPorMes() {
         console.log(error);
     }
 }
-
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------  BOTÕES ------------------------------------------------------------------------------------------
 function editButton(id_mensalidade) {
