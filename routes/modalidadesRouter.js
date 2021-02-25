@@ -8,14 +8,12 @@ var modalidadeModel = require('../models/modalidadesModel');
 router.get('/', async function (req, res, next) {
     let result = await modalidadeModel.getAllModalidades();
     res.status(result.status).send(result.data);
-    console.log('rota')
 })
 
 //OBTER TODAS AS MODALIDADES COM INSTRUTOR
 router.get('/ins/', async function (req, res, next) {
     let result = await modalidadeModel.getAllModalidadesComInstrutor();
     res.status(result.status).send(result.data);
-    console.log('rota')
 })
 
 //OBTER UMA MODALIDADE

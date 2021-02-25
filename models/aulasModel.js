@@ -22,10 +22,10 @@ module.exports.getAulasHorarios = async function () {
     }
 }
 
-module.exports.apagaAula = async function (nif) {
+module.exports.addAula = async function (aulas) {
     try {
-        let sql = "DELETE from aulas where id_aula = ?";
-        let result = await pool.query(sql, [nif]);
+        let sql = "INSERT INTO aulas (nif_instrutor) VALUES (?)";
+        let result = await pool.query(sql, [aulas.nif_instrutor]);
         return { status: 200, data: result }
     } catch (error) {
         console.log(error);
@@ -33,10 +33,10 @@ module.exports.apagaAula = async function (nif) {
     }
 }
 
-module.exports.addAula = async function (aulas) {
+module.exports.apagaAula = async function (nif) {
     try {
-        let sql = "INSERT INTO aulas (nif_instrutor) VALUES (?)";
-        let result = await pool.query(sql, [aulas.nif_instrutor]);
+        let sql = "DELETE from aulas where id_aula = ?";
+        let result = await pool.query(sql, [nif]);
         return { status: 200, data: result }
     } catch (error) {
         console.log(error);

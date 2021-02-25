@@ -21,14 +21,12 @@ module.exports.getTodosInstrutoresHome = async function (nif) {
     }
 }
 
-
-module.exports.eliminaInstrutor = async function (nif) {
+module.exports.getInstrutor = async function (nif) {
     try {
-        let sql = "DELETE FROM instrutores where nif=?;";
+        let sql = "SELECT * from instrutores where nif= ?;";
         let result = await pool.query(sql, [nif]);
         return { status: 200, data: result }
     } catch (error) {
-        console.log(error);
         return { status: 500, data: error }
     }
 }
@@ -44,31 +42,6 @@ module.exports.addInstrutor = async function (instrutor) {
     }
 }
 
-module.exports.deleteInstrutor = async function (nif) {
-    try {
-        let sql = "DELETE FROM instrutores WHERE nif=?;";
-        let result = await pool.query(sql, [nif]);
-        return { status: 200, data: result };
-
-    } catch (error) {
-        console.log(error);
-        return {
-            status: 500, data: error
-        };
-    }
-}
-
-module.exports.getInstrutor = async function (nif) {
-    try {
-        let sql = "SELECT * from instrutores where nif= ?;";
-        let result = await pool.query(sql, [nif]);
-        return { status: 200, data: result }
-    } catch (error) {
-        return { status: 500, data: error }
-    }
-}
-
-
 module.exports.updateInstrutor = async function (instrutor) {
     try {
         let sql = "UPDATE instrutores SET nome=?,contacto=?,email=?,id_modalidade=? WHERE nif=?;";
@@ -80,3 +53,17 @@ module.exports.updateInstrutor = async function (instrutor) {
         return { status: 500, data: error };
     }
 }
+
+module.exports.deleteInstrutor = async function (nif) {
+    try {
+        let sql = "DELETE FROM instrutores WHERE nif=?;";
+        let result = await pool.query(sql, [nif]);
+        return { status: 200, data: result };
+
+    } catch (error) {
+        console.log(error);
+        return { status: 500, data: error };
+    }
+}
+
+

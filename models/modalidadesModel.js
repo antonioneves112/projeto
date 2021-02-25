@@ -11,7 +11,6 @@ module.exports.getAllModalidades = async function () {
     }
 }
 
-
 module.exports.getAllModalidadesComInstrutor = async function () {
     try {
         let sql = " SELECT m.*,i.nome from modalidades AS m inner join instrutores AS i on m.id_modalidade = i.id_modalidade; ";
@@ -22,8 +21,6 @@ module.exports.getAllModalidadesComInstrutor = async function () {
         return { status: 500, data: error }
     }
 }
-
-
 
 module.exports.addModalidade = async function (modalidade) {
     try {
@@ -36,8 +33,6 @@ module.exports.addModalidade = async function (modalidade) {
     }
 }
 
-
-
 module.exports.deleteModalidade = async function (nif) {
     try {
         let sql = "DELETE FROM modalidades WHERE id_modalidade = ?;";
@@ -48,17 +43,3 @@ module.exports.deleteModalidade = async function (nif) {
         return { status: 500, data: error }
     }
 }
-/*
-
-module.exports.getModalidade = async function (id_modalidade) {
-    try {
-        let sql = "SELECT * FROM modalidades WHERE id_modalidade=?";
-        let result = await pool.query(sql, [id_modalidade]);
-        return { status: 200, data: result }
-    } catch (error) {
-        console.log(error);
-        return { status: 500, data: error }
-    }
-}
-
-*/
