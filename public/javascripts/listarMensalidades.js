@@ -21,9 +21,8 @@ async function loadMensalidades() {
             url: '/mensalidades',
             method: 'get',
             dataType: 'json',
-            contentType: 'application/type',
+            contentType: 'application/json',
             success: function (dados) {
-                console.log(dados);
                 showMensalidades(dados);
             }, error: function () {
                 alert('erro no carregamento dos sócios');
@@ -43,7 +42,7 @@ function showMensalidades(mensalidades) {
         result.html("");
         let linha = "";
         for (let i of mensalidades) {
-            linha = "<tr><td>" + i.id_mensalidade + "</td><td> " + i.nif_socio + "</td><td>" + i.nome_socio + "</td><td>" + i.data_vencimento + "</td><td>" + i.data_pagamento + "</td><td>" + i.valor + "</td><td>" + i.pago + "</td> <td>" + delButton(encodeURI(i.id_mensalidade)) + " </td><td> " + editButton(encodeURI(i.id_mensalidade)) + "</td> </tr>";
+            linha = "<tr><td>" + i.id_mensalidade + "</td><td> " + i.nif_socio + "</td><td>" + i.nome_socio + "</td><td>" + i.data_vencimento + "</td><td id='dataPagamento'>" + i.data_pagamento + "</td><td>" + i.valor + "</td><td>" + i.pago + "</td> <td>" + delButton(encodeURI(i.id_mensalidade)) + " </td><td> " + editButton(encodeURI(i.id_mensalidade)) + "</td> </tr>";
             result.append(linha);
         }
         corPago();
@@ -58,7 +57,6 @@ async function saveMensalidade(id) {
     try {
         let ctrl = "#" + id;
         let linha = $(ctrl).closest("tr");
-        console.log(linha);
         let pago2 = (new Date(Date.parse(linha.find("td:eq(4)").find('input').val()))) ? 1 : 0;
         let mensalidade = {
             id_mensalidade: id,
@@ -76,8 +74,8 @@ async function saveMensalidade(id) {
             contentType: "application/json",
             success: function (dados) {
                 alert('mensalidade editada com sucesso')
-                linha.find("td:eq(5)").text(dados.valor);
                 linha.find("td:eq(4)").text(dados.data_pagamento);
+                linha.find("td:eq(5)").text(dados.valor);
                 linha.find("td:eq(6)").text(dados.pago);
                 linha.find("td:eq(7)").html(delButton(dados.id_mensalidade));
                 linha.find("td:eq(8)").html(editButton(dados.id_mensalidade));
@@ -137,6 +135,13 @@ function carregaEditButton() {
 
     }
 }
+
+function cancelMensalidade() {
+    $("[name='btCancel']").click(function (evt) {
+        window.location.reload();
+    });
+}
+
 
 async function gerarMensalidades() {
     try {
@@ -286,11 +291,6 @@ function cancelButton(id_mensalidade) {
     return "<input type='submit' class='btnk' id='" + id_mensalidade + "' name='btCancel' value='CANCEL' />"
 }
 
-function cancelMensalidade() {
-    $("[name='btCancel']").click(function (evt) {
-        window.location.reload();
-    });
-}
 
 
 function delButton(id_mensalidade) {
