@@ -76,6 +76,11 @@ body {
 
 }
 
+.disabled {
+    pointer-events:none;
+    opacity:0.6;
+}
+
 .menu li:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transition: 1.0s;

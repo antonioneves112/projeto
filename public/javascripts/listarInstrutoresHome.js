@@ -9,7 +9,7 @@ $(function () {
 async function recolherDadosInstrutor() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('nif');
+        const myParam = urlParams.get('id');
         let instrutor = await $.ajax({
             url: 'instrutores/instrutoreshome/' + myParam,
             method: 'get',

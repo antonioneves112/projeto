@@ -3,6 +3,15 @@ const moment = require('moment');
 var router = express.Router();
 var mensalidadesModel = require('../models/mensalidadesModel');
 
+
+
+//ROTA PARA LISTAR AS MENSALIDADES
+router.get('/', async function (req, res, next) {
+    let result = await mensalidadesModel.listarMensalidades();
+    res.status(result.status).send(result.data);
+
+})
+
 //ROTA PARA LISTAR AS MENSALIDADES
 router.get('/', async function (req, res, next) {
     let result = await mensalidadesModel.listarMensalidades();
@@ -67,5 +76,9 @@ router.post('/', async function (req, res, next) {
     
 });
 
+
+
+
 module.exports = router;
+
 
